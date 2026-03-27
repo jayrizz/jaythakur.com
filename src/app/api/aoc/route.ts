@@ -8,8 +8,8 @@ export async function GET(request: Request) {
   const { searchParams } = new URL(request.url)
   const path = searchParams.get('path') || ''
   
-  // Local Tailscale URL for AOC (if serving)
-  const AOC_LOCAL = 'http://localhost:18800'
+  // Tailscale URL for AOC (accessible remotely)
+  const AOC_LOCAL = 'https://uncles-mac-mini-1.taila93175.ts.net'
   
   try {
     // Try to fetch from local AOC

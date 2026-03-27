@@ -21,13 +21,7 @@ export default function RootLayout({
       <body style={{ margin: 0, fontFamily: 'Inter, -apple-system, BlinkMacSystemFont, sans-serif', background: '#0f0f23', color: '#e7e9ea' }}>
         {/* Consistent Navigation Bar */}
         <nav className="navbar">
-          {/* Logo / Home */}
-          <a href="/" className="nav-logo">
-            <span className="nav-logo-icon">J</span>
-            <span className="nav-logo-text">Jay Thakur</span>
-          </a>
-
-          {/* Main Nav Links */}
+          {/* Main Nav Links - Left aligned */}
           <div className="nav-links">
             <a href="/" className="nav-link">Home</a>
             <a href="/memory" className="nav-link">Memory</a>
@@ -49,7 +43,7 @@ export default function RootLayout({
             </div>
           </div>
 
-          {/* Right side - status */}
+          {/* Right side - optional status */}
           <div className="nav-status">
             <span className="status-indicator"></span>
             Online
@@ -97,11 +91,11 @@ export default function RootLayout({
           }
           .nav-links {
             display: flex;
-            gap: 4px;
+            gap: 24px;
             align-items: center;
           }
           .nav-link {
-            padding: 8px 16px;
+            padding: 8px 12px;
             border-radius: 6px;
             color: #9ca3af;
             text-decoration: none;
@@ -120,7 +114,7 @@ export default function RootLayout({
             background: transparent;
             border: none;
             color: #9ca3af;
-            padding: 8px 16px;
+            padding: 8px 12px;
             border-radius: 6px;
             cursor: pointer;
             font-size: 14px;

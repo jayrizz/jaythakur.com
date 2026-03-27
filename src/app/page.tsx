@@ -57,6 +57,7 @@ export default function Home() {
             <a href="/" className="logo">jay<span>thakur</span>.com</a>
             <ul className="nav-links">
               <li><a href="#timeline">Timeline</a></li>
+              <li><a href="/memory">Memory</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>

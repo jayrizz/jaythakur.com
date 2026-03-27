@@ -17,7 +17,7 @@ export default function RootLayout({
         <nav style={{ padding: '12px 24px', background: '#0f0f23', display: 'flex', gap: '24px', borderBottom: '1px solid #333' }}>
           <a href="/" style={{ color: '#fff', textDecoration: 'none' }}>Home</a>
           <a href="/memory" style={{ color: '#fff', textDecoration: 'none' }}>Memory</a>
-          <a href="/mission-control" style={{ color: '#fff', textDecoration: 'none' }}>Mission Control</a>
+          <a href="/mission-control.html" style={{ color: '#fff', textDecoration: 'none' }}>Mission Control</a>
           <div style={{ position: 'relative' }} className="apps-dropdown">
             <span style={{ color: '#fff', cursor: 'pointer' }}>Apps ▾</span>
             <div className="dropdown-menu" style={{ 

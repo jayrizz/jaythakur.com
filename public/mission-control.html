@@ -90,6 +90,7 @@
         
         <div class="nav">
             <button class="nav-btn active" onclick="showPage('dashboard')">Dashboard</button>
+            <button class="nav-btn" onclick="showPage('projects')">Projects</button>
             <button class="nav-btn" onclick="showPage('skills')">Skills</button>
             <button class="nav-btn" onclick="showPage('tasks')">Tasks</button>
         </div>
@@ -169,6 +170,17 @@
             <div class="card">
                 <h2>Agent Operations Center Dashboard</h2>
                 <iframe class="aoc-frame" src="http://127.0.0.1:18800" title="AOC Dashboard"></iframe>
+            </div>
+        </div>
+        
+        <!-- Projects Page -->
+        <div id="page-projects" class="page">
+            <div class="card">
+                <h2>Project Portfolio</h2>
+                <p style="color: #666; margin-bottom: 20px;">All conceived projects with current phase and documents.</p>
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Populated by JS -->
+                </div>
             </div>
         </div>
         
@@ -262,6 +274,7 @@
     <script>
         // Skills Data
         const skills = [
+            {
             {
                 id: 'linkedin-optimizer',
                 name: 'LinkedIn Optimizer',
@@ -385,6 +398,118 @@
 
         let currentSkill = null;
 
+        // Projects Data - Standardized Structure
+        const projects = [
+            {
+                id: 'ai-slides-generator',
+                name: 'AI Slides Generator',
+                phase: 'In Progress', // concept, research, development, testing, deployed
+                description: 'Generate presentation slides using AI - tested 3 methods',
+                docs: [
+                    { name: 'SPEC.md', path: '/Users/admin/.openclaw/workspace/ai-slides-generator/SPEC.md' },
+                    { name: 'Brahms_AI_Strategy.pptx', path: '/Users/admin/.openclaw/workspace/ai-slides-generator/Brahms_AI_Strategy.pptx' },
+                    { name: 'generate-brahms.py', path: '/Users/admin/.openclaw/workspace/ai-slides-generator/generate-brahms.py' }
+                ]
+            },
+            {
+                id: 'ai-tax-connector',
+                name: 'AI Tax Connector',
+                phase: 'Concept',
+                description: 'Connect tax documents and automate preparation',
+                docs: [
+                    { name: 'SPEC.md', path: '/Users/admin/.openclaw/workspace/ai-tax-connector/SPEC.md' }
+                ]
+            },
+            {
+                id: 'sba-loan-alerts',
+                name: 'SBA Loan Alerts',
+                phase: 'Concept',
+                description: 'Monitor SBA loan opportunities and alerts',
+                docs: [
+                    { name: 'SPEC.md', path: '/Users/admin/.openclaw/workspace/sba-loan-alerts/SPEC.md' }
+                ]
+            },
+            {
+                id: 'claude-code-builder',
+                name: 'Claude Code Builder',
+                phase: 'Concept',
+                description: 'Build applications with Claude Code agent',
+                docs: [
+                    { name: 'SPEC.md', path: '/Users/admin/.openclaw/workspace/claude-code-builder/SPEC.md' }
+                ]
+            },
+            {
+                id: 'jarvis-initialization',
+                name: 'Jarvis Initialization',
+                phase: 'In Progress',
+                description: 'Initialize AI with comprehensive knowledge about Jay',
+                docs: [
+                    { name: 'SPEC.md', path: '/Users/admin/.openclaw/workspace/jarvis-initialization/SPEC.md' }
+                ]
+            },
+            {
+                id: 'notch-prompt',
+                name: 'Notch Prompt',
+                phase: 'Research',
+                description: 'AI prompting framework from Notch',
+                docs: [
+                    { name: 'SPEC.md', path: '/Users/admin/.openclaw/workspace/notch-prompt/SPEC.md' },
+                    { name: 'README.md', path: '/Users/admin/.openclaw/workspace/notch-prompt/README.md' }
+                ]
+            },
+            {
+                id: 'quant-trading',
+                name: 'Quant Trading System',
+                phase: 'In Progress',
+                description: 'Python-based quantitative trading system',
+                docs: [
+                    { name: 'In development at localhost:5173', path: 'http://localhost:5173' }
+                ]
+            },
+            {
+                id: 'conway-sigil',
+                name: 'Conway / Sigil',
+                phase: 'Setup',
+                description: 'Cloud compute service integration',
+                docs: [
+                    { name: 'Config exists at ~/.conway/config.json', path: '' }
+                ]
+            }
+        ];
+
+        const phaseColors = {
+            'Concept': '#fbbf24',
+            'Research': '#60a5fa',
+            'Development': '#a78bfa',
+            'Testing': '#f472b6',
+            'Deployed': '#4ade80',
+            'In Progress': '#fbbf24',
+            'Setup': '#fbbf24'
+        };
+
+        // Render projects
+        function renderProjects() {
+            const grid = document.getElementById('projects-grid');
+            grid.innerHTML = projects.map(p => `
+                <div class="project-card" onclick="openProject('${p.id}')" style="background: #1a1a2e; border-radius: 12px; padding: 16px; cursor: pointer; border: 1px solid #252540; transition: all 0.2s;">
+                    <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: 10px;">
+                        <h3 style="color: #fff; font-size: 16px;">${p.name}</h3>
+                        <span style="font-size: 11px; padding: 4px 10px; border-radius: 12px; background: ${phaseColors[p.phase] || '#666'}20; color: ${phaseColors[p.phase] || '#666'};">${p.phase}</span>
+                    </div>
+                    <p style="color: #888; font-size: 13px; line-height: 1.4;">${p.description}</p>
+                    <div style="margin-top: 12px; display: flex; gap: 8px; flex-wrap: wrap;">
+                        ${p.docs.map(d => `<span style="font-size: 11px; padding: 3px 8px; background: #252540; border-radius: 4px; color: #666;">${d.name}</span>`).join('')}
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function openProject(projectId) {
+            const project = projects.find(p => p.id === projectId);
+            if (!project) return;
+            alert('Project: ' + project.name + '\nPhase: ' + project.phase + '\n\nDocs:\n' + project.docs.map(d => '- ' + d.name).join('\n'));
+        }
+
         // Render skills grid
         function renderSkills() {
             const grid = document.getElementById('skills-grid');
@@ -469,6 +594,7 @@
 
         document.getElementById('timestamp').textContent = new Date().toLocaleString();
         renderSkills();
+        renderProjects();
     </script>
 </body>
 </html>

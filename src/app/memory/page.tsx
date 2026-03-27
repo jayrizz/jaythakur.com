@@ -5,8 +5,17 @@ import { useEffect, useState } from 'react'
 interface Memory {
   date: string
   content: string
-  excerpt: string
 }
+
+const memoryFiles = [
+  '2026-03-20.md',
+  '2026-03-21.md',
+  '2026-03-22.md',
+  '2026-03-23.md',
+  '2026-03-24.md',
+  '2026-03-25.md',
+  '2026-03-26.md',
+]
 
 export default function MemoryPage() {
   const [memories, setMemories] = useState<Memory[]>([])
@@ -14,13 +23,23 @@ export default function MemoryPage() {
   const [search, setSearch] = useState('')
 
   useEffect(() => {
-    fetch('/api/memory')
-      .then(res => res.json())
-      .then(data => {
-        setMemories(data.memories || [])
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
+    Promise.all(
+      memoryFiles.map(f => 
+        fetch(`/memory/${f}`)
+          .then(res => res.ok ? res.text() : '')
+          .catch(() => '')
+      )
+    ).then(contents => {
+      const loaded = contents
+        .map((content, i) => ({
+          date: memoryFiles[i].replace('.md', ''),
+          content
+        }))
+        .filter(m => m.content)
+        .sort((a, b) => b.date.localeCompare(a.date))
+      setMemories(loaded)
+      setLoading(false)
+    })
   }, [])
 
   const filtered = memories.filter(m => 
@@ -31,6 +50,10 @@ export default function MemoryPage() {
 
   return (
     <main style={{ maxWidth: '800px', margin: '0 auto', padding: '2rem' }}>
+      <div style={{ marginBottom: '1rem' }}>
+        <a href="/" style={{ color: '#666', textDecoration: 'none' }}>← Back to Home</a>
+      </div>
+      
       <h1 style={{ fontSize: '2.5rem', marginBottom: '1rem' }}>Memory Logs</h1>
       
       <input 

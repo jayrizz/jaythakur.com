@@ -118,11 +118,7 @@ export default function ProjectPage({ params }: ProjectPageProps) {
       <PageHeader
         title={project.name}
         description={project.description}
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Projects', href: '/projects' },
-          { label: project.name }
-        ]}
+
       />
 
       {/* Project Header */}

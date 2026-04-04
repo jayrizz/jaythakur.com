@@ -98,10 +98,7 @@ export default function ProjectsPage() {
       <PageHeader
         title="Projects"
         description="A collection of AI-powered tools, web applications, and experiments. Building the future with intelligent systems."
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Projects' }
-        ]}
+
       />
 
       {/* Project Stats */}

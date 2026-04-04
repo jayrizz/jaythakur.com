@@ -27,7 +27,7 @@ export default function Navigation() {
             }}
           >
             <Link href="/apps">All Apps</Link>
-            <Link href="/api/aoc">AOC Dashboard</Link>
+            <Link href="/aoc-dashboard">AOC Dashboard</Link>
             <Link href="/api/quant">Quant Dashboard</Link>
             <Link href="/api/openclaw" target="_blank">OpenClaw</Link>
           </div>

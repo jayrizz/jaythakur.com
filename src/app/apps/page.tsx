@@ -15,7 +15,7 @@ export default function AppsPage() {
       icon: '🎄',
       status: 'unknown',
       type: 'local',
-      url: '/api/aoc',
+      url: '/aoc-dashboard',
       port: 18800,
       category: 'dashboard'
     },
@@ -136,10 +136,7 @@ export default function AppsPage() {
       <PageHeader
         title="Apps"
         description="Collection of tools, dashboards, and applications. Local services and deployed apps all in one place."
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Apps' }
-        ]}
+
       />
 
       {/* App Stats */}

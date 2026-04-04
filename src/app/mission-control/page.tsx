@@ -7,6 +7,7 @@ import { ServiceStatus } from '@/types'
 import { formatRelativeTime } from '@/lib/utils'
 
 export default function MissionControlPage() {
+  const [activeTab, setActiveTab] = useState<string>('overview')
   const [services, setServices] = useState<ServiceStatus[]>([
     { name: 'AOC Dashboard', status: 'unknown', url: 'http://localhost:18800', port: 18800, lastChecked: new Date().toISOString() },
     { name: 'Quant Dashboard', status: 'unknown', url: 'http://localhost:5173', port: 5173, lastChecked: new Date().toISOString() },
@@ -15,6 +16,13 @@ export default function MissionControlPage() {
   ])
 
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date())
+
+  const tabs = [
+    { id: 'overview', label: '📊 Overview', icon: '📊' },
+    { id: 'services', label: '🔧 Services', icon: '🔧' },
+    { id: 'logs', label: '📄 Logs', icon: '📄' },
+    { id: 'settings', label: '⚙️ Settings', icon: '⚙️' }
+  ]
 
   const checkServiceHealth = async (url: string): Promise<{ status: 'online' | 'offline'; responseTime?: number }> => {
     try {
@@ -93,13 +101,39 @@ export default function MissionControlPage() {
       <PageHeader
         title="Mission Control"
         description="System monitoring, service health, and operational dashboard for all applications and tools."
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Mission Control' }
-        ]}
       />
 
-      {/* System Overview */}
+      {/* Tabs */}
+      <div style={{ 
+        display: 'flex', 
+        borderBottom: '1px solid #333', 
+        marginBottom: '32px',
+        gap: '4px'
+      }}>
+        {tabs.map((tab) => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            style={{
+              background: activeTab === tab.id ? '#4a9eff' : 'transparent',
+              color: activeTab === tab.id ? 'white' : '#aaa',
+              border: 'none',
+              padding: '12px 20px',
+              cursor: 'pointer',
+              borderRadius: '8px 8px 0 0',
+              transition: 'all 0.2s ease',
+              fontSize: '0.95rem',
+              fontWeight: activeTab === tab.id ? '600' : '400',
+            }}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
+
+      {activeTab === 'overview' && (
+        <>
+          {/* System Overview */}
       <div className="grid grid-4" style={{ marginBottom: '32px' }}>
         {systemStats.map((stat, index) => (
           <Card key={index}>
@@ -271,6 +305,181 @@ export default function MissionControlPage() {
           </CardContent>
         </Card>
       </div>
+        </>
+      )}
+
+      {activeTab === 'services' && (
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px' }}>Service Management</h2>
+          
+          <div className="grid grid-2">
+            {services.map((service, index) => (
+              <Card key={index}>
+                <CardHeader
+                  title={service.name}
+                  subtitle={service.url}
+                  status={service.status}
+                />
+                <CardContent>
+                  <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ color: '#aaa' }}>Port:</span>
+                      <span style={{ color: '#fff' }}>{service.port || 'N/A'}</span>
+                    </div>
+                    <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <span style={{ color: '#aaa' }}>Status:</span>
+                      <span style={{ 
+                        color: service.status === 'online' ? '#22c55e' : '#ef4444' 
+                      }}>
+                        {service.status}
+                      </span>
+                    </div>
+                  </div>
+                </CardContent>
+                <CardActions>
+                  <button className="btn btn-secondary">🔄 Restart</button>
+                  <button className="btn btn-secondary">📊 Logs</button>
+                  {service.url && (
+                    <a href={service.url} target="_blank" className="btn">🚀 Open</a>
+                  )}
+                </CardActions>
+              </Card>
+            ))}
+          </div>
+        </div>
+      )}
+
+      {activeTab === 'logs' && (
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px' }}>System Logs</h2>
+          
+          <Card>
+            <CardHeader title="Recent Activity" />
+            <CardContent>
+              <div style={{ 
+                background: '#0f0f23', 
+                padding: '16px', 
+                borderRadius: '8px', 
+                fontFamily: 'monospace',
+                fontSize: '0.9rem',
+                maxHeight: '400px',
+                overflowY: 'auto'
+              }}>
+                <div style={{ color: '#22c55e', marginBottom: '8px' }}>
+                  [2024-04-03 22:40:15] ✓ Mission Control initialized
+                </div>
+                <div style={{ color: '#4a9eff', marginBottom: '8px' }}>
+                  [2024-04-03 22:40:14] → Checking service health...
+                </div>
+                <div style={{ color: '#22c55e', marginBottom: '8px' }}>
+                  [2024-04-03 22:40:13] ✓ Next.js Dev Server: Online (12ms)
+                </div>
+                <div style={{ color: '#22c55e', marginBottom: '8px' }}>
+                  [2024-04-03 22:40:13] ✓ AOC Dashboard: Online (19ms)
+                </div>
+                <div style={{ color: '#ef4444', marginBottom: '8px' }}>
+                  [2024-04-03 22:40:13] ✗ OpenClaw Gateway: Offline (timeout)
+                </div>
+                <div style={{ color: '#ef4444', marginBottom: '8px' }}>
+                  [2024-04-03 22:40:13] ✗ Quant Dashboard: Offline (connection refused)
+                </div>
+                <div style={{ color: '#4a9eff', marginBottom: '8px' }}>
+                  [2024-04-03 22:40:10] → Starting health check cycle
+                </div>
+                <div style={{ color: '#fbbf24', marginBottom: '8px' }}>
+                  [2024-04-03 22:39:45] ⚠ Configuration updated: refresh interval set to 30s
+                </div>
+              </div>
+            </CardContent>
+            <CardActions>
+              <button className="btn btn-secondary">🔄 Refresh</button>
+              <button className="btn btn-secondary">📥 Download Logs</button>
+              <button className="btn btn-secondary">🗑️ Clear Logs</button>
+            </CardActions>
+          </Card>
+        </div>
+      )}
+
+      {activeTab === 'settings' && (
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px' }}>System Settings</h2>
+          
+          <div className="grid grid-2">
+            <Card>
+              <CardHeader title="Monitoring" />
+              <CardContent>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+                  <div>
+                    <label style={{ display: 'block', color: '#aaa', marginBottom: '8px' }}>
+                      Refresh Interval (seconds)
+                    </label>
+                    <input 
+                      type="number" 
+                      defaultValue="30"
+                      style={{
+                        background: '#1a1a2e',
+                        border: '1px solid #333',
+                        color: '#fff',
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        width: '100%'
+                      }}
+                    />
+                  </div>
+                  <div>
+                    <label style={{ display: 'block', color: '#aaa', marginBottom: '8px' }}>
+                      Health Check Timeout (ms)
+                    </label>
+                    <input 
+                      type="number" 
+                      defaultValue="5000"
+                      style={{
+                        background: '#1a1a2e',
+                        border: '1px solid #333',
+                        color: '#fff',
+                        padding: '8px 12px',
+                        borderRadius: '6px',
+                        width: '100%'
+                      }}
+                    />
+                  </div>
+                </div>
+              </CardContent>
+              <CardActions>
+                <button className="btn">💾 Save Changes</button>
+                <button className="btn btn-secondary">🔄 Reset to Default</button>
+              </CardActions>
+            </Card>
+
+            <Card>
+              <CardHeader title="Notifications" />
+              <CardContent>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
+                    <input type="checkbox" defaultChecked />
+                    Service status notifications
+                  </label>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
+                    <input type="checkbox" defaultChecked />
+                    Email alerts for downtime
+                  </label>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
+                    <input type="checkbox" />
+                    Slack integration
+                  </label>
+                  <label style={{ display: 'flex', alignItems: 'center', gap: '8px', color: '#fff' }}>
+                    <input type="checkbox" />
+                    Discord webhooks
+                  </label>
+                </div>
+              </CardContent>
+              <CardActions>
+                <button className="btn">💾 Update Preferences</button>
+              </CardActions>
+            </Card>
+          </div>
+        </div>
+      )}
     </>
   )
 }

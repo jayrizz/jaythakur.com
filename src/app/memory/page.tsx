@@ -65,10 +65,7 @@ export default function MemoryPage() {
       <PageHeader
         title="Memory"
         description="A record of learnings, insights, and progress. Building knowledge over time."
-        breadcrumb={[
-          { label: 'Home', href: '/' },
-          { label: 'Memory' }
-        ]}
+
       />
 
       {/* Memory Stats */}

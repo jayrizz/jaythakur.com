@@ -20,7 +20,7 @@ export default function HomePage() {
       name: 'AOC Dashboard',
       description: 'Advent of Code progress tracking',
       status: 'active' as const, 
-      url: '/api/aoc' as const
+      url: '/aoc-dashboard' as const
     }
   ]
 

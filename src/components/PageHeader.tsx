@@ -7,20 +7,6 @@ interface PageHeaderProps {
 export default function PageHeader({ title, description, breadcrumb }: PageHeaderProps) {
   return (
     <div style={{ marginBottom: '32px' }}>
-      {breadcrumb && (
-        <nav style={{ marginBottom: '12px', color: '#666', fontSize: '0.9rem' }}>
-          {breadcrumb.map((item, index) => (
-            <span key={index}>
-              {index > 0 && <span style={{ margin: '0 8px' }}>›</span>}
-              {item.href ? (
-                <a href={item.href} style={{ color: '#4a9eff' }}>{item.label}</a>
-              ) : (
-                <span>{item.label}</span>
-              )}
-            </span>
-          ))}
-        </nav>
-      )}
       <h1 style={{ 
         fontSize: '2.5rem', 
         fontWeight: 700, 

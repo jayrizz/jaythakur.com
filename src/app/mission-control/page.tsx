@@ -20,6 +20,9 @@ export default function MissionControlPage() {
   const tabs = [
     { id: 'overview', label: '📊 Overview', icon: '📊' },
     { id: 'services', label: '🔧 Services', icon: '🔧' },
+    { id: 'projects', label: '💼 Projects', icon: '💼' },
+    { id: 'skills', label: '🛠️ Skills', icon: '🛠️' },
+    { id: 'tasks', label: '✅ Tasks', icon: '✅' },
     { id: 'logs', label: '📄 Logs', icon: '📄' },
     { id: 'settings', label: '⚙️ Settings', icon: '⚙️' }
   ]
@@ -346,6 +349,27 @@ export default function MissionControlPage() {
               </Card>
             ))}
           </div>
+        </div>
+      )}
+
+      {activeTab === 'projects' && (
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px' }}>Project Portfolio</h2>
+          <p style={{ color: '#666', marginBottom: '20px' }}>Under development - Coming soon</p>
+        </div>
+      )}
+
+      {activeTab === 'skills' && (
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px' }}>Available Skills</h2>
+          <p style={{ color: '#666', marginBottom: '20px' }}>Under development - Coming soon</p>
+        </div>
+      )}
+
+      {activeTab === 'tasks' && (
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px' }}>Task Management</h2>
+          <p style={{ color: '#666', marginBottom: '20px' }}>Under development - Coming soon</p>
         </div>
       )}
 

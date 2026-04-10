@@ -26,7 +26,7 @@ export default function AppsPage() {
       icon: '📈',
       status: 'unknown',
       type: 'local',
-      url: '/api/quant',
+      url: 'https://dist-inky-omega-95.vercel.app',
       port: 5173,
       category: 'dashboard'
     },

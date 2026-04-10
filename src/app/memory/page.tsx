@@ -5,6 +5,62 @@ import { formatDate } from '@/lib/utils'
 export default function MemoryPage() {
   const memories = [
     {
+      id: '10',
+      date: '2026-04-10',
+      title: 'Accenture SC&E Presentation - Live AI Demo Success',
+      content: 'Presented OpenClaw capabilities to Accenture Americas SC&E Gen AI Community. Instead of pre-recorded terminal demo, demonstrated live chat interaction showing real-time research, system health checks, and conversational AI collaboration. Audience engaged with manufacturing challenges discussion - pulled live 2026 supply chain stats (88% enterprises use AI, 80% see no ROI, 307% ROI for winners). Key insight: live interaction cuts through the baseline expectation of overstimulated audiences better than scripted demos.',
+      tags: ['openclaw', 'accenture', 'presentation', 'live-demo', 'supply-chain'],
+      type: 'milestone' as const
+    },
+    {
+      id: '9',
+      date: '2026-04-10',
+      title: 'Memory Management Module - Learning & Improving',
+      content: 'OpenClaw memory system now tracks learning and improvements automatically. Key capabilities: semantic search across memory files using hybrid embedding model (hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF), daily memory logs, long-term curation to MEMORY.md. Evolution tracked: session TTL fixed (1h→24h), cron jobs converted to MiniMax (avoiding rate limits), urgent keyword monitoring added.',
+      tags: ['openclaw', 'memory', 'learning', 'ai'],
+      type: 'learning' as const
+    },
+    {
+      id: '8',
+      date: '2026-04-06',
+      title: 'LinkedIn Profile Optimizer Skill',
+      content: 'Created 7-prompt framework for LinkedIn optimization: headline, about section, experience bullets, skills selection, summary, achievement quantification, keyword optimization. Enables users to transform their profiles to attract recruiters and pass ATS filters.',
+      tags: ['openclaw', 'skill', 'linkedin', 'career'],
+      type: 'learning' as const
+    },
+    {
+      id: '7',
+      date: '2026-04-05',
+      title: 'AI Slides Generator Skill',
+      content: 'Built python-pptx based skill for generating professional slides from outlines. Supports title, content, two-column layouts with speaker notes. Business presentation focused with templates for problem/solution, data/metrics, timeline formats.',
+      tags: ['openclaw', 'skill', 'presentations', 'pptx'],
+      type: 'learning' as const
+    },
+    {
+      id: '6',
+      date: '2026-04-03',
+      title: 'System Stability - All Cron Jobs Converted to MiniMax',
+      content: 'Fixed token consumption and rate limiting issues by converting all cron jobs from Claude to MiniMax model. Root cause: expensive token usage + rate limits causing system crashes during high load. Solution: use MiniMax for background tasks, preserve Claude for main interactive sessions. System now stable with 86+ active sessions.',
+      tags: ['openclaw', 'stability', 'mini-max', 'optimization'],
+      type: 'learning' as const
+    },
+    {
+      id: '5',
+      date: '2026-03-31',
+      title: 'Session Architecture Bug Fix',
+      content: 'Major bug found: session isolation caused 13-hour delay in responding to security alerts during quiet hours. Root cause was main session TTL=1h combined with cron isolation. Fix: extended session TTL to 24h and added urgent keyword monitoring every 5 minutes. Lesson: focus on root cause analysis, not apologies.',
+      tags: ['openclaw', 'architecture', 'bug-fix', 'lessons'],
+      type: 'learning' as const
+    },
+    {
+      id: '4',
+      date: '2026-03-25',
+      title: 'Capitol Trades Scraper Migration',
+      content: 'Migrated from housestockwatcher.com (now dead) to InsiderFinance.io for congressional trading data. Implemented with date filters and configurable options for research flexibility.',
+      tags: ['openclaw', 'scraper', 'capitol-trades', 'congress'],
+      type: 'project' as const
+    },
+    {
       id: '1',
       date: '2024-04-03',
       title: 'Building with Claude Sonnet 3.5',
@@ -50,7 +106,8 @@ export default function MemoryPage() {
     technical: '#4a9eff',
     learning: '#22c55e', 
     project: '#f59e0b',
-    personal: '#8b5cf6'
+    personal: '#8b5cf6',
+    milestone: '#ef4444'
   }
 
   const groupedMemories = memories.reduce((acc, memory) => {

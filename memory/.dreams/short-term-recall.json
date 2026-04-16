@@ -1,0 +1,133 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-15T16:30:25.390Z",
+  "entries": {
+    "memory:memory/2026-03-27.md:1:29": {
+      "key": "memory:memory/2026-03-27.md:1:29",
+      "path": "memory/2026-03-27.md",
+      "startLine": 1,
+      "endLine": 29,
+      "source": "memory",
+      "snippet": "# 2026-03-27 - Routine Operations ## Daily Functions - Morning briefing system operational - Email cleanup running (before timeout issues emerged) - Security audits completing successfully - Memory monitor functioning during appropriate hours ## System Status - Gateway stable and responsive - Telegram integration working - Discord channels active - Cron job scheduling functional ## Crypto Tracking - Regular price monitoring active - BTC, ETH, SOL tracking in morning briefings - Market data sources functional ## Background - All automated tasks running smoothly - No known security issues - Configuration stable - User interactions normal ## Setup Notes - Standard daily operations establ",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.763527113199234,
+      "maxScore": 0.3918971747159958,
+      "firstRecalledAt": "2026-04-15T12:45:41.104Z",
+      "lastRecalledAt": "2026-04-15T12:45:43.887Z",
+      "queryHashes": [
+        "d1d1ecde0ea2",
+        "f7cba93db22e"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "gateway",
+        "routine",
+        "operations",
+        "functions",
+        "morning",
+        "briefing",
+        "system",
+        "operational"
+      ]
+    },
+    "memory:memory/2026-03-28.md:1:23": {
+      "key": "memory:memory/2026-03-28.md:1:23",
+      "path": "memory/2026-03-28.md",
+      "startLine": 1,
+      "endLine": 23,
+      "source": "memory",
+      "snippet": "# 2026-03-28 - System Maintenance ## Daily Operations - Regular cron jobs: morning briefing, security audit, email cleanup - Memory monitor stable - Capitol trades scraper routine runs ## Issues Emerging - Email cleanup script beginning to show timeout patterns - Need to investigate script efficiency - Some approval prompts starting to appear for exec commands ## Background Tasks - Morning briefings delivering correctly - Crypto price tracking functional (BTC ~$67K range, ETH ~$2K range) - Calendar integration working - Apple Reminders integration active ## Notes - System stability good - All channels (Telegram, Discord) operational - No critical security issues - Gateway performance st",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7372625350952148,
+      "maxScore": 0.37889664769172665,
+      "firstRecalledAt": "2026-04-15T12:45:41.104Z",
+      "lastRecalledAt": "2026-04-15T12:45:43.887Z",
+      "queryHashes": [
+        "d1d1ecde0ea2",
+        "f7cba93db22e"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "gateway",
+        "system",
+        "maintenance",
+        "operations",
+        "regular",
+        "cron",
+        "jobs",
+        "morning"
+      ]
+    },
+    "memory:memory/2026-03-30.md:29:49": {
+      "key": "memory:memory/2026-03-30.md:29:49",
+      "path": "memory/2026-03-30.md",
+      "startLine": 29,
+      "endLine": 49,
+      "source": "memory",
+      "snippet": "- **Performance**: Now 1 call per email instead of 2, capped at 100 emails to avoid timeouts ### Cron Jobs Status ✅ All daily jobs now run without approval prompts: - Morning briefing (calendar, reminders, crypto) - Security audit - Email cleanup - Capitol trades scraper - Memory monitor ## Congressional Trading - CapitolTrades.com investigation - tried to compare with InsiderFinance.io - Root finding: InsiderFinance.io working correctly, just no new trades since Mar 23 - 32 trades found in 30-day window, all already in database (genuinely no new entries) - Site appears to update 2-3x per week, not daily ## System Health - 46 historical sessions (normal, includes all cron job runs) - Ga",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.36404162645339966,
+      "maxScore": 0.36404162645339966,
+      "firstRecalledAt": "2026-04-15T12:45:41.104Z",
+      "lastRecalledAt": "2026-04-15T12:45:41.104Z",
+      "queryHashes": [
+        "d1d1ecde0ea2"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "capitoltrades.com",
+        "insiderfinance.io",
+        "30-day",
+        "2-3x",
+        "performance",
+        "now",
+        "call",
+        "per"
+      ]
+    },
+    "memory:memory/2026-04-15.md:1:24": {
+      "key": "memory:memory/2026-04-15.md:1:24",
+      "path": "memory/2026-04-15.md",
+      "startLine": 1,
+      "endLine": 24,
+      "source": "memory",
+      "snippet": "# 2026-04-15 Daily Memory ## Wednesday April 15, 2026 ### Morning Briefing - Calendar: No events - Crypto: BTC $74,205 | ETH $2,336 | SOL $83 - System: OpenClaw healthy ### Key Events - Created Morning Edition magazine generator (scripts/morning-edition.py) - Daily 7am cron scheduled for HN curation - Created CPA package at /taxes/cpa-package-2022-2025/ - GitHub Pages needs enabling (still 404) ### System Status - Gateway running (pid 95777) - Channels: Discord ✅, Telegram ✅ - 191 active sessions - Update available (npm 2026.4.14) --- *Saved during morning briefing*",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 0.7528336524963378,
+      "maxScore": 0.39658849537372587,
+      "firstRecalledAt": "2026-04-15T16:30:23.903Z",
+      "lastRecalledAt": "2026-04-15T16:30:25.390Z",
+      "queryHashes": [
+        "ffc2389a5254",
+        "b7cea69fcd37"
+      ],
+      "recallDays": [
+        "2026-04-15"
+      ],
+      "conceptTags": [
+        "gateway",
+        "scripts/morning-edition.py",
+        "taxes/cpa-package-2022-2025",
+        "2026.4.14",
+        "wednesday",
+        "april",
+        "morning",
+        "briefing"
+      ]
+    }
+  }
+}

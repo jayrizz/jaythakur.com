@@ -1,0 +1,8 @@
+# Protect core files from git operations
+scripts/* binary
+memory/* merge=ours
+*.sh binary
+AGENTS.md merge=ours
+SOUL.md merge=ours
+USER.md merge=ours
+TOOLS.md merge=ours

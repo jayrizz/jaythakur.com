@@ -3,148 +3,145 @@ import Card, { CardHeader, CardContent, CardActions } from '@/components/Card'
 import Link from 'next/link'
 
 export default function HomePage() {
-  const recentProjects = [
+  const buildTimeline = [
     {
-      name: 'OpenClaw Agent System',
-      description: 'AI assistant with skills and tool access',
-      status: 'active' as const,
-      url: '/projects#openclaw' as const
+      date: 'February 2026',
+      title: 'AI Infrastructure Bootstrap',
+      description: 'Deployed autonomous AI agent infrastructure on Mac mini. Built OpenClaw gateway with Telegram/Discord integration, persistent memory systems, and 24/7 operational capability.',
+      tags: ['OpenClaw', 'Node.js', 'Telegram API', 'Discord API', 'LLM Integration']
     },
     {
-      name: 'Quant Dashboard', 
-      description: 'Financial data visualization and analysis',
-      status: 'active' as const,
-      url: '/api/quant' as const
+      date: 'February 2026',
+      title: 'Mission Control Dashboard',
+      description: 'Real-time AIOps monitoring with WebSocket streaming. Agent orchestration, process management, automated health checks, and live system telemetry.',
+      tags: ['Python', 'WebSocket', 'React', 'FastAPI', 'AgentOps']
     },
     {
-      name: 'AOC Dashboard',
-      description: 'Advent of Code progress tracking',
-      status: 'active' as const, 
-      url: '/aoc-dashboard' as const
+      date: 'March 2026',
+      title: 'AOC Production API',
+      description: 'Enterprise-grade REST API for Agent Operations Center. Async endpoints, SQLAlchemy ORM, PostgreSQL persistence, full Swagger documentation.',
+      tags: ['FastAPI', 'SQLAlchemy', 'PostgreSQL', 'Docker', 'Swagger']
+    },
+    {
+      date: 'March 2026',
+      title: 'Political Money Intelligence',
+      description: 'Autonomous surveillance system for congressional trading. Real-time House/Senate disclosure scraping, ML-powered trade signal detection, Telegram alerts.',
+      tags: ['Python', 'BeautifulSoup', 'Telegram Bot', 'ML', 'Cron']
+    },
+    {
+      date: 'March 2026',
+      title: 'Polymarket Whale Detection',
+      description: 'ML signal engine for prediction market intelligence. Decision tree classifiers, whale movement detection, automated portfolio tracking.',
+      tags: ['Python', 'scikit-learn', 'pandas', 'Polymarket API', 'ML']
+    },
+    {
+      date: 'March 2026',
+      title: 'Agent Skills Marketplace',
+      description: 'Published "sacred-rules" skill to ClawHub. 13 config safety rules, JSON Schema validation, automated backup procedures, security audit capabilities.',
+      tags: ['Agent Skills', 'JSON Schema', 'Documentation', 'OpenClaw']
+    },
+    {
+      date: 'March 2026',
+      title: 'Quant Trading System',
+      description: 'Building autonomous market making system. Python-based quant framework with real-time data ingestion, risk management, and order execution.',
+      tags: ['Python', 'NumPy', 'Pandas', 'REST APIs', 'AWS']
+    },
+    {
+      date: 'March 2026',
+      title: 'jaythakur.com + Memory System',
+      description: 'AI-powered personal website with vector-searchable memory. Built with Next.js, deployed on Vercel, integrated with OpenClaw for dynamic content.',
+      tags: ['Next.js', 'Vercel', 'Vector Search', 'OpenClaw', 'Tailwind']
+    },
+    {
+      date: 'April 2026',
+      title: 'AI Operations Resilience',
+      description: 'Built comprehensive system protection against operational failures. Git-based script protection, automated backup systems, cron job management, and recovery procedures. Multi-layer defense ensuring AI operations never break.',
+      tags: ['Git Protection', 'OpenClaw', 'Automation', 'System Hardening', 'DevOps']
+    },
+    {
+      date: 'April 2026',
+      title: 'Morning Edition HN Curator',
+      description: 'Autonomous daily magazine generator that curates Hacker News for personal taste. Intelligent filtering, editorial design, automated scheduling, and GitHub Pages deployment for daily reading.',
+      tags: ['Python', 'HN API', 'Curation', 'GitHub Pages', 'Editorial AI']
     }
-  ]
-
-  const quickStats = [
-    { label: 'Active Projects', value: '12' },
-    { label: 'Apps Deployed', value: '8' },
-    { label: 'AI Tools Built', value: '25' },
-    { label: 'Memory Entries', value: '1,247' }
   ]
 
   return (
     <>
-      <PageHeader
-        title="Jay Thakur"
-        description="Building production systems with AI partners. Exploring the intersection of human creativity and artificial intelligence."
-      />
+      {/* Hero Section */}
+      <section className="hero" style={{ paddingBottom: '80px' }}>
+        <p className="tagline" style={{ fontSize: '14px', color: '#ff6b35', textTransform: 'uppercase', letterSpacing: '2px', marginBottom: '16px' }}>
+          AI Operations &amp; Autonomy
+        </p>
+        <h1 style={{ fontSize: '56px', fontWeight: '700', lineHeight: '1.1', marginBottom: '24px' }}>
+          I don&apos;t just use AI.<br />
+          <span style={{ background: 'linear-gradient(135deg, #ff6b35 0, #ff8f65 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>I partner with it.</span>
+        </h1>
+        <p style={{ fontSize: '20px', color: '#aaa', maxWidth: '600px', margin: '0 auto' }}>
+          Building autonomous AI agents that ship production systems. Every project here was architected, coded, and operated with AI partners running 24/7.
+        </p>
+      </section>
 
-      {/* Quick Stats */}
-      <div className="grid grid-4" style={{ marginBottom: '32px' }}>
-        {quickStats.map((stat, index) => (
-          <Card key={index}>
-            <div style={{ textAlign: 'center' }}>
-              <div style={{ fontSize: '2rem', fontWeight: 'bold', color: '#4a9eff', marginBottom: '4px' }}>
-                {stat.value}
-              </div>
-              <div style={{ color: '#aaa', fontSize: '0.9rem' }}>
-                {stat.label}
+      {/* Build Timeline */}
+      <section id="timeline" style={{ paddingTop: '40px' }}>
+        <h2 className="section-title" style={{ fontSize: '14px', textTransform: 'uppercase', letterSpacing: '2px', color: '#888', marginBottom: '48px' }}>
+          Build Timeline
+        </h2>
+        
+        <div style={{ position: 'relative', paddingLeft: '40px' }}>
+          {/* Vertical line */}
+          <div style={{ position: 'absolute', left: '7px', top: '0', bottom: '0', width: '2px', background: 'linear-gradient(to bottom, #ff6b35, #1a1a2e)' }} />
+          
+          {buildTimeline.map((item, index) => (
+            <div key={index} style={{ position: 'relative', paddingBottom: '60px' }}>
+              {/* Dot */}
+              <div style={{ position: 'absolute', left: '-37px', top: '4px', width: '14px', height: '14px', background: '#0a0a0f', border: '3px solid #ff6b35', borderRadius: '50%' }} />
+              
+              <p style={{ fontSize: '13px', color: '#ff6b35', fontWeight: '500', marginBottom: '8px' }}>
+                {item.date}
+              </p>
+              <h3 style={{ fontSize: '24px', fontWeight: '600', marginBottom: '12px', color: '#fff' }}>
+                {item.title}
+              </h3>
+              <p style={{ color: '#888', marginBottom: '16px' }}>
+                {item.description}
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '8px' }}>
+                {item.tags.map((tag, tagIndex) => (
+                  <span key={tagIndex} style={{ fontSize: '12px', padding: '4px 12px', background: '#12121a', border: '1px solid #1a1a2e', borderRadius: '20px', color: '#888' }}>
+                    {tag}
+                  </span>
+                ))}
               </div>
             </div>
-          </Card>
-        ))}
-      </div>
-
-      {/* Recent Work */}
-      <div className="grid grid-2">
-        <div>
-          <h2 style={{ marginBottom: '16px', color: '#fff' }}>Recent Projects</h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
-            {recentProjects.map((project, index) => (
-              <Card key={index} hover>
-                <CardHeader 
-                  title={project.name}
-                  subtitle={project.description}
-                  status={project.status}
-                />
-                <CardActions>
-                  <Link href={project.url} className="btn">
-                    View Project
-                  </Link>
-                </CardActions>
-              </Card>
-            ))}
-          </div>
-          <div style={{ marginTop: '16px' }}>
-            <Link href="/projects" className="btn btn-secondary">
-              View All Projects →
-            </Link>
-          </div>
+          ))}
         </div>
+      </section>
 
-        <div>
-          <h2 style={{ marginBottom: '16px', color: '#fff' }}>Latest Memories</h2>
-          <Card>
-            <CardContent>
-              <h3>Building with Claude Sonnet 3.5</h3>
-              <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '8px' }}>
-                Today, 2:30 PM
-              </p>
-              <p>
-                Discovered that Claude excels at understanding complex system architectures 
-                when provided with clear context. The key is breaking down problems into 
-                manageable components while maintaining the bigger picture...
-              </p>
-            </CardContent>
-            <CardActions>
-              <Link href="/memory" className="btn btn-secondary">
-                Read More
-              </Link>
-            </CardActions>
-          </Card>
-
-          <Card style={{ marginTop: '16px' }}>
-            <CardContent>
-              <h3>System Health Dashboard</h3>
-              <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '8px' }}>
-                Yesterday, 9:15 AM
-              </p>
-              <p>
-                Implemented real-time monitoring for all local services. The proxy routing 
-                architecture is working well - services can be down without breaking the main site...
-              </p>
-            </CardContent>
-            <CardActions>
-              <Link href="/memory" className="btn btn-secondary">
-                Read More  
-              </Link>
-            </CardActions>
-          </Card>
-
-          <div style={{ marginTop: '16px' }}>
-            <Link href="/memory" className="btn btn-secondary">
-              View All Memories →
-            </Link>
-          </div>
+      {/* About Section */}
+      <section id="about" style={{ padding: '80px 0', borderTop: '1px solid #1a1a2e' }}>
+        <h2 style={{ fontSize: '32px', marginBottom: '24px', color: '#fff' }}>About</h2>
+        <div style={{ display: 'grid', gap: '32px' }}>
+          <p style={{ color: '#888', lineHeight: '1.8' }}>
+            18 years in software consulting taught me one thing: the best tool is the one that gets the job done. In 2026, that tool is AI.
+          </p>
+          <p style={{ color: '#888', lineHeight: '1.8' }}>
+            This site isn&apos;t built with &quot;AI assistance&quot; — it&apos;s built with AI as a partner. I direct, AI executes. I validate, AI iterates. The result: production systems that would have taken weeks now ship in hours.
+          </p>
+          <p style={{ color: '#888', lineHeight: '1.8' }}>
+            The timeline above isn&apos;t just projects — it&apos;s proof that the future of software development isn&apos;t about choosing between human and machine. It&apos;s about knowing when to lead and when to delegate.
+          </p>
         </div>
-      </div>
+      </section>
 
-      {/* Quick Actions */}
-      <Card style={{ marginTop: '32px' }}>
-        <CardHeader title="Quick Actions" />
-        <CardContent>
-          <div className="grid grid-3">
-            <Link href="/mission-control" className="btn">
-              🎯 Mission Control
-            </Link>
-            <Link href="/apps" className="btn">
-              🚀 Launch Apps
-            </Link>
-            <Link href="/memory" className="btn">
-              🧠 Browse Memories
-            </Link>
-          </div>
-        </CardContent>
-      </Card>
+      {/* Contact Section */}
+      <section id="contact" style={{ padding: '80px 0', borderTop: '1px solid #1a1a2e', textAlign: 'center' }}>
+        <h2 style={{ fontSize: '32px', marginBottom: '16px', color: '#fff' }}>Let&apos;s Build Something</h2>
+        <p style={{ color: '#888', marginBottom: '32px' }}>Need someone who knows how to direct AI to ship real systems?</p>
+        <a href="mailto:jaythakur1@gmail.com" style={{ display: 'inline-block', padding: '16px 40px', background: '#ff6b35', color: '#fff', textDecoration: 'none', borderRadius: '8px', fontWeight: '600', boxShadow: '0 4px 20px rgba(255, 107, 53, 0.3)' }}>
+          Get In Touch
+        </a>
+      </section>
     </>
   )
 }

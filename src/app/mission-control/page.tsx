@@ -355,21 +355,89 @@ export default function MissionControlPage() {
       {activeTab === 'projects' && (
         <div>
           <h2 style={{ color: '#fff', marginBottom: '24px' }}>Project Portfolio</h2>
-          <p style={{ color: '#666', marginBottom: '20px' }}>Under development - Coming soon</p>
+          <div className="grid grid-2">
+            <Card>
+              <CardHeader title="OpenClaw Agent System" subtitle="AI assistant with skills and tool access" status="active" />
+              <CardContent>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>OpenClaw</span>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>Node.js</span>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>Telegram</span>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader title="Quant Trading System" subtitle="Python-based market making" status="active" />
+              <CardContent>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>Python</span>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>NumPy</span>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader title="Congressional Trades" subtitle="Political money tracking" status="active" />
+              <CardContent>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>Python</span>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>BeautifulSoup</span>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader title="Memory System" subtitle="Vector-searchable notes" status="active" />
+              <CardContent>
+                <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap' }}>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>Next.js</span>
+                  <span style={{ fontSize: '12px', padding: '4px 12px', background: '#1a1a2e', borderRadius: '20px', color: '#888' }}>Vector Search</span>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       )}
 
       {activeTab === 'skills' && (
         <div>
           <h2 style={{ color: '#fff', marginBottom: '24px' }}>Available Skills</h2>
-          <p style={{ color: '#666', marginBottom: '20px' }}>Under development - Coming soon</p>
+          <p style={{ color: '#aaa', marginBottom: '20px' }}>Click a skill to run it. I'll ask for the inputs needed.</p>
+          <div className="grid grid-3">
+            {['gog', 'things-mac', 'eightctl', 'openhue', 'sonoscli', 'weather', 'notion', 'obsidian', 'things-mac'].map((skill) => (
+              <Card key={skill}>
+                <CardHeader title={skill} subtitle={`Run ${skill} skill`} status="active" />
+              </Card>
+            ))}
+          </div>
         </div>
       )}
 
       {activeTab === 'tasks' && (
         <div>
           <h2 style={{ color: '#fff', marginBottom: '24px' }}>Task Management</h2>
-          <p style={{ color: '#666', marginBottom: '20px' }}>Under development - Coming soon</p>
+          <div className="grid grid-2">
+            <Card>
+              <CardHeader title="In Progress (9)" subtitle="Tasks being worked on" />
+              <CardContent>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px' }}>
+                  <div>1. Build React dashboard for quant monitoring</div>
+                  <div>2. Continue quant market maker development</div>
+                  <div>3. Finish article</div>
+                  <div>4. Post social media about ClawHub skill</div>
+                  <div>5. Install CapCut for AI video</div>
+                </div>
+              </CardContent>
+            </Card>
+            <Card>
+              <CardHeader title="Done (19)" subtitle="Completed tasks" />
+              <CardContent>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px' }}>
+                  <div style={{ color: '#4ade80' }}>1. Fix memory search - DONE</div>
+                  <div style={{ color: '#4ade80' }}>2. Deploy OpenClaw gateway - DONE</div>
+                  <div style={{ color: '#4ade80' }}>3. Set up cron jobs - DONE</div>
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
       )}
 

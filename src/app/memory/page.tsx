@@ -16,7 +16,7 @@ export default function MemoryPage() {
       id: '10',
       date: '2026-04-10',
       title: 'Accenture SC&E Presentation - Live AI Demo Success',
-      content: 'Presented OpenClaw capabilities to Accenture Americas SC&E Gen AI Community. Instead of pre-recorded terminal demo, demonstrated live chat interaction showing real-time research, system health checks, and conversational AI collaboration. Audience engaged with manufacturing challenges discussion - pulled live 2026 supply chain stats (88% enterprises use AI, 80% see no ROI, 307% ROI for winners). Key insight: live interaction cuts through the "baseline expectation" of overstimulated audiences better than scripted demos.',
+      content: 'Presented OpenClaw capabilities to Accenture Americas SC&E Gen AI Community. Instead of pre-recorded terminal demo, demonstrated live chat interaction showing real-time research, system health checks, and conversational AI collaboration. Audience engaged with manufacturing challenges discussion - pulled live 2026 supply chain stats (88% enterprises use AI, 80% see no ROI, 307% ROI for winners). Key insight: live interaction cuts through the baseline expectation of overstimulated audiences better than scripted demos.',
       tags: ['openclaw', 'accenture', 'presentation', 'live-demo', 'supply-chain'],
       type: 'milestone' as const
     },
@@ -48,7 +48,11 @@ export default function MemoryPage() {
       id: '6',
       date: '2026-04-03',
       title: 'System Stability - All Cron Jobs Converted to MiniMax',
+<<<<<<< HEAD
       content: 'Fixed token consumption and rate limiting issues by converting all cron jobs from Claude to MiniMax model. Root cause: expensive token usage + rate limits causing system crashes during high load. Solution: use MiniMax for background tasks, preserve Claude for main interactive sessions. System now stable with 86 active sessions.',
+=======
+      content: 'Fixed token consumption and rate limiting issues by converting all cron jobs from Claude to MiniMax model. Root cause: expensive token usage + rate limits causing system crashes during high load. Solution: use MiniMax for background tasks, preserve Claude for main interactive sessions. System now stable with 86+ active sessions.',
+>>>>>>> 28c0bbf4dcf388c46f5ab9e932f2eaa9a5d3d944
       tags: ['openclaw', 'stability', 'mini-max', 'optimization'],
       type: 'learning' as const
     },
@@ -69,7 +73,11 @@ export default function MemoryPage() {
       type: 'project' as const
     },
     {
+<<<<<<< HEAD
       id: '3',
+=======
+      id: '1',
+>>>>>>> 28c0bbf4dcf388c46f5ab9e932f2eaa9a5d3d944
       date: '2024-04-03',
       title: 'Building with Claude Sonnet 3.5',
       content: 'Discovered that Claude excels at understanding complex system architectures when provided with clear context. The key is breaking down problems into manageable components while maintaining the bigger picture. Today I rebuilt the entire jaythakur.com site architecture - from a minimal setup to a scalable Next.js application with proper component structure, shared utilities, and dynamic routing capabilities.',

@@ -101,11 +101,7 @@ export default function MemoryPage() {
       type: 'milestone' as const
     },
     {
-<<<<<<< HEAD
       id: '3',
-=======
-      id: '1',
->>>>>>> 28c0bbf4dcf388c46f5ab9e932f2eaa9a5d3d944
       date: '2024-04-03',
       title: 'Building with Claude Sonnet 3.5',
       content: 'Discovered that Claude excels at understanding complex system architectures when provided with clear context. The key is breaking down problems into manageable components while maintaining the bigger picture. Today I rebuilt the entire jaythakur.com site architecture - from a minimal setup to a scalable Next.js application with proper component structure, shared utilities, and dynamic routing capabilities.',

@@ -401,6 +401,9 @@ def generate_magazine(stories, date_str):
     return html
 
 def main():
+    import shutil
+    import os
+    
     today = datetime.now()
     date_str = today.strftime("%B %d, %Y")
     filename = today.strftime("%Y-%m-%d") + ".html"
@@ -412,11 +415,24 @@ def main():
     print("Generating magazine...")
     html = generate_magazine(stories, date_str)
     
+    # Save to local magazines directory
     output_path = f"/Users/admin/.openclaw/workspace/magazines/{filename}"
     with open(output_path, "w") as f:
         f.write(html)
     
     print(f"Saved to: {output_path}")
+    
+    # Copy to website public directory for GitHub Pages
+    website_dir = "/Users/admin/.openclaw/workspace/jaythakur-site/public/magazines"
+    website_path = f"{website_dir}/{filename}"
+    
+    try:
+        os.makedirs(website_dir, exist_ok=True)
+        shutil.copy2(output_path, website_path)
+        print(f"Copied to website: {website_path}")
+    except Exception as e:
+        print(f"Warning: Could not copy to website directory: {e}")
+    
     print(f"Shareable URL: https://jayrizz.github.io/jaythakur.com/magazines/{filename}")
     
     # Return the path for Telegram notification

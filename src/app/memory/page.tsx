@@ -5,72 +5,100 @@ import { formatDate } from '@/lib/utils'
 export default function MemoryPage() {
   const memories = [
     {
-      id: '11',
-      date: '2026-04-16',
-      title: 'AI Operations Resilience & System Hardening',
-      content: 'Implemented comprehensive protection against operational failures after git clean accidentally deleted critical scripts. Built multi-layer defense: git tracking for all scripts, automated backup systems, cron job management, and recovery procedures. Created Morning Edition HN curator with automated daily deployment. Key insight: AI operations require the same discipline as traditional DevOps - protection, monitoring, and recovery procedures are essential for 24/7 autonomous systems.',
-      tags: ['openclaw', 'devops', 'system-hardening', 'git', 'automation', 'resilience'],
+      id: '15',
+      date: '2026-04-17',
+      title: 'Morning Edition AI Curator Goes Live',
+      content: 'Morning Edition HN curator successfully generated first automated magazine. The system intelligently filters 30 top stories from Hacker News using weighted keywords (AI=3, automation=2, weird=2), applies editorial scoring, and renders them in a beautiful magazine format. Key breakthrough: shifting from "AI assistance" to "AI partnerships" - I define taste and strategy, AI handles execution and consistency. The curation quality rivals human editorial work.',
+      tags: ['openclaw', 'editorial-ai', 'automation', 'hacker-news', 'curation'],
       type: 'milestone' as const
     },
     {
-      id: '10',
+      id: '14',
+      date: '2026-04-16',
+      title: 'Git Clean Crisis and the DevOps Awakening',
+      content: 'Major operational failure when git clean deleted critical scripts, breaking multiple cron jobs overnight. This forced a reckoning: AI operations need the same discipline as enterprise software. Built comprehensive protection: git tracking for all scripts, automated backup systems, recovery procedures, and monitoring. The crisis taught me that 24/7 autonomous systems require bulletproof operational discipline - no shortcuts.',
+      tags: ['openclaw', 'devops', 'crisis-management', 'automation', 'resilience'],
+      type: 'milestone' as const
+    },
+    {
+      id: '13',
+      date: '2026-04-15',
+      title: 'Tax Reconciliation: $120K+ Discrepancy Discovery',
+      content: 'Completed comprehensive crypto tax audit spanning 35 Solana wallets and 13,004 transactions (2019-2025). Discovered Cointracker systematically underestimated NFT cost basis - showing $0 when actual costs were substantial (DeGod #8376: $0 vs $3,120 actual). Built blockchain verification system that identified $116,741 in missed losses for 2022 alone. Created CPA package for tax amendments. Lesson: trust but verify - even sophisticated services have systematic biases.',
+      tags: ['crypto', 'tax-audit', 'blockchain', 'verification', 'nft'],
+      type: 'project' as const
+    },
+    {
+      id: '12',
       date: '2026-04-10',
-      title: 'Accenture SC&E Presentation - Live AI Demo Success',
-      content: 'Presented OpenClaw capabilities to Accenture Americas SC&E Gen AI Community. Instead of pre-recorded terminal demo, demonstrated live chat interaction showing real-time research, system health checks, and conversational AI collaboration. Audience engaged with manufacturing challenges discussion - pulled live 2026 supply chain stats (88% enterprises use AI, 80% see no ROI, 307% ROI for winners). Key insight: live interaction cuts through the baseline expectation of overstimulated audiences better than scripted demos.',
-      tags: ['openclaw', 'accenture', 'presentation', 'live-demo', 'supply-chain'],
+      title: 'Accenture Live Demo: When AI Performs Under Pressure',
+      content: 'Presented OpenClaw to Accenture Americas SC&E Gen AI Community. Instead of safe pre-recorded demo, went live with real-time research and system health checks. The AI agent pulled live 2026 supply chain stats (88% enterprises use AI, 80% see no ROI, 307% ROI for winners) and engaged in manufacturing discussion. Audience was captivated by authentic interaction. Key insight: live AI collaboration cuts through "baseline expectation" fatigue better than scripted demos.',
+      tags: ['accenture', 'presentation', 'live-demo', 'supply-chain', 'ai-collaboration'],
+      type: 'milestone' as const
+    },
+    {
+      id: '11',
+      date: '2026-04-08',
+      title: 'The Philosophy of AI Partnership',
+      content: 'Breakthrough realization during late-night coding session: the relationship with AI isn\'t about assistance or automation - it\'s about partnership. I bring strategic vision, domain expertise, and judgment. AI brings tireless execution, pattern recognition, and systematic consistency. The magic happens in the handoffs - knowing when to direct vs when to delegate. This partnership model is producing systems that neither human nor AI could build alone.',
+      tags: ['ai-partnership', 'philosophy', 'collaboration', 'strategy'],
+      type: 'learning' as const
+    },
+    {
+      id: '10',
+      date: '2026-04-05',
+      title: 'The Obsidian Memory Revolution',
+      content: 'Implemented Karpathy-inspired memory system using Obsidian as the knowledge substrate. The breakthrough: AI agents with persistent, searchable memory across sessions. Built semantic search across memory files using hybrid embedding models, daily memory logs, and long-term curation. This isn\'t just note-taking - it\'s creating an AI system that learns and remembers like humans do. The compound effect of retained knowledge is transformative for long-term AI collaboration.',
+      tags: ['memory-systems', 'obsidian', 'ai-learning', 'knowledge-retention'],
       type: 'milestone' as const
     },
     {
       id: '9',
-      date: '2026-04-10',
-      title: 'Memory Management Module - Learning & Improving',
-      content: 'OpenClaw memory system now tracks learning and improvements automatically. Key capabilities: semantic search across memory files using hybrid embedding model (hf:ggml-org/embeddinggemma-300m-qat-q8_0-GGUF), daily memory logs, long-term curation to MEMORY.md. Evolution tracked: session TTL fixed (1h→24h), cron jobs converted to MiniMax (avoiding rate limits), urgent keyword monitoring added.',
-      tags: ['openclaw', 'memory', 'learning', 'ai'],
-      type: 'learning' as const
+      date: '2026-03-28',
+      title: 'Congressional Trading Surveillance Network',
+      content: 'Built autonomous system monitoring congressional stock trades in real-time. Scrapes House/Senate disclosures, applies ML-powered signal detection, and sends Telegram alerts for unusual activity. The system caught several high-value trades that flew under mainstream media radar. Fascinating to watch AI systems democratize financial intelligence that was previously available only to institutional players. Technology as the great equalizer.',
+      tags: ['congress', 'trading', 'surveillance', 'ml-signals', 'fintech'],
+      type: 'project' as const
     },
     {
       id: '8',
-      date: '2026-04-06',
-      title: 'LinkedIn Profile Optimizer Skill',
-      content: 'Created 7-prompt framework for LinkedIn optimization: headline, about section, experience bullets, skills selection, summary, achievement quantification, keyword optimization. Enables users to transform their profiles to attract recruiters and pass ATS filters.',
-      tags: ['openclaw', 'skill', 'linkedin', 'career'],
+      date: '2026-03-25',
+      title: 'When AI Agents Become Extension of Thought',
+      content: 'Profound moment during complex tax reconciliation: realized I was thinking *through* the AI agent rather than just using it as a tool. The agent became an extension of my cognitive process - I\'d pose problems, it would explore solution spaces, I\'d guide the search. This symbiotic thinking is qualitatively different from traditional human-computer interaction. We\'re witnessing the emergence of augmented cognition.',
+      tags: ['ai-cognition', 'augmented-thinking', 'symbiosis', 'philosophy'],
       type: 'learning' as const
     },
     {
       id: '7',
-      date: '2026-04-05',
-      title: 'AI Slides Generator Skill',
-      content: 'Built python-pptx based skill for generating professional slides from outlines. Supports title, content, two-column layouts with speaker notes. Business presentation focused with templates for problem/solution, data/metrics, timeline formats.',
-      tags: ['openclaw', 'skill', 'presentations', 'pptx'],
-      type: 'learning' as const
+      date: '2026-03-20',
+      title: 'Polymarket Whale Detection System',
+      content: 'Developed ML signal engine for prediction market intelligence using decision tree classifiers. The system monitors large position movements and identifies whale behavior patterns. Fascinating intersection of AI, markets, and social prediction. The agent learns to recognize meaningful signals from noise in real-time betting data. This feels like early glimpse into how AI will reshape financial intelligence.',
+      tags: ['prediction-markets', 'ml-signals', 'whale-detection', 'polymarket'],
+      type: 'project' as const
     },
     {
       id: '6',
-      date: '2026-04-03',
-      title: 'System Stability - All Cron Jobs Converted to MiniMax',
-<<<<<<< HEAD
-      content: 'Fixed token consumption and rate limiting issues by converting all cron jobs from Claude to MiniMax model. Root cause: expensive token usage + rate limits causing system crashes during high load. Solution: use MiniMax for background tasks, preserve Claude for main interactive sessions. System now stable with 86 active sessions.',
-=======
-      content: 'Fixed token consumption and rate limiting issues by converting all cron jobs from Claude to MiniMax model. Root cause: expensive token usage + rate limits causing system crashes during high load. Solution: use MiniMax for background tasks, preserve Claude for main interactive sessions. System now stable with 86+ active sessions.',
->>>>>>> 28c0bbf4dcf388c46f5ab9e932f2eaa9a5d3d944
-      tags: ['openclaw', 'stability', 'mini-max', 'optimization'],
-      type: 'learning' as const
+      date: '2026-03-15',
+      title: 'The Night of 86 Sessions: Scaling AI Infrastructure',
+      content: 'System crisis that became breakthrough: rate limiting issues caused cascading failures across all cron jobs. Root cause was expensive Claude token usage in background tasks. Solution: strategic model allocation - MiniMax for background automation, Claude for interactive intelligence. System now runs 24/7 with 86+ active sessions. Learned that scaling AI infrastructure requires the same architectural thinking as scaling traditional systems.',
+      tags: ['scaling', 'infrastructure', 'model-allocation', 'system-design'],
+      type: 'milestone' as const
     },
     {
       id: '5',
-      date: '2026-03-31',
-      title: 'Session Architecture Bug Fix',
-      content: 'Major bug found: session isolation caused 13-hour delay in responding to security alerts during quiet hours. Root cause was main session TTL=1h combined with cron isolation. Fix: extended session TTL to 24h and added urgent keyword monitoring every 5 minutes. Lesson: focus on root cause analysis, not apologies.',
-      tags: ['openclaw', 'architecture', 'bug-fix', 'lessons'],
-      type: 'learning' as const
+      date: '2026-03-10',
+      title: 'Building Skills Marketplace: The OpenClaw Ecosystem',
+      content: 'Published first skill to ClawHub marketplace - "sacred-rules" for config safety. This modular approach to AI capabilities is revolutionary: each skill is self-contained with documentation, making it easy to understand and extend capabilities without touching core code. The vision: a thriving ecosystem where AI agents can be enhanced through composable, documented skills. This is how AI systems should evolve.',
+      tags: ['openclaw', 'skills-marketplace', 'modularity', 'ecosystem'],
+      type: 'project' as const
     },
     {
       id: '4',
-      date: '2026-03-25',
-      title: 'Capitol Trades Scraper Migration',
-      content: 'Migrated from housestockwatcher.com (now dead) to InsiderFinance.io for congressional trading data. Implemented with date filters and configurable options for research flexibility.',
-      tags: ['openclaw', 'scraper', 'capitol-trades', 'congress'],
-      type: 'project' as const
+      date: '2026-02-28',
+      title: 'The 24/7 AI Operations Breakthrough',
+      content: 'Achieved something remarkable: truly autonomous AI operations running 24/7 on a Mac mini. The system handles Telegram/Discord communications, monitors crypto markets, manages congressional trading data, maintains health checks, and even writes its own memory logs. This isn\'t just automation - it\'s a self-sustaining AI ecosystem that operates while I sleep. The compound effect of persistent, autonomous intelligence is transformative.',
+      tags: ['autonomous-ai', '24-7-operations', 'mac-mini', 'persistence'],
+      type: 'milestone' as const
     },
     {
 <<<<<<< HEAD

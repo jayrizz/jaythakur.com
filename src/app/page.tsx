@@ -123,13 +123,16 @@ export default function HomePage() {
         <h2 style={{ fontSize: '32px', marginBottom: '24px', color: '#fff' }}>About</h2>
         <div style={{ display: 'grid', gap: '32px' }}>
           <p style={{ color: '#888', lineHeight: '1.8' }}>
-            18 years in software consulting taught me one thing: the best tool is the one that gets the job done. In 2026, that tool is AI.
+            My journey began in 1999 with a double major in Computer Science and Philosophy — a combination that proved prophetic for the AI age. After adding an MBA focused on Entrepreneurship and Finance in 2007, I started my professional career as a software engineer in 2000 for a professional services company.
           </p>
           <p style={{ color: '#888', lineHeight: '1.8' }}>
-            This site isn&apos;t built with &quot;AI assistance&quot; — it&apos;s built with AI as a partner. I direct, AI executes. I validate, AI iterates. The result: production systems that would have taken weeks now ship in hours.
+            Today, with over 26 years of experience, I lead large global teams creating value for clients by reinventing their businesses with agentic technologies. Working for the most sophisticated business technology company on the planet has taught me that lasting partnerships are built on strategic vision, not just tactical execution.
           </p>
           <p style={{ color: '#888', lineHeight: '1.8' }}>
-            The timeline above isn&apos;t just projects — it&apos;s proof that the future of software development isn&apos;t about choosing between human and machine. It&apos;s about knowing when to lead and when to delegate.
+            This site isn&apos;t built with &quot;AI assistance&quot; — it&apos;s built with AI as a true partner. I bring domain expertise and strategic judgment. AI brings tireless execution and systematic consistency. The result: production systems that neither human nor machine could build alone, shipped in hours instead of weeks.
+          </p>
+          <p style={{ color: '#888', lineHeight: '1.8' }}>
+            The projects above aren&apos;t just technical achievements — they&apos;re proof that the future of software development isn&apos;t about choosing between human and machine. It&apos;s about knowing when to lead and when to delegate, when to direct and when to trust the process.
           </p>
         </div>
       </section>

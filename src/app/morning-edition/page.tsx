@@ -150,14 +150,7 @@ export default function MorningEditionPage() {
                       fontSize: '14px',
                       transition: 'all 0.2s ease'
                     }}
-                    onMouseOver={(e) => {
-                      e.currentTarget.style.background = '#ff8f65'
-                      e.currentTarget.style.transform = 'translateY(-1px)'
-                    }}
-                    onMouseOut={(e) => {
-                      e.currentTarget.style.background = '#ff6b35'
-                      e.currentTarget.style.transform = 'translateY(0)'
-                    }}
+
                   >
                     Read Issue →
                   </a>
@@ -251,14 +244,7 @@ export default function MorningEditionPage() {
             fontWeight: '600',
             transition: 'all 0.2s ease'
           }}
-          onMouseOver={(e) => {
-            e.currentTarget.style.borderColor = '#ff6b35'
-            e.currentTarget.style.color = '#fff'
-          }}
-          onMouseOut={(e) => {
-            e.currentTarget.style.borderColor = '#666'
-            e.currentTarget.style.color = '#aaa'
-          }}
+
         >
           ← Back to Timeline
         </a>

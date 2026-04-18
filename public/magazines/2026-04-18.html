@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 18, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        /* Enhanced Number Styles */
+        .glow-num {
+            top: 30px;
+            right: 40px;
+            font-size: 120px;
+            text-shadow: 0 0 30px #00D9FF, 0 0 60px #00D9FF;
+            opacity: 0.8;
+        }
+        
+        .matrix-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 10px #00FF41;
+            animation: flicker 2s infinite;
+        }
+        
+        .serif-num {
+            top: 40px;
+            left: 40px;
+            font-size: 150px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+            font-weight: 900;
+        }
+        
+        .chart-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #3182CE;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(49, 130, 206, 0.3);
+        }
+        
+        .clean-num {
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            font-size: 200px;
+            font-weight: 100;
+            opacity: 0.08;
+        }
+        
+        .organic-num {
+            bottom: 30px;
+            right: 30px;
+            font-size: 140px;
+            opacity: 0.2;
+            transform: rotate(-5deg);
+        }
+        
+        .neon-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 100px;
+            text-shadow: 0 0 20px #E879F9, 0 0 40px #F472B6;
+            font-weight: 900;
+        }
+        
+        .bold-num {
+            top: 20px;
+            right: 20px;
+            font-size: 120px;
+            font-weight: 900;
+            transform: skew(-10deg);
+            opacity: 0.9;
+        }
+        
+        .scientific-num {
+            top: 30px;
+            left: 30px;
+            font-size: 80px;
+            border: 3px solid #4299E1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(66, 153, 225, 0.1);
+        }
+        
+        .neural-num {
+            top: 40px;
+            right: 40px;
+            font-size: 110px;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+        
+        .luxury-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            color: #F6E05E;
+            text-shadow: 2px 2px 0px #B7791F;
+            font-family: 'Fraunces', serif;
+            opacity: 0.7;
+        }
+        
+        .code-num {
+            top: 20px;
+            left: 20px;
+            font-size: 70px;
+            font-family: 'Courier New', monospace;
+            background: #2D2D2D;
+            color: #4FC3F7;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 4px solid #4FC3F7;
+        }
+        
+        .discovery-num {
+            top: 50%;
+            right: 40px;
+            transform: translateY(-50%);
+            font-size: 140px;
+            opacity: 0.3;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.05); }
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">April 18, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: linear-gradient(135deg, #FF6B35 0%, #FF8F65 100%); color: #FFFFFF">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Claude Design</h2>
+            <div class="meta">
+                <span class="score">▲ 1077</span>
+                <span class="comments">702 comments</span>
+                
+            </div>
+            <a href="https://www.anthropic.com/news/claude-design-anthropic-labs" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47806725" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F0F23; color: #E2E8F0">
+        <div class="num glow-num">2</div>
+        <div class="content">
+            <h2>Are the costs of AI agents also rising exponentially? (2025)</h2>
+            <div class="meta">
+                <span class="score">▲ 226</span>
+                <span class="comments">69 comments</span>
+                <span class="direct">★ FOR YOU</span>
+            </div>
+            <a href="https://www.tobyord.com/writing/hourly-costs-for-ai-agents" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47778922" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A0B0B; color: #FFFFFF">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>Measuring Claude 4.7's tokenizer costs</h2>
+            <div class="meta">
+                <span class="score">▲ 624</span>
+                <span class="comments">442 comments</span>
+                
+            </div>
+            <a href="https://www.claudecodecamp.com/p/i-measured-claude-4-7-s-new-tokenizer-here-s-what-it-costs-you" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47807006" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #000000; color: #00FF41">
+        <div class="num matrix-num">4</div>
+        <div class="content">
+            <h2>Category Theory Illustrated – Orders</h2>
+            <div class="meta">
+                <span class="score">▲ 112</span>
+                <span class="comments">32 comments</span>
+                
+            </div>
+            <a href="https://abuseofnotation.github.io/category-theory-illustrated/04_order/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47813668" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FEFBF3; color: #2D3748">
+        <div class="num serif-num">5</div>
+        <div class="content">
+            <h2>Towards trust in Emacs</h2>
+            <div class="meta">
+                <span class="score">▲ 129</span>
+                <span class="comments">18 comments</span>
+                
+            </div>
+            <a href="https://eshelyaron.com/posts/2026-04-15-towards-trust-in-emacs.html" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47778938" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(180deg, #EBF8FF 0%, #BEE3F8 100%); color: #2A4365">
+        <div class="num chart-num">6</div>
+        <div class="content">
+            <h2>Show HN: Smol machines – subsecond coldstart, portable virtual machines</h2>
+            <div class="meta">
+                <span class="score">▲ 348</span>
+                <span class="comments">116 comments</span>
+                
+            </div>
+            <a href="https://github.com/smol-machines/smolvm" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47808268" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #1A202C">
+        <div class="num clean-num">7</div>
+        <div class="content">
+            <h2>Claude Code Opus 4.7 keeps checking on malware</h2>
+            <div class="meta">
+                <span class="score">▲ 17</span>
+                <span class="comments">12 comments</span>
+                
+            </div>
+            <a href="https://news.ycombinator.com/item?id=47814832" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47814832" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #064E3B 0%, #047857 100%); color: #F0FDF4">
+        <div class="num organic-num">8</div>
+        <div class="content">
+            <h2>Landmark ancient-genome study shows surprise acceleration of human evolution</h2>
+            <div class="meta">
+                <span class="score">▲ 87</span>
+                <span class="comments">79 comments</span>
+                
+            </div>
+            <a href="https://www.nature.com/articles/d41586-026-01204-5" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47811283" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #2D1B69 0%, #0F0F23 100%); color: #E879F9">
+        <div class="num neon-num">9</div>
+        <div class="content">
+            <h2>It's OK to compare floating-points for equality</h2>
+            <div class="meta">
+                <span class="score">▲ 27</span>
+                <span class="comments">18 comments</span>
+                
+            </div>
+            <a href="https://lisyarus.github.io/blog/posts/its-ok-to-compare-floating-points-for-equality.html" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47767398" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #FB923C 0%, #F97316 100%); color: #FFFFFF">
+        <div class="num bold-num">10</div>
+        <div class="content">
+            <h2>All 12 moonwalkers had "lunar hay fever" from dust smelling like gunpowder (2018)</h2>
+            <div class="meta">
+                <span class="score">▲ 351</span>
+                <span class="comments">204 comments</span>
+                
+            </div>
+            <a href="https://www.esa.int/Science_Exploration/Human_and_Robotic_Exploration/The_toxic_side_of_the_Moon" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47808913" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F7FAFC; color: #2D3748">
+        <div class="num scientific-num">11</div>
+        <div class="content">
+            <h2>Rewriting Every Syscall in a Linux Binary at Load Time</h2>
+            <div class="meta">
+                <span class="score">▲ 57</span>
+                <span class="comments">23 comments</span>
+                
+            </div>
+            <a href="https://amitlimaye1.substack.com/p/rewriting-every-syscall-in-a-linux" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47760135" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); color: #FFFFFF">
+        <div class="num neural-num">12</div>
+        <div class="content">
+            <h2>Brunost: The Nynorsk Programming Language</h2>
+            <div class="meta">
+                <span class="score">▲ 81</span>
+                <span class="comments">32 comments</span>
+                
+            </div>
+            <a href="https://lindbakk.com/blog/introducing-brunost" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47756320" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #F7FAFC">
+        <div class="num luxury-num">13</div>
+        <div class="content">
+            <h2>NASA Force</h2>
+            <div class="meta">
+                <span class="score">▲ 281</span>
+                <span class="comments">276 comments</span>
+                
+            </div>
+            <a href="https://nasaforce.gov/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47807209" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1E1E1E; color: #D4D4D4">
+        <div class="num code-num">14</div>
+        <div class="content">
+            <h2>Casus Belli Engineering</h2>
+            <div class="meta">
+                <span class="score">▲ 47</span>
+                <span class="comments">14 comments</span>
+                
+            </div>
+            <a href="https://marcosmagueta.com/blog/casus-belli-engineering/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47812331" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: radial-gradient(circle, #1E3A8A 0%, #1E40AF 100%); color: #FFFFFF">
+        <div class="num discovery-num">15</div>
+        <div class="content">
+            <h2>"cat readme.txt" is not safe if you use iTerm2</h2>
+            <div class="meta">
+                <span class="score">▲ 205</span>
+                <span class="comments">118 comments</span>
+                
+            </div>
+            <a href="https://blog.calif.io/p/mad-bugs-even-cat-readmetxt-is-not" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47809190" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

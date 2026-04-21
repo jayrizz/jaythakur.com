@@ -48,6 +48,48 @@ coverage/
 tmp/
 temp/
 
+# PRIVACY - Never track these (contain PII, financial, health data)
+memory/
+memory/*.md
+memory/.dreams/
+user-data/
+personal/
+
+# Personal work files - local only, never commit to public GitHub
+# These are backed up by Obsidian + iCloud, not needed in git
+AGENTS.md
+BACKLOG.md
+BOOTSTRAP.md
+CONFIG-RULES.md
+HEARTBEAT.md
+IDENTITY.md
+MEMORY.md
+PRIVACY-RULES.md
+SOUL.md
+SYSTEM-STATE.md
+TOOLS.md
+USER.md
+WORKFLOW_AUTO.md
+business-plans/
+data/projects.json
+drafts/
+.learnings/
+.openclaw/workspace-state.json
+
+# LLM Wiki Knowledge Base (contains extracted PII)
+projects/llm-wiki/build/*.db
+projects/llm-wiki/build/processed_sessions.txt
+/Users/admin/Documents/ObsidianVaults/AgentKnowledge/wiki/
+
+# Session processing artifacts
+*.jsonl.processed
+session_analysis/
+
+# Protect critical scripts (but no personal data)
+# Use manual backups, not git
+!scripts/*.sh
+!scripts/*.py
+
 # Build outputs
 dist/
 build/

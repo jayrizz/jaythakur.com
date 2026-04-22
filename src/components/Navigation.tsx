@@ -11,9 +11,9 @@ export default function Navigation() {
       <div className="nav-links">
         <Link href="/" style={{ fontWeight: 700, fontSize: '1.1rem' }}>jaythakur.com</Link>
         <Link href="/">Timeline</Link>
+        <Link href="/work">Work</Link>
         <Link href="/memory">Memory</Link>
         <Link href="/morning-edition">Morning Edition</Link>
-        <Link href="/mission-control">Mission Control</Link>
         <Link href="/projects">Projects</Link>
         
         <div 
@@ -21,7 +21,9 @@ export default function Navigation() {
           onMouseEnter={() => setIsAppsOpen(true)}
           onMouseLeave={() => setIsAppsOpen(false)}
         >
-          <span style={{ color: '#fff', cursor: 'pointer' }}>Apps ▾</span>
+          <Link href="/apps" style={{ display: 'flex', alignItems: 'center', gap: '4px' }}>
+            Apps ▾
+          </Link>
           <div 
             className="dropdown-menu" 
             style={{ 

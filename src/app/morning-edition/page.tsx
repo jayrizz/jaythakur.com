@@ -137,8 +137,6 @@ export default function MorningEditionPage() {
                   </p>
                   <a 
                     href={`/magazines/${day.date}.html`}
-                    target="_blank"
-                    rel="noopener noreferrer"
                     style={{ 
                       display: 'inline-block',
                       padding: '12px 24px',
@@ -148,9 +146,11 @@ export default function MorningEditionPage() {
                       borderRadius: '8px',
                       fontWeight: '600',
                       fontSize: '14px',
-                      transition: 'all 0.2s ease'
+                      transition: 'all 0.2s ease',
+                      cursor: 'pointer'
                     }}
-
+                    onMouseEnter={(e) => e.currentTarget.style.background = '#e85a25'}
+                    onMouseLeave={(e) => e.currentTarget.style.background = '#ff6b35'}
                   >
                     Read Issue →
                   </a>

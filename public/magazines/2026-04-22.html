@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — April 22, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        /* Enhanced Number Styles */
+        .glow-num {
+            top: 30px;
+            right: 40px;
+            font-size: 120px;
+            text-shadow: 0 0 30px #00D9FF, 0 0 60px #00D9FF;
+            opacity: 0.8;
+        }
+        
+        .matrix-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+            text-shadow: 0 0 10px #00FF41;
+            animation: flicker 2s infinite;
+        }
+        
+        .serif-num {
+            top: 40px;
+            left: 40px;
+            font-size: 150px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+            font-weight: 900;
+        }
+        
+        .chart-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #3182CE;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(49, 130, 206, 0.3);
+        }
+        
+        .clean-num {
+            top: 50%;
+            left: 40px;
+            transform: translateY(-50%);
+            font-size: 200px;
+            font-weight: 100;
+            opacity: 0.08;
+        }
+        
+        .organic-num {
+            bottom: 30px;
+            right: 30px;
+            font-size: 140px;
+            opacity: 0.2;
+            transform: rotate(-5deg);
+        }
+        
+        .neon-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 100px;
+            text-shadow: 0 0 20px #E879F9, 0 0 40px #F472B6;
+            font-weight: 900;
+        }
+        
+        .bold-num {
+            top: 20px;
+            right: 20px;
+            font-size: 120px;
+            font-weight: 900;
+            transform: skew(-10deg);
+            opacity: 0.9;
+        }
+        
+        .scientific-num {
+            top: 30px;
+            left: 30px;
+            font-size: 80px;
+            border: 3px solid #4299E1;
+            padding: 10px 15px;
+            border-radius: 8px;
+            background: rgba(66, 153, 225, 0.1);
+        }
+        
+        .neural-num {
+            top: 40px;
+            right: 40px;
+            font-size: 110px;
+            background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: 900;
+        }
+        
+        .luxury-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            color: #F6E05E;
+            text-shadow: 2px 2px 0px #B7791F;
+            font-family: 'Fraunces', serif;
+            opacity: 0.7;
+        }
+        
+        .code-num {
+            top: 20px;
+            left: 20px;
+            font-size: 70px;
+            font-family: 'Courier New', monospace;
+            background: #2D2D2D;
+            color: #4FC3F7;
+            padding: 8px 12px;
+            border-radius: 4px;
+            border-left: 4px solid #4FC3F7;
+        }
+        
+        .discovery-num {
+            top: 50%;
+            right: 40px;
+            transform: translateY(-50%);
+            font-size: 140px;
+            opacity: 0.3;
+            animation: pulse 3s infinite;
+        }
+        
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        @keyframes pulse {
+            0%, 100% { transform: translateY(-50%) scale(1); }
+            50% { transform: translateY(-50%) scale(1.05); }
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">April 22, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: linear-gradient(135deg, #FF6B35 0%, #FF8F65 100%); color: #FFFFFF">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>ChatGPT Images 2.0</h2>
+            <div class="meta">
+                <span class="score">▲ 872</span>
+                <span class="comments">721 comments</span>
+                
+            </div>
+            <a href="https://openai.com/index/introducing-chatgpt-images-2-0/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47852835" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F0F23; color: #E2E8F0">
+        <div class="num glow-num">2</div>
+        <div class="content">
+            <h2>The Vercel breach: OAuth attack exposes risk in platform environment variables</h2>
+            <div class="meta">
+                <span class="score">▲ 322</span>
+                <span class="comments">109 comments</span>
+                
+            </div>
+            <a href="https://www.trendmicro.com/en_us/research/26/d/vercel-breach-oauth-supply-chain.html" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47851634" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A0B0B; color: #FFFFFF">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>Meta employees are up in arms over a mandatory program to train AI on their</h2>
+            <div class="meta">
+                <span class="score">▲ 77</span>
+                <span class="comments">61 comments</span>
+                
+            </div>
+            <a href="https://www.businessinsider.com/meta-new-ai-tool-tracks-staff-activity-sparks-concern-2026-4" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47860961" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #000000; color: #00FF41">
+        <div class="num matrix-num">4</div>
+        <div class="content">
+            <h2>All your agents are going async</h2>
+            <div class="meta">
+                <span class="score">▲ 54</span>
+                <span class="comments">38 comments</span>
+                <span class="direct">★ FOR YOU</span>
+            </div>
+            <a href="https://zknill.io/posts/all-your-agents-are-going-async/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47832720" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FEFBF3; color: #2D3748">
+        <div class="num serif-num">5</div>
+        <div class="content">
+            <h2>Iran claims US exploited networking equipment backdoors during strikes</h2>
+            <div class="meta">
+                <span class="score">▲ 11</span>
+                <span class="comments">8 comments</span>
+                
+            </div>
+            <a href="https://www.tomshardware.com/tech-industry/cyber-security/iran-claims-us-exploited-networking-equipment-backdoors-during-strikes" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47861881" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(180deg, #EBF8FF 0%, #BEE3F8 100%); color: #2A4365">
+        <div class="num chart-num">6</div>
+        <div class="content">
+            <h2>Kuri – Zig based agent-browser alternative</h2>
+            <div class="meta">
+                <span class="score">▲ 41</span>
+                <span class="comments">6 comments</span>
+                <span class="direct">★ FOR YOU</span>
+            </div>
+            <a href="https://github.com/justrach/kuri" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47857964" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #1A202C">
+        <div class="num clean-num">7</div>
+        <div class="content">
+            <h2>Laws of Software Engineering</h2>
+            <div class="meta">
+                <span class="score">▲ 1047</span>
+                <span class="comments">483 comments</span>
+                
+            </div>
+            <a href="https://lawsofsoftwareengineering.com" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47847179" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #064E3B 0%, #047857 100%); color: #F0FDF4">
+        <div class="num organic-num">8</div>
+        <div class="content">
+            <h2>Windows 9x Subsystem for Linux</h2>
+            <div class="meta">
+                <span class="score">▲ 201</span>
+                <span class="comments">47 comments</span>
+                
+            </div>
+            <a href="https://social.hails.org/@hailey/116446826733136456" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47861270" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #2D1B69 0%, #0F0F23 100%); color: #E879F9">
+        <div class="num neon-num">9</div>
+        <div class="content">
+            <h2>Cal.diy: open-source community edition of cal.com</h2>
+            <div class="meta">
+                <span class="score">▲ 218</span>
+                <span class="comments">53 comments</span>
+                
+            </div>
+            <a href="https://github.com/calcom/cal.diy" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47852155" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #FB923C 0%, #F97316 100%); color: #FFFFFF">
+        <div class="num bold-num">10</div>
+        <div class="content">
+            <h2>MuJoCo – Advanced Physics Simulation</h2>
+            <div class="meta">
+                <span class="score">▲ 35</span>
+                <span class="comments">5 comments</span>
+                
+            </div>
+            <a href="https://github.com/google-deepmind/mujoco" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47820791" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F7FAFC; color: #2D3748">
+        <div class="num scientific-num">11</div>
+        <div class="content">
+            <h2>Edit store price tags using Flipper Zero</h2>
+            <div class="meta">
+                <span class="score">▲ 344</span>
+                <span class="comments">315 comments</span>
+                
+            </div>
+            <a href="https://github.com/i12bp8/TagTinker" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47822978" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #667EEA 0%, #764BA2 100%); color: #FFFFFF">
+        <div class="num neural-num">12</div>
+        <div class="content">
+            <h2>Changes to GitHub Copilot individual plans</h2>
+            <div class="meta">
+                <span class="score">▲ 480</span>
+                <span class="comments">194 comments</span>
+                
+            </div>
+            <a href="https://github.blog/news-insights/company-news/changes-to-github-copilot-individual-plans/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47838508" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #F7FAFC">
+        <div class="num luxury-num">13</div>
+        <div class="content">
+            <h2>Framework Laptop 13 Pro</h2>
+            <div class="meta">
+                <span class="score">▲ 1323</span>
+                <span class="comments">663 comments</span>
+                
+            </div>
+            <a href="https://frame.work/laptop13pro" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47852177" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1E1E1E; color: #D4D4D4">
+        <div class="num code-num">14</div>
+        <div class="content">
+            <h2>Prefill-as-a-Service:KVCache of Next-Generation Models Could Go Cross-Datacenter</h2>
+            <div class="meta">
+                <span class="score">▲ 7</span>
+                <span class="comments">0 comments</span>
+                
+            </div>
+            <a href="https://arxiv.org/abs/2604.15039" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47822117" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: radial-gradient(circle, #1E3A8A 0%, #1E40AF 100%); color: #FFFFFF">
+        <div class="num discovery-num">15</div>
+        <div class="content">
+            <h2>Garbage Collection Without Unsafe Code</h2>
+            <div class="meta">
+                <span class="score">▲ 64</span>
+                <span class="comments">8 comments</span>
+                
+            </div>
+            <a href="https://fitzgen.com/2024/02/06/safe-gc.html" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47821853" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

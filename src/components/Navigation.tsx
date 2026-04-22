@@ -11,6 +11,7 @@ export default function Navigation() {
       <div className="nav-links">
         <Link href="/" style={{ fontWeight: 700, fontSize: '1.1rem' }}>jaythakur.com</Link>
         <Link href="/">Timeline</Link>
+        <Link href="/dashboard">Dashboard</Link>
         <Link href="/work">Work</Link>
         <Link href="/memory">Memory</Link>
         <Link href="/morning-edition">Morning Edition</Link>

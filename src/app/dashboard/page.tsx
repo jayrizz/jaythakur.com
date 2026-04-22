@@ -1,0 +1,308 @@
+'use client'
+
+import { useState, useEffect } from 'react'
+import PageHeader from '@/components/PageHeader'
+import Card, { CardHeader, CardContent, CardActions } from '@/components/Card'
+import Link from 'next/link'
+
+interface Service {
+  name: string
+  status: 'online' | 'offline' | 'unknown'
+  url: string
+  port: number
+  type: 'internal' | 'external'
+  lastChecked: string
+}
+
+interface App {
+  id: string
+  name: string
+  description: string
+  status: 'running' | 'offline' | 'maintenance'
+  url: string
+  type: 'dashboard' | 'tool' | 'service'
+  icon?: string
+}
+
+export default function DashboardPage() {
+  const [services, setServices] = useState<Service[]>([
+    { name: 'AOC Dashboard', status: 'unknown', url: 'http://localhost:18800', port: 18800, type: 'internal', lastChecked: new Date().toISOString() },
+    { name: 'Quant Dashboard', status: 'unknown', url: 'http://localhost:5173', port: 5173, type: 'internal', lastChecked: new Date().toISOString() },
+    { name: 'OpenClaw Gateway', status: 'unknown', url: 'http://localhost:3000', port: 3000, type: 'internal', lastChecked: new Date().toISOString() },
+    { name: 'Next.js App', status: 'unknown', url: 'http://localhost:3001', port: 3001, type: 'internal', lastChecked: new Date().toISOString() }
+  ])
+
+  const [lastRefresh, setLastRefresh] = useState<Date>(new Date())
+  const [isRefreshing, setIsRefreshing] = useState(false)
+
+  const apps: App[] = [
+    { id: 'memory', name: 'Memory', description: 'Personal memory system', status: 'running', url: '/memory', type: 'dashboard', icon: '🧠' },
+    { id: 'morning-edition', name: 'Morning Edition', description: 'Daily AI-curated newsletter', status: 'running', url: '/morning-edition', type: 'dashboard', icon: '☀️' },
+    { id: 'work', name: 'Work', description: 'Projects, backlog, and tasks', status: 'running', url: '/work', type: 'dashboard', icon: '📋' },
+    { id: 'projects', name: 'Projects', description: 'Deployed live applications', status: 'running', url: '/projects', type: 'dashboard', icon: '🚀' },
+    { id: 'aoc', name: 'AOC Dashboard', description: 'Advent of Code tracker', status: 'running', url: 'http://localhost:18800', type: 'tool', icon: '🎄' },
+    { id: 'quant', name: 'Quant Dashboard', description: 'Financial data analysis', status: 'running', url: 'http://localhost:5173', type: 'tool', icon: '📊' }
+  ]
+
+  const checkServiceHealth = async (url: string): Promise<'online' | 'offline'> => {
+    try {
+      const response = await fetch(`/api/health-check?url=${encodeURIComponent(url)}`, {
+        method: 'GET',
+        signal: AbortSignal.timeout(5000)
+      })
+      const result = await response.json()
+      return result.status === 'ok' ? 'online' : 'offline'
+    } catch (error) {
+      return 'offline'
+    }
+  }
+
+  const refreshServices = async () => {
+    setIsRefreshing(true)
+    setLastRefresh(new Date())
+
+    const updatedServices = await Promise.all(
+      services.map(async (service) => {
+        const status = await checkServiceHealth(service.url)
+        return {
+          ...service,
+          status,
+          lastChecked: new Date().toISOString()
+        }
+      })
+    )
+
+    setServices(updatedServices)
+    setIsRefreshing(false)
+  }
+
+  useEffect(() => {
+    refreshServices()
+    const interval = setInterval(refreshServices, 60000) // Check every 60 seconds
+    return () => clearInterval(interval)
+  }, [])
+
+  const onlineCount = services.filter(s => s.status === 'online').length
+  const totalCount = services.length
+  const healthPercent = Math.round((onlineCount / totalCount) * 100)
+
+  const statusColor = (status: string) => {
+    switch (status) {
+      case 'online':
+        return '#22c55e'
+      case 'offline':
+        return '#ef4444'
+      case 'maintenance':
+        return '#fbbf24'
+      default:
+        return '#6b7280'
+    }
+  }
+
+  return (
+    <>
+      <PageHeader
+        title="Dashboard"
+        description="System status, deployed apps, and quick access to all tools and services."
+      />
+
+      <div style={{ display: 'grid', gridTemplateColumns: '1fr', gap: '48px' }}>
+        {/* System Status Summary */}
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px', fontSize: '1.5rem' }}>
+            🖥️ System Status
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '16px', marginBottom: '32px' }}>
+            <Card>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: healthPercent === 100 ? '#22c55e' : healthPercent >= 75 ? '#fbbf24' : '#ef4444', marginBottom: '8px' }}>
+                  {healthPercent}%
+                </div>
+                <div style={{ color: '#aaa', fontSize: '0.9rem' }}>System Health</div>
+              </div>
+            </Card>
+
+            <Card>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#22c55e', marginBottom: '8px' }}>
+                  {onlineCount}/{totalCount}
+                </div>
+                <div style={{ color: '#aaa', fontSize: '0.9rem' }}>Services Online</div>
+              </div>
+            </Card>
+
+            <Card>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '2.5rem', fontWeight: 'bold', color: '#4a9eff', marginBottom: '8px' }}>
+                  {lastRefresh.toLocaleTimeString()}
+                </div>
+                <div style={{ color: '#aaa', fontSize: '0.9rem' }}>Last Checked</div>
+              </div>
+            </Card>
+
+            <Card>
+              <button
+                onClick={refreshServices}
+                disabled={isRefreshing}
+                style={{
+                  width: '100%',
+                  padding: '12px',
+                  background: isRefreshing ? '#666' : '#4a9eff',
+                  color: '#fff',
+                  border: 'none',
+                  borderRadius: '8px',
+                  cursor: isRefreshing ? 'not-allowed' : 'pointer',
+                  fontWeight: '600',
+                  transition: 'background 0.2s'
+                }}
+              >
+                {isRefreshing ? '🔄 Checking...' : '🔄 Refresh Now'}
+              </button>
+            </Card>
+          </div>
+        </div>
+
+        {/* Service Status */}
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px', fontSize: '1.5rem' }}>
+            🔧 Internal Services
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            {services.map((service) => (
+              <Card key={service.name}>
+                <CardHeader title={service.name} status={service.status} />
+                <CardContent>
+                  <div style={{ marginBottom: '12px' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                      <div
+                        style={{
+                          width: '8px',
+                          height: '8px',
+                          borderRadius: '50%',
+                          background: statusColor(service.status)
+                        }}
+                      />
+                      <span style={{ color: '#ccc', fontSize: '0.9rem' }}>
+                        {service.status === 'online' ? 'Running' : service.status === 'offline' ? 'Offline' : 'Unknown'}
+                      </span>
+                    </div>
+                    <div style={{ color: '#888', fontSize: '0.85rem' }}>
+                      Port: {service.port}
+                    </div>
+                  </div>
+                </CardContent>
+                <CardActions>
+                  <a href={service.url} target="_blank" rel="noopener noreferrer" className="btn">
+                    Open →
+                  </a>
+                </CardActions>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Deployed Apps */}
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px', fontSize: '1.5rem' }}>
+            🚀 Deployed Apps
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+            {apps.map((app) => (
+              <Card key={app.id}>
+                <CardHeader
+                  title={`${app.icon || '📱'} ${app.name}`}
+                  subtitle={app.type === 'dashboard' ? 'Dashboard' : 'Tool'}
+                  status="online"
+                />
+                <CardContent>
+                  <p style={{ color: '#ccc', fontSize: '0.9rem', marginBottom: '12px' }}>
+                    {app.description}
+                  </p>
+                </CardContent>
+                <CardActions>
+                  {app.url.startsWith('http') ? (
+                    <a href={app.url} target="_blank" rel="noopener noreferrer" className="btn">
+                      Open →
+                    </a>
+                  ) : (
+                    <Link href={app.url} className="btn">
+                      Open →
+                    </Link>
+                  )}
+                </CardActions>
+              </Card>
+            ))}
+          </div>
+        </div>
+
+        {/* Quick Actions */}
+        <div>
+          <h2 style={{ color: '#fff', marginBottom: '24px', fontSize: '1.5rem' }}>
+            ⚡ Quick Actions
+          </h2>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
+            <Card>
+              <CardContent style={{ paddingTop: '0' }}>
+                <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>📋 View Work</h3>
+                <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
+                  Check active projects, backlog, and current tasks
+                </p>
+              </CardContent>
+              <CardActions>
+                <Link href="/work" className="btn">
+                  Go to Work →
+                </Link>
+              </CardActions>
+            </Card>
+
+            <Card>
+              <CardContent style={{ paddingTop: '0' }}>
+                <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>💭 Memory</h3>
+                <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
+                  Browse personal memories and tagged notes
+                </p>
+              </CardContent>
+              <CardActions>
+                <Link href="/memory" className="btn">
+                  View Memory →
+                </Link>
+              </CardActions>
+            </Card>
+
+            <Card>
+              <CardContent style={{ paddingTop: '0' }}>
+                <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>📰 Morning Edition</h3>
+                <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
+                  Read the latest curated newsletter
+                </p>
+              </CardContent>
+              <CardActions>
+                <Link href="/morning-edition" className="btn">
+                  Read Latest →
+                </Link>
+              </CardActions>
+            </Card>
+
+            <Card>
+              <CardContent style={{ paddingTop: '0' }}>
+                <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>🚀 Live Projects</h3>
+                <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
+                  Deployed applications and live work
+                </p>
+              </CardContent>
+              <CardActions>
+                <Link href="/projects" className="btn">
+                  View Projects →
+                </Link>
+              </CardActions>
+            </Card>
+          </div>
+        </div>
+      </div>
+    </>
+  )
+}

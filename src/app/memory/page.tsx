@@ -268,25 +268,19 @@ export default function MemoryPage() {
         ))}
       </div>
 
-      {/* Add Memory Section */}
+      {/* About This Memory System */}
       <Card style={{ marginTop: '32px' }}>
-        <CardHeader title="Add New Memory" subtitle="Record a new learning or insight" />
+        <CardHeader title="About This Memory System" />
         <CardContent>
-          <p style={{ color: '#aaa', marginBottom: '16px' }}>
-            Memories are currently managed through the OpenClaw system. New entries can be added 
-            through the agent interface or by directly updating the memory files.
+          <p style={{ color: '#aaa', marginBottom: '12px', lineHeight: '1.6' }}>
+            This is a persistent memory system integrated with OpenClaw. Every session is logged, 
+            processed, and stored. Memories are tagged, searchable, and used to provide continuity 
+            across conversations.
           </p>
-          <div style={{ display: 'flex', gap: '12px' }}>
-            <button className="btn btn-secondary">
-              📝 Quick Note
-            </button>
-            <button className="btn btn-secondary">
-              🏷️ Browse Tags
-            </button>
-            <button className="btn btn-secondary">
-              📊 Memory Analytics
-            </button>
-          </div>
+          <p style={{ color: '#aaa', lineHeight: '1.6' }}>
+            New memories are created through the agent interface during our conversations. 
+            The system learns from each interaction and builds a knowledge base over time.
+          </p>
         </CardContent>
       </Card>
     </>

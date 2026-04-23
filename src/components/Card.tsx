@@ -5,11 +5,12 @@ interface CardProps {
   className?: string
   hover?: boolean
   style?: CSSProperties
+  onClick?: (e?: any) => void
 }
 
-export default function Card({ children, className = '', hover = false, style }: CardProps) {
+export default function Card({ children, className = '', hover = false, style, onClick }: CardProps) {
   return (
-    <div className={`card ${hover ? 'hover-effect' : ''} ${className}`} style={style}>
+    <div className={`card ${hover ? 'hover-effect' : ''} ${className}`} style={style} onClick={onClick}>
       {children}
     </div>
   )
@@ -18,7 +19,7 @@ export default function Card({ children, className = '', hover = false, style }:
 interface CardHeaderProps {
   title: string | ReactNode
   subtitle?: string
-  status?: 'online' | 'offline' | 'building' | 'unknown' | 'active' | 'completed' | 'archived' | 'planned'
+  status?: 'online' | 'offline' | 'building' | 'research' | 'planning' | 'idea' | 'unknown' | 'active' | 'completed' | 'archived' | 'planned' | 'todo' | 'in-progress' | 'blocked' | 'done'
   actions?: ReactNode
 }
 

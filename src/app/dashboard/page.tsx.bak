@@ -240,7 +240,7 @@ export default function DashboardPage() {
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '16px' }}>
             <Card>
-              <CardContent>
+              <CardContent style={{ paddingTop: '0' }}>
                 <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>📋 View Work</h3>
                 <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
                   Check active projects, backlog, and current tasks
@@ -254,7 +254,7 @@ export default function DashboardPage() {
             </Card>
 
             <Card>
-              <CardContent>
+              <CardContent style={{ paddingTop: '0' }}>
                 <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>💭 Memory</h3>
                 <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
                   Browse personal memories and tagged notes
@@ -268,7 +268,7 @@ export default function DashboardPage() {
             </Card>
 
             <Card>
-              <CardContent>
+              <CardContent style={{ paddingTop: '0' }}>
                 <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>📰 Morning Edition</h3>
                 <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
                   Read the latest curated newsletter
@@ -282,7 +282,7 @@ export default function DashboardPage() {
             </Card>
 
             <Card>
-              <CardContent>
+              <CardContent style={{ paddingTop: '0' }}>
                 <h3 style={{ color: '#4a9eff', marginBottom: '12px' }}>🚀 Live Projects</h3>
                 <p style={{ color: '#aaa', fontSize: '0.9rem', marginBottom: '16px' }}>
                   Deployed applications and live work

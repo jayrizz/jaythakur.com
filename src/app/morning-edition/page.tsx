@@ -149,8 +149,7 @@ export default function MorningEditionPage() {
                       transition: 'all 0.2s ease',
                       cursor: 'pointer'
                     }}
-                    onMouseEnter={(e) => e.currentTarget.style.background = '#e85a25'}
-                    onMouseLeave={(e) => e.currentTarget.style.background = '#ff6b35'}
+
                   >
                     Read Issue →
                   </a>

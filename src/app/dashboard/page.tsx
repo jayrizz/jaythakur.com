@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { Route } from '@/routes';
 import PageHeader from '@/components/PageHeader'
 import Card, { CardHeader, CardContent, CardActions } from '@/components/Card'
 import Link from 'next/link'

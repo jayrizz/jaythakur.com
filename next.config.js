@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Enable static exports for easier deployment
-  output: 'standalone',
   
   // Proxy configuration for external services
   async rewrites() {

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
+import { Route } from '@/routes';
 import PageHeader from '@/components/PageHeader'
 import Card, { CardHeader, CardContent, CardActions } from '@/components/Card'
 import Link from 'next/link'
@@ -247,9 +248,7 @@ export default function DashboardPage() {
                 </p>
               </CardContent>
               <CardActions>
-                <Link href="/work" className="btn">
-                  Go to Work →
-                </Link>
+                <span className="btn" style={{opacity:0.5}}>Work page under maintenance</span>
               </CardActions>
             </Card>
 

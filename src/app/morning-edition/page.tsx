@@ -1,32 +1,55 @@
+import fs from 'fs';
+import path from 'path';
+
+// Dynamic magazine scanner
+function getAvailableMagazines() {
+  const magazinesDir = path.join(process.cwd(), 'public/magazines');
+  if (!fs.existsSync(magazinesDir)) return [];
+  
+  const files = fs.readdirSync(magazinesDir)
+    .filter(f => f.endsWith('.html'))
+    .map(f => f.replace('.html', ''))
+    .sort()
+    .reverse()
+    .slice(0, 7); // Latest 7
+  
+  return files;
+}
+
 export default function MorningEditionPage() {
+  // Scan available magazines dynamically
+  const availableMagazines = getAvailableMagazines();
+  
   // Generate last 7 days and check which magazines exist
   const generateRecentDays = () => {
-    const days = []
-    const today = new Date('2026-04-17') // Current date context
+    const days = [];
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
     
     for (let i = 0; i < 7; i++) {
-      const date = new Date(today)
-      date.setDate(today.getDate() - i)
-      const dateStr = date.toISOString().split('T')[0] // YYYY-MM-DD format
+      const date = new Date(today);
+      date.setDate(today.getDate() - i);
+      const dateStr = date.toISOString().split('T')[0];
       
+      const exists = availableMagazines.includes(dateStr);
       days.push({
         date: dateStr,
-        displayDate: date.toLocaleDateString('en-US', { 
-          weekday: 'long', 
-          year: 'numeric', 
-          month: 'long', 
-          day: 'numeric' 
+        displayDate: date.toLocaleDateString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
         }),
-        exists: ['2026-04-15', '2026-04-16', '2026-04-17'].includes(dateStr),
-        description: i === 0 ? "Today's curation" : 
-                    i === 1 ? "Yesterday's picks" : 
+        exists,
+        description: i === 0 ? "Today's curation" :
+                    i === 1 ? "Yesterday's picks" :
                     `${i} days ago`
-      })
+      });
     }
-    return days
-  }
+    return days;
+  };
 
-  const recentDays = generateRecentDays()
+  const recentDays = generateRecentDays();
 
   return (
     <div style={{ padding: '40px', maxWidth: '1200px', margin: '0 auto' }}>
@@ -149,7 +172,6 @@ export default function MorningEditionPage() {
                       transition: 'all 0.2s ease',
                       cursor: 'pointer'
                     }}
-
                   >
                     Read Issue →
                   </a>
@@ -243,7 +265,6 @@ export default function MorningEditionPage() {
             fontWeight: '600',
             transition: 'all 0.2s ease'
           }}
-
         >
           ← Back to Timeline
         </a>

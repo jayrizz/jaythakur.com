@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Dashboard</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #111; color: #e5e5e5; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        header { text-align: center; padding: 40px 0; border-bottom: 3px solid #E11D48; margin-bottom: 30px; }
+        h1 { font-size: clamp(32px, 6vw, 64px); font-weight: 900; color: #fff; }
+        .subtitle { font-size: 16px; opacity: 0.6; margin-top: 8px; }
+        .updated { font-size: 13px; opacity: 0.4; margin-top: 12px; font-style: italic; }
+        .section { margin-bottom: 35px; }
+        .section-title { font-size: 22px; font-weight: 700; margin-bottom: 16px; display: flex; align-items: center; gap: 10px; }
+        .section-title::before { content: ''; width: 3px; height: 24px; background: #E11D48; border-radius: 2px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+        .card { background: #1a1a1a; border: 1px solid #262626; border-radius: 10px; padding: 20px; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 10px; }
+        .card h3 { font-size: 16px; font-weight: 600; color: #fff; }
+        .badge { font-size: 10px; font-weight: 700; text-transform: uppercase; padding: 3px 8px; border-radius: 15px; }
+        .badge-active { background: rgba(59, 130, 246, 0.15); color: #3b82f6; }
+        .badge-complete { background: rgba(34, 197, 94, 0.15); color: #22c55e; }
+        .badge-progress { background: rgba(168, 85, 247, 0.15); color: #a855f7; }
+        .badge-blocked { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+        .badge-paused { background: rgba(234, 179, 8, 0.15); color: #eab308; }
+        .badge-exploring { background: rgba(156, 163, 175, 0.15); color: #9ca3af; }
+        .card p { font-size: 13px; line-height: 1.4; opacity: 0.7; }
+        .tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+        .tag { font-size: 10px; padding: 3px 6px; background: #262626; border-radius: 4px; }
+        table { width: 100%; border-collapse: collapse; font-size: 13px; }
+        th { text-align: left; padding: 12px; background: #1a1a1a; font-size: 10px; text-transform: uppercase; color: #737373; border-bottom: 1px solid #262626; }
+        td { padding: 12px; border-bottom: 1px solid #262626; }
+        .price { color: #22c55e; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Status Dashboard</h1>
+            <p class="subtitle">Projects, Goals & Current Focus</p>
+            <p class="updated">Last updated: May 2, 2026 at 7:33 AM CDT</p>
+        </header>
+
+        <div class="section">
+            <h2 class="section-title">Current Focus</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Claude CLI Auth</h3>
+                        <span class="badge badge-active">Active</span>
+                    </div>
+                    <p>Switch OpenClow from API token to Pro. 7 PM today.</p>
+                    <div class="tags"><span class="tag">OpenClaw</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Tax Filing</h3>
+                        <span class="badge badge-active">Active</span>
+                    </div>
+                    <p>Send $127K crypto tax to CPA.</p>
+                    <div class="tags"><span class="tag">Finance</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Water Heater</h3>
+                        <span class="badge badge-progress">In Progress</span>
+                    </div>
+                    <p>Rinnai quotes $2,500-2,900.</p>
+                    <div class="tags"><span class="tag">Home</span></div>
+                </div>
+                <div class="card">
+                    <div class="card-header">
+                        <h3>System Health</h3>
+                        <span class="badge badge-progress">In Progress</span>
+                    </div>
+                    <p>GCal + Discord broken.</p>
+                    <div class="tags"><span class="tag">Infra</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">May Goals</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header"><h3>Quit Vaping</h3><span class="badge badge-active">Active</span></div>
+                    <p>Health #1 priority.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>Start Exercising</h3><span class="badge badge-progress">In Progress</span></div>
+                    <p>Regular routine.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>Meditate</h3><span class="badge badge-progress">In Progress</span></div>
+                    <p>Mental discipline.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>Exec Presence</h3><span class="badge badge-exploring">Exploring</span></div>
+                    <p>Career dev.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-header"><h3>Job Search Ops</h3><span class="badge badge-active">Active</span></div>
+                    <p>Active search.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>LLM Wiki</h3><span class="badge badge-active">Active</span></div>
+                    <p>Knowledge base.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>Morning Edition</h3><span class="badge badge-active">Active</span></div>
+                    <p>HN curation.</p>
+                </div>
+                <div class="card">
+                    <div class="card-header"><h3>Crypto Audit</h3><span class="badge badge-complete">Done</span></div>
+                    <p>$127K recovered.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Car Research</h2>
+            <table>
+                <thead><tr><th>Car</th><th>Price</th><th>Miles</th><th>$/mo</th><th>Notes</th></tr></thead>
+                <tbody>
+                    <tr><td>VW ID.4 '22</td><td class="price">$21,837</td><td>13K</td><td>$383</td><td>Best EV deal</td></tr>
+                    <tr><td>Jaguar E-Pace '20</td><td class="price">$22,998</td><td>53K</td><td>$380</td><td>AWD used</td></tr>
+                    <tr><td>Kia K4 '25</td><td class="price">$23,998</td><td>3K</td><td>$397</td><td>Kids car</td></tr>
+                    <tr><td>Volvo S60 '24</td><td class="price">$23,998</td><td>59K</td><td>$352</td><td>Cheapest</td></tr>
+                    <tr><td>Volvo C40 '23</td><td class="price">$27,590</td><td>46K</td><td>$493</td><td>Premium EV</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Business Ideas</h2>
+            <div class="grid">
+                <div class="card"><h3>Voting Tool</h3><p>Civic tech MVP.</p></div>
+                <div class="card"><h3>Supply Chain AI</h3><p>Enterprise agents.</p></div>
+                <div class="card"><h3>Political Tracker</h3><p>Stock impact.</p></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

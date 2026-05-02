@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status — Jay Thakur</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            color: #e5e5e5;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 60px 20px;
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 60px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid #333;
+        }
+        
+        h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(36px, 8vw, 64px);
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+        
+        .updated {
+            color: #666;
+            font-size: 14px;
+        }
+        
+        section {
+            margin-bottom: 50px;
+        }
+        
+        h2 {
+            font-family: 'Fraunces', serif;
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #E11D48;
+            display: inline-block;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 16px;
+        }
+        
+        .card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #333;
+        }
+        
+        .card-title {
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+        
+        .card-desc {
+            font-size: 14px;
+            color: #888;
+            margin-bottom: 12px;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .tag-active { background: #E11D48; color: white; }
+        .tag-in_progress { background: #F59E0B; color: #111; }
+        .tag-complete { background: #10B981; color: white; }
+        .tag-paused { background: #666; color: white; }
+        .tag-exploring { background: #3B82F6; color: white; }
+        
+        .car-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid #333;
+        }
+        
+        .car-row:last-child { border: none; }
+        
+        .car-name { font-weight: 600; }
+        .car-price { font-family: 'Fraunces', serif; font-size: 18px; }
+        .car-permo { color: #666; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Status</h1>
+            <p class="updated">Last updated: May 2, 2026</p>
+        </header>
+        
+        <section>
+            <h2>Current Focus</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Claude CLI Auth</div>
+                    <div class="card-desc">Switch to Pro subscription</div>
+                    <span class="tag tag-active">active</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Tax Filing</div>
+                    <div class="card-desc">$127K crypto amendment</div>
+                    <span class="tag tag-active">active</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Water Heater</div>
+                    <div class="card-desc">Tank replacement scheduled</div>
+                    <span class="tag tag-complete">complete</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">System Health</div>
+                    <div class="card-desc">GCal + Discord broken</div>
+                    <span class="tag tag-in_progress">in progress</span>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>May Goals</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Quit Vaping</div>
+                    <span class="tag tag-active">active</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Start Exercising</div>
+                    <span class="tag tag-in_progress">in progress</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Meditate</div>
+                    <span class="tag tag-in_progress">in progress</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Exec Presence</div>
+                    <span class="tag tag-exploring">exploring</span>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Projects</h2>
+            <div class="grid">
+                <div class="card">
+                    <div class="card-title">Job Search Ops</div>
+                    <span class="tag tag-active">active</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">LLM Wiki</div>
+                    <span class="tag tag-active">active</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Morning Edition</div>
+                    <span class="tag tag-active">active</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Crypto Audit</div>
+                    <span class="tag tag-complete">complete</span>
+                </div>
+                <div class="card">
+                    <div class="card-title">Voice Assistant</div>
+                    <span class="tag tag-paused">paused</span>
+                </div>
+            </div>
+        </section>
+        
+        <section>
+            <h2>Car Research</h2>
+            <div class="car-row">
+                <span class="car-name">VW ID.4 '22</span>
+                <span class="car-price">$21,837 <span class="car-permo">/$383mo</span></span>
+            </div>
+            <div class="car-row">
+                <span class="car-name">Jaguar E-Pace '20</span>
+                <span class="car-price">$22,998 <span class="car-permo">/$380mo</span></span>
+            </div>
+            <div class="car-row">
+                <span class="car-name">Kia K4 '25</span>
+                <span class="car-price">$23,997 <span class="car-permo">/$397mo</span></span>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

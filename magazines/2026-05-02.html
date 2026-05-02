@@ -67,6 +67,38 @@
             width: 100%;
         }
         
+        .source-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .source-favicon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: white;
+            padding: 2px;
+        }
+        
+        .domain {
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .blurb {
+            font-size: 18px;
+            line-height: 1.5;
+            opacity: 0.85;
+            margin-bottom: 24px;
+            font-style: italic;
+            max-width: 700px;
+        }
+        
         .content h2 {
             font-family: 'Fraunces', serif;
             font-size: clamp(28px, 5vw, 56px);
@@ -220,11 +252,15 @@
     <div class="spread" style="background: #FEF3C7; color: #1F2937">
         <div class="num hero-num">1</div>
         <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=github.com&sz=64" alt="github.com" class="source-favicon">
+                <span class="domain">github.com</span>
+            </div>
             <h2>Show HN: DAC – open-source dashboard as code tool for agents and humans</h2>
+            <p class="blurb">Hi all, this is Burak.When agents became a reality one of the first things I wanted to do was to automate building dashboards. The first, and the most obvious, wall that I ran into was that a lot of the tools were just driven by UI. This meant that without the agents handling browser UIs and whatnot</p>
             <div class="meta">
-                <span class="source-badge" style="background:#ff6600">HACKER NEWS</span>
                 <span class="score">▲ 30</span>
-                <span class="comments">4 comments</span>
+                <span class="comments">5 comments</span>
                 <span class="direct">★ FOR YOU</span>
             </div>
             <a href="https://github.com/bruin-data/dac" class="read-link">Read →</a>
@@ -235,11 +271,15 @@
     <div class="spread" style="background: #0F172A; color: #E2E8F0">
         <div class="num stamp-num">2</div>
         <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=www.noctua.at&sz=64" alt="www.noctua.at" class="source-favicon">
+                <span class="domain">www.noctua.at</span>
+            </div>
             <h2>Why does it take so long to release black fan versions?</h2>
+            
             <div class="meta">
-                <span class="source-badge" style="background:#ff6600">HACKER NEWS</span>
-                <span class="score">▲ 313</span>
-                <span class="comments">145 comments</span>
+                <span class="score">▲ 328</span>
+                <span class="comments">151 comments</span>
                 
             </div>
             <a href="https://www.noctua.at/en/expertise/blog/how-can-it-take-so-long-to-release-black-fan-versions" class="read-link">Read →</a>
@@ -250,26 +290,15 @@
     <div class="spread" style="background: #FFF1F2; color: #881337">
         <div class="num alert-num">3</div>
         <div class="content">
-            <h2>Show HN: Mljar Studio – local AI data analyst that saves analysis as notebooks</h2>
-            <div class="meta">
-                <span class="source-badge" style="background:#ff6600">HACKER NEWS</span>
-                <span class="score">▲ 21</span>
-                <span class="comments">2 comments</span>
-                
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=devblogs.microsoft.com&sz=64" alt="devblogs.microsoft.com" class="source-favicon">
+                <span class="domain">devblogs.microsoft.com</span>
             </div>
-            <a href="https://mljar.com/" class="read-link">Read →</a>
-            <a href="https://news.ycombinator.com/item?id=47985077" class="hn-link">HN</a>
-        </div>
-    </div>
-    
-    <div class="spread" style="background: #1A1A1A; color: #00FF00">
-        <div class="num terminal-num">04</div>
-        <div class="content">
             <h2>Why are there both TMP and TEMP environment variables? (2015)</h2>
+            
             <div class="meta">
-                <span class="source-badge" style="background:#ff6600">HACKER NEWS</span>
-                <span class="score">▲ 57</span>
-                <span class="comments">26 comments</span>
+                <span class="score">▲ 66</span>
+                <span class="comments">29 comments</span>
                 
             </div>
             <a href="https://devblogs.microsoft.com/oldnewthing/20150417-00/?p=44213" class="read-link">Read →</a>
@@ -277,18 +306,41 @@
         </div>
     </div>
     
-    <div class="spread" style="background: #F8F5F1; color: #2D3748">
-        <div class="num dropcap-num">5</div>
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
         <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=eclecticlight.co&sz=64" alt="eclecticlight.co" class="source-favicon">
+                <span class="domain">eclecticlight.co</span>
+            </div>
             <h2>How fast is a macOS VM, and how small could it be?</h2>
+            
             <div class="meta">
-                <span class="source-badge" style="background:#ff6600">HACKER NEWS</span>
-                <span class="score">▲ 53</span>
-                <span class="comments">12 comments</span>
+                <span class="score">▲ 56</span>
+                <span class="comments">15 comments</span>
                 
             </div>
             <a href="https://eclecticlight.co/2026/05/02/how-fast-is-a-macos-vm-and-how-small-could-it-be/" class="read-link">Read →</a>
             <a href="https://news.ycombinator.com/item?id=47984852" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=iesna.eu&sz=64" alt="iesna.eu" class="source-favicon">
+                <span class="domain">iesna.eu</span>
+            </div>
+            <h2>Show HN: Browser-based light pollution simulator using real photometric data</h2>
+            <p class="blurb">Hi HN — author here. iesna.eu is a browser-based ecosystem for working with photometric data: parsing standard luminaire files (LDT&#x2F;EULUMDAT, IES LM-63, Oxytech, ATLA-S001), running design calculations against EN 13201 &#x2F; ANSI&#x2F;IES RP-8 &#x2F; CJJ 45 &#x2F; IES-IDA MLO, and (the part I </p>
+            <div class="meta">
+                <span class="score">▲ 22</span>
+                <span class="comments">5 comments</span>
+                
+            </div>
+            <a href="https://iesna.eu/?wasm=skyglow_demo" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=47984734" class="hn-link">HN</a>
         </div>
     </div>
     

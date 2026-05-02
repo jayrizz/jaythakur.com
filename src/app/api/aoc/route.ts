@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-static'
+
 // Proxy route to local AOC Dashboard
 // Local service runs on port 18800
 // Uses Tailscale serve for remote access

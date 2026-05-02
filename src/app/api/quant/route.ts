@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-static'
+
 // Proxy route to local Quant Dashboard
 // Local service runs on port 5173
 

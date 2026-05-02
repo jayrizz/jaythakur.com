@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server'
 
+export const dynamic = 'force-static'
+
 // Proxy route to local OpenClaw Gateway
 // Default gateway runs on port 3000
 

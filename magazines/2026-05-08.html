@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — May 08, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .source-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .source-favicon {
+            width: 28px;
+            height: 28px;
+            border-radius: 6px;
+            background: white;
+            padding: 2px;
+        }
+        
+        .domain {
+            font-size: 14px;
+            font-weight: 600;
+            opacity: 0.7;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .blurb {
+            font-size: 18px;
+            line-height: 1.5;
+            opacity: 0.85;
+            margin-bottom: 24px;
+            font-style: italic;
+            max-width: 700px;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">May 08, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=xeiaso.net&sz=64" alt="xeiaso.net" class="source-favicon">
+                <span class="domain">xeiaso.net</span>
+            </div>
+            <h2>Maybe you shouldn't install new software for a bit</h2>
+            
+            <div class="meta">
+                <span class="score">▲ 610</span>
+                <span class="comments">332 comments</span>
+                
+            </div>
+            <a href="https://xeiaso.net/blog/2026/abstain-from-install/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48056227" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=www.reuters.com&sz=64" alt="www.reuters.com" class="source-favicon">
+                <span class="domain">www.reuters.com</span>
+            </div>
+            <h2>Cloudflare to cut about 20% workforce</h2>
+            <p class="blurb">https:&#x2F;&#x2F;blog.cloudflare.com&#x2F;building-for-the-future&#x2F;</p>
+            <div class="meta">
+                <span class="score">▲ 899</span>
+                <span class="comments">605 comments</span>
+                
+            </div>
+            <a href="https://www.reuters.com/business/world-at-work/cloudflare-cut-over-1100-jobs-2026-05-07/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48054423" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=www.theverge.com&sz=64" alt="www.theverge.com" class="source-favicon">
+                <span class="domain">www.theverge.com</span>
+            </div>
+            <h2>Canvas is down as ShinyHunters threatens to leak schools’ data</h2>
+            <p class="blurb">https:&#x2F;&#x2F;thetech.com&#x2F;2026&#x2F;05&#x2F;07&#x2F;canvas-breach-26https:&#x2F;&#x2F;techcrunch.com&#x2F;2026&#x2F;05&#x2F;07&#x2F;hackers-deface-school-logi...</p>
+            <div class="meta">
+                <span class="score">▲ 747</span>
+                <span class="comments">461 comments</span>
+                
+            </div>
+            <a href="https://www.theverge.com/tech/926458/canvas-shinyhunters-breach" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48055913" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=www.nintendo.co.jp&sz=64" alt="www.nintendo.co.jp" class="source-favicon">
+                <span class="domain">www.nintendo.co.jp</span>
+            </div>
+            <h2>Nintendo announces price increases for Nintendo Switch 2</h2>
+            
+            <div class="meta">
+                <span class="score">▲ 109</span>
+                <span class="comments">84 comments</span>
+                
+            </div>
+            <a href="https://www.nintendo.co.jp/corporate/release/en/2026/260508.html" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48059606" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <div class="source-row">
+                <img src="https://www.google.com/s2/favicons?domain=apnews.com&sz=64" alt="apnews.com" class="source-favicon">
+                <span class="domain">apnews.com</span>
+            </div>
+            <h2>Poland is now among the 20 largest economies. How it happened</h2>
+            
+            <div class="meta">
+                <span class="score">▲ 18</span>
+                <span class="comments">2 comments</span>
+                
+            </div>
+            <a href="https://apnews.com/article/poland-economy-growth-g20-gdp-26fe06e120398410f8d773ba5661e7aa" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48062117" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

@@ -14,7 +14,7 @@ const projects = {
     technologies: ['TypeScript', 'Node.js', 'AI/ML', 'Skills Architecture'],
     startDate: '2024-01-15',
     githubUrl: 'https://github.com/openclaw-ai/openclaw',
-    liveUrl: 'http://localhost:3000',
+    liveUrl: '/mission-control',
     category: 'ai-tools',
     longDescription: `
 OpenClaw represents a new paradigm in AI assistant development. Rather than a monolithic chatbot, 
@@ -61,7 +61,7 @@ code reviews to system administration tasks.
     technologies: ['React', 'WebSockets', 'Financial APIs', 'Real-time Data'],
     startDate: '2024-02-01',
     githubUrl: 'https://github.com/jayrizz/quant-dashboard',
-    liveUrl: 'http://localhost:5173',
+    liveUrl: 'https://jaythakur.com/api/quant',
     category: 'web-apps',
     longDescription: `
 A sophisticated financial data platform that aggregates multiple market data sources 

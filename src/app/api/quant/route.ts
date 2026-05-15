@@ -41,7 +41,7 @@ export async function GET(request: Request) {
       <div class="container">
         <h1>📊 Quant Dashboard</h1>
         <p>Local service not running</p>
-        <a href="http://localhost:5173" target="_blank">Open Locally</a>
+        <a href="/apps" target="_blank">View Apps</a>
       </div>
     </body>
     </html>

@@ -10,7 +10,7 @@ export default function Navigation() {
     <nav className="nav-container">
       <div className="nav-links">
         <Link href="/" style={{ fontWeight: 700, fontSize: '1.1rem' }}>jaythakur.com</Link>
-        <Link href="/">Timeline</Link>
+        <Link href="/">Home</Link>
         <Link href="/memory">Memory</Link>
         <Link href="/mission-control">Mission Control</Link>
         <Link href="/projects">Projects</Link>

@@ -14,7 +14,7 @@ export default function ProjectsPage() {
       technologies: ['TypeScript', 'Node.js', 'AI/ML', 'Skills Architecture'],
       startDate: '2024-01-15',
       githubUrl: 'https://github.com/openclaw-ai/openclaw',
-      liveUrl: 'http://localhost:3000',
+      liveUrl: '/mission-control',
       category: 'ai-tools'
     },
     {
@@ -25,7 +25,7 @@ export default function ProjectsPage() {
       technologies: ['React', 'WebSockets', 'Financial APIs', 'Real-time Data'],
       startDate: '2024-02-01',
       githubUrl: 'https://github.com/jayrizz/quant-dashboard',
-      liveUrl: 'http://localhost:5173',
+      liveUrl: 'https://jaythakur.com/api/quant',
       category: 'web-apps'
     },
     {
@@ -37,7 +37,7 @@ export default function ProjectsPage() {
       startDate: '2023-12-01',
       endDate: '2024-01-15',
       githubUrl: 'https://github.com/jayrizz/aoc-dashboard',
-      liveUrl: 'http://localhost:18800',
+      liveUrl: '/aoc-dashboard',
       category: 'web-apps'
     },
     {

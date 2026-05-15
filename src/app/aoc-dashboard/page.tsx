@@ -10,7 +10,7 @@ export default function AOCDashboardPage() {
 
   const checkAOCService = async () => {
     try {
-      const response = await fetch('/api/health-check?url=http://localhost:18800', {
+      const response = await fetch('/api/health-check?url=/api/aoc', {
         signal: AbortSignal.timeout(5000)
       })
       const result = await response.json()
@@ -68,7 +68,7 @@ export default function AOCDashboardPage() {
                   🔄 Try Again
                 </button>
                 <a 
-                  href="http://localhost:18800" 
+                  href="/api/aoc" 
                   target="_blank"
                   className="btn btn-secondary"
                 >
@@ -109,7 +109,7 @@ export default function AOCDashboardPage() {
             </p>
             <div style={{ display: 'flex', gap: '16px', justifyContent: 'center' }}>
               <a 
-                href="http://localhost:18800" 
+                href="/api/aoc" 
                 target="_blank"
                 className="btn"
                 style={{ 

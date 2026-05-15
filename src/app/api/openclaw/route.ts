@@ -99,8 +99,8 @@ export async function GET(request: Request) {
         </p>
         
         <div>
-          <a href="http://localhost:3000" target="_blank" class="btn">
-            🔗 Open Locally (port 3000)
+          <a href="/mission-control" target="_blank" class="btn">
+            🔗 Open System
           </a>
           <a href="/mission-control" class="btn btn-secondary">
             📊 Check System Status

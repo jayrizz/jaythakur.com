@@ -53,7 +53,7 @@ export async function GET(request: Request) {
         <h1>🖥️ AOC Dashboard</h1>
         <p>Local service not running</p>
         <p>To start: openclaw gateway start</p>
-        <a href="http://localhost:18800" class="btn" target="_blank">Open Locally</a>
+        <a href="/aoc-dashboard" class="btn" target="_blank">View Dashboard</a>
       </div>
     </body>
     </html>

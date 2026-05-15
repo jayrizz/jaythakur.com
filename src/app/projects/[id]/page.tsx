@@ -56,47 +56,73 @@ code reviews to system administration tasks.
   'quant-dashboard': {
     id: 'quant-dashboard', 
     name: 'Quantitative Finance Dashboard',
-    description: 'Real-time financial data visualization and analysis platform. Aggregates multiple data sources with intelligent rate limiting and priority-based processing.',
+    description: 'Real-time financial data visualization and analysis platform.',
     status: 'active',
-    technologies: ['React', 'WebSockets', 'Financial APIs', 'Real-time Data'],
+    technologies: ['React', 'WebSockets', 'Financial APIs'],
     startDate: '2024-02-01',
     githubUrl: 'https://github.com/jayrizz/quant-dashboard',
     liveUrl: 'https://jaythakur.com/api/quant',
     category: 'web-apps',
-    longDescription: `
-A sophisticated financial data platform that aggregates multiple market data sources 
-into a unified dashboard. Built to handle the complexities of real-time financial data 
-including rate limits, data synchronization, and priority-based processing.
-
-**Core Capabilities:**
-- **Real-time Data Aggregation**: Multiple financial APIs unified
-- **Intelligent Rate Limiting**: Smart backoff and priority queues
-- **Advanced Visualization**: Interactive charts and analysis tools
-- **Portfolio Analytics**: Performance tracking and risk analysis
-- **Alert Systems**: Configurable notifications and triggers
-
-**Data Sources:**
-- Market data feeds (stocks, crypto, forex)
-- Economic indicators and news
-- Portfolio performance metrics
-- Custom calculated indicators
-
-The system is designed to scale from personal use to institutional-grade requirements.
-    `,
-    features: [
-      'Real-time market data feeds',
-      'Interactive charting and visualization',
-      'Portfolio performance tracking', 
-      'Custom indicator calculations',
-      'Alert and notification systems',
-      'Data export and API access'
-    ],
-    techStack: {
-      'Frontend': ['React', 'TypeScript', 'Chart.js'],
-      'Real-time': ['WebSockets', 'Server-Sent Events', 'Redis'],
-      'Data Processing': ['Node.js', 'Python', 'Pandas'],
-      'APIs': ['Alpha Vantage', 'Yahoo Finance', 'CoinGecko']
-    }
+    longDescription: `Financial data platform with real-time market data.`,
+    features: ['Real-time data', 'Interactive charts', 'Portfolio tracking'],
+    techStack: { 'Frontend': ['React'], 'Data': ['Node.js', 'Python'] }
+  },
+  'aoc-dashboard': {
+    id: 'aoc-dashboard',
+    name: 'Advent of Code Progress Tracker',
+    description: 'Interactive dashboard for tracking Advent of Code progress.',
+    status: 'active',
+    technologies: ['Next.js', 'TypeScript'],
+    startDate: '2023-12-01',
+    endDate: '2024-01-15',
+    githubUrl: 'https://github.com/jayrizz/aoc-dashboard',
+    liveUrl: '/aoc-dashboard',
+    category: 'web-apps',
+    longDescription: `Dashboard for tracking Advent of Code daily challenges.`,
+    features: ['Progress tracking', 'Solution visualization'],
+    techStack: { 'Frontend': ['Next.js', 'TypeScript'] }
+  },
+  'jaythakur-com': {
+    id: 'jaythakur-com',
+    name: 'Personal Portfolio Site',
+    description: 'This site! Next.js portfolio with timeline-first design.',
+    status: 'active',
+    technologies: ['Next.js', 'TypeScript'],
+    startDate: '2024-03-26',
+    githubUrl: 'https://github.com/jayrizz/jaythakur.com',
+    liveUrl: 'https://jaythakur.com',
+    category: 'web-apps',
+    longDescription: `Personal portfolio website showcasing AI collaboration projects.`,
+    features: ['Timeline', 'Project tracking', 'Mission control'],
+    techStack: { 'Frontend': ['Next.js', 'TypeScript'] }
+  },
+  'ai-workflow-automation': {
+    id: 'ai-workflow-automation',
+    name: 'AI Workflow Automation Suite',
+    description: 'Collection of AI-powered automation tools.',
+    status: 'planned',
+    technologies: ['Python', 'AI/ML', 'DevOps'],
+    startDate: '2024-05-01',
+    githubUrl: 'https://github.com/jayrizz',
+    liveUrl: '/mission-control',
+    category: 'ai-tools',
+    longDescription: `AI-powered automation for development and operations.`,
+    features: ['Code review automation', 'Deployment pipelines'],
+    techStack: { 'Backend': ['Python'], 'AI': ['OpenAI', 'Claude'] }
+  },
+  'neural-architecture-search': {
+    id: 'neural-architecture-search',
+    name: 'Neural Architecture Search',
+    description: 'ML-powered neural network architecture optimization.',
+    status: 'planned',
+    technologies: ['Python', 'TensorFlow', 'ML'],
+    startDate: '2024-06-01',
+    githubUrl: 'https://github.com/jayrizz',
+    liveUrl: '/mission-control',
+    category: 'ai-tools',
+    longDescription: `Automated ML model architecture search and optimization.`,
+    features: ['Architecture search', 'Hyperparameter tuning'],
+    techStack: { 'ML': ['TensorFlow', 'PyTorch'] }
   }
 }
 

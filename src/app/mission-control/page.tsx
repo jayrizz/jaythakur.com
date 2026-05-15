@@ -9,10 +9,14 @@ import { formatRelativeTime } from '@/lib/utils'
 export default function MissionControlPage() {
   const [activeTab, setActiveTab] = useState<string>('overview')
   const [services, setServices] = useState<ServiceStatus[]>([
-    { name: 'AOC Dashboard', status: 'unknown', url: 'http://localhost:18800', port: 18800, lastChecked: new Date().toISOString() },
-    { name: 'Quant Dashboard', status: 'unknown', url: 'http://localhost:5173', port: 5173, lastChecked: new Date().toISOString() },
-    { name: 'OpenClaw Gateway', status: 'unknown', url: 'http://localhost:3000', port: 3000, lastChecked: new Date().toISOString() },
-    { name: 'Next.js Dev Server', status: 'unknown', url: 'http://localhost:3001', port: 3001, lastChecked: new Date().toISOString() }
+    { name: 'AOC Dashboard', status: 'unknown', url: '/aoc-dashboard',
+    port: 18800, lastChecked: new Date().toISOString() },
+    { name: 'Quant Dashboard', status: 'unknown', url: '/api/quant',
+    port: 5173, lastChecked: new Date().toISOString() },
+    { name: 'OpenClaw Gateway', status: 'unknown', url: '/mission-control',
+    port: 3000, lastChecked: new Date().toISOString() },
+    { name: 'Next.js Dev Server', status: 'unknown', url: '/mission-control',
+    port: 3001, lastChecked: new Date().toISOString() }
   ])
 
   const [lastRefresh, setLastRefresh] = useState<Date>(new Date())

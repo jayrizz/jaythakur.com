@@ -144,7 +144,7 @@ export default function AOCDashboardPage() {
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                 <span style={{ color: '#aaa' }}>URL:</span>
                 <span style={{ color: '#4a9eff', fontFamily: 'monospace', fontSize: '0.9rem' }}>
-                  localhost:18800
+                  '/api/aoc',
                 </span>
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>

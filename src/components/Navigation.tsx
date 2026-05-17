@@ -13,6 +13,7 @@ export default function Navigation() {
         <Link href="/">Home</Link>
         <Link href="/memory">Memory</Link>
         <Link href="/mission-control">Mission Control</Link>
+        <Link href="/agent-fleet">Agent Fleet</Link>
         <Link href="/projects">Projects</Link>
         
         <div 

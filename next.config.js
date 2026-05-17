@@ -6,6 +6,9 @@ const nextConfig = {
   // Enable static exports for easier deployment
   output: 'standalone',
   
+  // Native modules that need to be bundled
+  serverComponentsExternalPackages: ['better-sqlite3'],
+  
   // Proxy configuration for external services
   async rewrites() {
     return [

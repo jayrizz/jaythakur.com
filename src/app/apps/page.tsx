@@ -62,6 +62,16 @@ export default function AppsPage() {
       category: 'tool'
     },
     {
+      id: 'agent-fleet',
+      name: 'Agent Fleet',
+      description: 'Manage and monitor your Hermes agent team with skills and runbooks.',
+      icon: '🤖',
+      status: 'online',
+      type: 'deployed',
+      url: '/agent-fleet',
+      category: 'tool'
+    },
+    {
       id: 'project-showcase',
       name: 'Project Showcase',
       description: 'Portfolio of AI-powered projects and experiments.',

@@ -6,51 +6,39 @@ import { motion } from 'framer-motion'
 const timelineData = [
   {
     date: 'February 2026',
-    title: 'AI Infrastructure Bootstrap',
-    description: 'Deployed autonomous AI agent infrastructure on Mac mini. Built OpenClaw gateway with Telegram/Discord integration, persistent memory systems, and 24/7 operational capability.',
-    tech: ['OpenClaw', 'Node.js', 'Telegram API', 'Discord API', 'LLM Integration']
+    title: 'System Bootstrap',
+    description: 'Built AI infrastructure on Mac mini. OpenClaw gateway, Telegram + Discord integration, memory systems.',
+    tech: ['OpenClaw', 'Node.js', 'Telegram API', 'Discord API']
   },
   {
     date: 'February 2026',
     title: 'Mission Control Dashboard',
-    description: 'Real-time AIOps monitoring with WebSocket streaming. Agent orchestration, process management, automated health checks, and live system telemetry.',
-    tech: ['Python', 'WebSocket', 'React', 'FastAPI', 'AgentOps']
+    description: 'Real-time system monitoring with AOC integration. WebSocket streaming, process management, health checks.',
+    tech: ['Python', 'WebSocket', 'React', 'FastAPI']
   },
   {
     date: 'March 2026',
-    title: 'AOC Production API',
-    description: 'Enterprise-grade REST API for Agent Operations Center. Async endpoints, SQLAlchemy ORM, PostgreSQL persistence, full Swagger documentation.',
-    tech: ['FastAPI', 'SQLAlchemy', 'PostgreSQL', 'Docker', 'Swagger']
+    title: 'AOC API',
+    description: 'Production REST API for Agent Ops Center. SQLAlchemy ORM, async endpoints, Swagger documentation.',
+    tech: ['FastAPI', 'SQLAlchemy', 'PostgreSQL', 'Docker']
   },
   {
     date: 'March 2026',
-    title: 'Political Money Intelligence',
-    description: 'Autonomous surveillance system for congressional trading. Real-time House/Senate disclosure scraping, ML-powered trade signal detection, Telegram alerts.',
-    tech: ['Python', 'BeautifulSoup', 'Telegram Bot', 'ML', 'Cron']
+    title: 'Political Money Tracker',
+    description: 'Live congressional trade alerts via Telegram. Scrapes House/Senate disclosures, notifies on trades.',
+    tech: ['Python', 'BeautifulSoup', 'Telegram Bot', 'Cron']
   },
   {
     date: 'March 2026',
-    title: 'Polymarket Whale Detection',
-    description: 'ML signal engine for prediction market intelligence. Decision tree classifiers, whale movement detection, automated portfolio tracking.',
-    tech: ['Python', 'scikit-learn', 'pandas', 'Polymarket API', 'ML']
+    title: 'Whale Intelligence',
+    description: 'ML signal system for Polymarket. Decision tree classifiers, whale detection, portfolio tracking.',
+    tech: ['Python', 'scikit-learn', 'pandas', 'Polymarket API']
   },
   {
     date: 'March 2026',
-    title: 'Agent Skills Marketplace',
-    description: 'Published "sacred-rules" skill to ClawHub. 13 config safety rules, JSON Schema validation, automated backup procedures, security audit capabilities.',
-    tech: ['Agent Skills', 'JSON Schema', 'Documentation', 'OpenClaw']
-  },
-  {
-    date: 'March 2026',
-    title: 'Quant Trading System',
-    description: 'Building autonomous market making system. Python-based quant framework with real-time data ingestion, risk management, and order execution.',
-    tech: ['Python', 'NumPy', 'Pandas', 'REST APIs', 'AWS']
-  },
-  {
-    date: 'March 2026',
-    title: 'jaythakur.com + Memory System',
-    description: 'AI-powered personal website with vector-searchable memory. Built with Next.js, deployed on Vercel, integrated with OpenClaw for dynamic content.',
-    tech: ['Next.js', 'Vercel', 'Vector Search', 'OpenClaw', 'Tailwind']
+    title: 'OpenCLAW Skill Published',
+    description: 'Released "sacred-rules" skill on ClawHub. 13 config safety rules, validation scripts, backup procedures.',
+    tech: ['Agent Skills', 'JSON Schema', 'Documentation']
   }
 ]
 
@@ -69,8 +57,6 @@ export default function Home() {
             <a href="/" className="logo">jay<span>thakur</span>.com</a>
             <ul className="nav-links">
               <li><a href="#timeline">Timeline</a></li>
-              <li><a href="/memory">Memory</a></li>
-              <li><a href="/mission-control">Mission Control</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
             </ul>
@@ -80,7 +66,7 @@ export default function Home() {
 
       <section className="hero">
         <div className="container">
-          <p className="tagline">AI Operations & Autonomy</p>
+          <p className="tagline">Human + AI Partnership</p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
@@ -94,7 +80,7 @@ export default function Home() {
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Building autonomous AI agents that ship production systems. Every project here was architected, coded, and operated with AI partners running 24/7.
+            Building production systems with AI. Every project here was architected, coded, and shipped with AI collaborators.
           </motion.p>
         </div>
       </section>

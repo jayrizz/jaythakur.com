@@ -3,16 +3,27 @@ import fs from 'fs'
 import path from 'path'
 
 export async function GET() {
-  const filePath = path.join(process.env.HOME || '/Users/admin', '.openclaw/workspace/mission-control.html')
+  // Try public folder first, then local .openclaw/workspace
+  const possiblePaths = [
+    path.join(process.cwd(), 'public/mission-control.html'),
+    path.join(process.cwd(), 'mission-control.html'),
+    path.join(process.env.HOME || '', '.openclaw/workspace/mission-control.html'),
+  ]
   
-  try {
-    const html = fs.readFileSync(filePath, 'utf-8')
-    return new NextResponse(html, {
-      headers: {
-        'Content-Type': 'text/html',
-      },
-    })
-  } catch (error) {
-    return NextResponse.json({ error: 'Mission Control not found' }, { status: 404 })
+  for (const filePath of possiblePaths) {
+    try {
+      if (fs.existsSync(filePath)) {
+        const html = fs.readFileSync(filePath, 'utf-8')
+        return new NextResponse(html, {
+          headers: {
+            'Content-Type': 'text/html',
+          },
+        })
+      }
+    } catch {
+      continue
+    }
   }
+  
+  return NextResponse.json({ error: 'Mission Control not found' }, { status: 404 })
 }

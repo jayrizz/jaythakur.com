@@ -72,15 +72,15 @@ export default function Home() {
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            I don't just use AI.<br />
-            <span>I partner with it.</span>
+            AI Consultant & ML Engineer<br />
+            <span>for Fortune 500 Companies</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            Building production systems with AI. Every project here was architected, coded, and shipped with AI collaborators.
+            25+ years building enterprise systems. Former Microsoft ML Engineer. I direct, AI executes — production systems ship in hours, not weeks.
           </motion.p>
         </div>
       </section>
@@ -117,7 +117,7 @@ export default function Home() {
           <div className="about-content">
             <p>
               18 years in software consulting taught me one thing: the best tool is the one that gets the job done. 
-              In 2026, that tool is AI.
+              As an <strong>AI Consultant</strong> for Fortune 500 companies, I bring 25+ years of enterprise experience to help you build production AI systems that ship in hours — not weeks.
             </p>
             <p>
               This site isn't built with "AI assistance" — it's built with AI as a partner. I direct, 

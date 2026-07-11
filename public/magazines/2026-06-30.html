@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 30, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">June 30, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Ornith-1.0: self-improving open-source models for agentic coding</h2>
+            <div class="meta">
+                <span class="score">▲ 219</span>
+                <span class="comments">40 comments</span>
+                <span class="direct">★ FOR YOU</span>
+            </div>
+            <a href="https://github.com/deepreinforce-ai/Ornith-1" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48722052" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <h2>.self: A new top-level domain designed to support self-hosting</h2>
+            <div class="meta">
+                <span class="score">▲ 544</span>
+                <span class="comments">316 comments</span>
+                
+            </div>
+            <a href="https://hccf.onmy.cloud/2026/06/21/reclaiming-our-digital-selves-hccfs-vision-for-a-human-centered-top-level-domain/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48724230" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>Rocketlab acquires Iridium</h2>
+            <div class="meta">
+                <span class="score">▲ 422</span>
+                <span class="comments">279 comments</span>
+                
+            </div>
+            <a href="https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-acquire-iridium-historic-deal-creating-fully" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48719485" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <h2>30-year sentence for transporting zines is a five-alarm fire for free speech</h2>
+            <div class="meta">
+                <span class="score">▲ 620</span>
+                <span class="comments">361 comments</span>
+                
+            </div>
+            <a href="https://theintercept.com/2026/06/26/daniel-sanchez-estrada-zines-prairieland-free-speech/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48711981" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <h2>Open Source Low Tech</h2>
+            <div class="meta">
+                <span class="score">▲ 329</span>
+                <span class="comments">65 comments</span>
+                
+            </div>
+            <a href="https://opensourcelowtech.org/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48683098" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFBEB; color: #78350F">
+        <div class="num stat-num">6</div>
+        <div class="content">
+            <h2>Qwen 3.6 27B is the sweet spot for local development</h2>
+            <div class="meta">
+                <span class="score">▲ 975</span>
+                <span class="comments">637 comments</span>
+                
+            </div>
+            <a href="https://quesma.com/blog/qwen-36-is-awesome/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48721903" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #000000">
+        <div class="num minimal-num">#7</div>
+        <div class="content">
+            <h2>US Supreme Court rules geofence warrants require constitutional protections</h2>
+            <div class="meta">
+                <span class="score">▲ 540</span>
+                <span class="comments">250 comments</span>
+                
+            </div>
+            <a href="https://www.theguardian.com/us-news/2026/jun/29/supreme-court-geofence-warrants-case-decision" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48720924" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #064E3B; color: #ECFDF5">
+        <div class="num deep-num">8</div>
+        <div class="content">
+            <h2>Free the Icons</h2>
+            <div class="meta">
+                <span class="score">▲ 511</span>
+                <span class="comments">162 comments</span>
+                
+            </div>
+            <a href="https://weblog.rogueamoeba.com/2026/06/26/free-the-icons/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48698908" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%); color: #FFFFFF">
+        <div class="num sunset-num">9</div>
+        <div class="content">
+            <h2>One million passports leaked online</h2>
+            <div class="meta">
+                <span class="score">▲ 306</span>
+                <span class="comments">189 comments</span>
+                
+            </div>
+            <a href="https://www.theverge.com/tech/947157/passports-data-breach-cannabis-club-systems-nefos-puffpal" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48706389" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0D9488; color: #F0FDFA">
+        <div class="num finish-num">10</div>
+        <div class="content">
+            <h2>A native graphical shell for SSH</h2>
+            <div class="meta">
+                <span class="score">▲ 326</span>
+                <span class="comments">189 comments</span>
+                
+            </div>
+            <a href="https://probablymarcus.com/blocks/2026/06/28/native-graphical-shell-for-SSH.html" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48720758" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

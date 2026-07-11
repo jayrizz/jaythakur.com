@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 08, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">June 08, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Show HN: Lathe – Use LLMs to learn a new domain, not skip past it</h2>
+            <div class="meta">
+                <span class="score">▲ 331</span>
+                <span class="comments">60 comments</span>
+                
+            </div>
+            <a href="https://github.com/devenjarvis/lathe" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48433756" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <h2>LLMs are eroding my software engineering career and I don't know what to do</h2>
+            <div class="meta">
+                <span class="score">▲ 1023</span>
+                <span class="comments">964 comments</span>
+                
+            </div>
+            <a href="https://human-in-the-loop.bearblog.dev/llms-are-eroding-my-software-engineering-career-and-i-dont-know-what-to-do/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48434312" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>The Smallest Brain You Can Build: A Perceptron in Python</h2>
+            <div class="meta">
+                <span class="score">▲ 214</span>
+                <span class="comments">39 comments</span>
+                <span class="direct">★ FOR YOU</span>
+            </div>
+            <a href="https://ranpara.net/posts/perceptron-explained-from-scratch/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48440064" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <h2>DeepSeek V4 Pro beats GPT-5.5 Pro on precision</h2>
+            <div class="meta">
+                <span class="score">▲ 304</span>
+                <span class="comments">148 comments</span>
+                
+            </div>
+            <a href="https://runtimewire.com/article/deepseek-v4-pro-beats-gpt-5-5-pro-on-precision" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48440448" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <h2>How's Linear so fast? A technical breakdown</h2>
+            <div class="meta">
+                <span class="score">▲ 432</span>
+                <span class="comments">200 comments</span>
+                
+            </div>
+            <a href="https://performance.dev/how-is-linear-so-fast-a-technical-breakdown" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48437609" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFBEB; color: #78350F">
+        <div class="num stat-num">6</div>
+        <div class="content">
+            <h2>APC–2 – A professional record cutter for producing original playback discs</h2>
+            <div class="meta">
+                <span class="score">▲ 230</span>
+                <span class="comments">123 comments</span>
+                
+            </div>
+            <a href="https://teenage.engineering/products/apc-2" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48440383" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #000000">
+        <div class="num minimal-num">#7</div>
+        <div class="content">
+            <h2>Building from zero after addiction, prison, and a felony</h2>
+            <div class="meta">
+                <span class="score">▲ 687</span>
+                <span class="comments">306 comments</span>
+                
+            </div>
+            <a href="https://gavinray97.github.io/blog/building-from-zero-after-addiction-prison-felony" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48437406" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #064E3B; color: #ECFDF5">
+        <div class="num deep-num">8</div>
+        <div class="content">
+            <h2>New drug 'functionally cures' many hepatitis B virus infections</h2>
+            <div class="meta">
+                <span class="score">▲ 198</span>
+                <span class="comments">35 comments</span>
+                
+            </div>
+            <a href="https://www.science.org/content/article/new-drug-functionally-cures-many-hepatitis-b-virus-infections?user_id=66c4bf745d78644b3aa57b08" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48440463" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%); color: #FFFFFF">
+        <div class="num sunset-num">9</div>
+        <div class="content">
+            <h2>Config Files That Run Code: Supply Chain Security Blindspot</h2>
+            <div class="meta">
+                <span class="score">▲ 11</span>
+                <span class="comments">0 comments</span>
+                
+            </div>
+            <a href="https://safedep.io/config-files-that-run-code/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48443135" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0D9488; color: #F0FDFA">
+        <div class="num finish-num">10</div>
+        <div class="content">
+            <h2>What is the purpose of the lost+found folder in Linux and Unix? (2014)</h2>
+            <div class="meta">
+                <span class="score">▲ 206</span>
+                <span class="comments">71 comments</span>
+                
+            </div>
+            <a href="https://unix.stackexchange.com/questions/18154/what-is-the-purpose-of-the-lostfound-folder-in-linux-and-unix" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48409474" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

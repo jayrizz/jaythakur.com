@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 25, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">June 25, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Anthropic says Alibaba illicitly extracted Claude AI model capabilities</h2>
+            <div class="meta">
+                <span class="score">▲ 486</span>
+                <span class="comments">844 comments</span>
+                
+            </div>
+            <a href="https://www.reuters.com/world/china/anthropic-says-alibaba-illicitly-extracted-claude-ai-model-capabilities-2026-06-24/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48664814" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <h2>OpenAI unveils its first custom chip, built by Broadcom</h2>
+            <div class="meta">
+                <span class="score">▲ 720</span>
+                <span class="comments">411 comments</span>
+                
+            </div>
+            <a href="https://techcrunch.com/2026/06/24/openai-unveils-its-first-custom-chip-built-by-broadcom/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48663324" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>45°C cooling design cuts data center water use to near zero</h2>
+            <div class="meta">
+                <span class="score">▲ 364</span>
+                <span class="comments">260 comments</span>
+                
+            </div>
+            <a href="https://blogs.nvidia.com/blog/liquid-cooling-ai-factories/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48660178" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <h2>GLM-5.2 is a step change for open agents</h2>
+            <div class="meta">
+                <span class="score">▲ 257</span>
+                <span class="comments">154 comments</span>
+                <span class="direct">★ FOR YOU</span>
+            </div>
+            <a href="https://www.interconnects.ai/p/glm-52-is-the-step-change-for-open" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48639840" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <h2>RubyLLM: A Ruby framework for all major AI providers</h2>
+            <div class="meta">
+                <span class="score">▲ 396</span>
+                <span class="comments">69 comments</span>
+                
+            </div>
+            <a href="https://rubyllm.com/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48660711" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFBEB; color: #78350F">
+        <div class="num stat-num">6</div>
+        <div class="content">
+            <h2>Computer use in Gemini 3.5 Flash</h2>
+            <div class="meta">
+                <span class="score">▲ 227</span>
+                <span class="comments">147 comments</span>
+                
+            </div>
+            <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-computer-use-gemini-3-5-flash/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48662999" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #000000">
+        <div class="num minimal-num">#7</div>
+        <div class="content">
+            <h2>Qualcomm to Acquire Modular</h2>
+            <div class="meta">
+                <span class="score">▲ 206</span>
+                <span class="comments">77 comments</span>
+                
+            </div>
+            <a href="https://www.reuters.com/business/qualcomm-buy-ai-startup-modular-2026-06-24/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48659798" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #064E3B; color: #ECFDF5">
+        <div class="num deep-num">8</div>
+        <div class="content">
+            <h2>PR spam today looks like email spam in the early 2000s</h2>
+            <div class="meta">
+                <span class="score">▲ 233</span>
+                <span class="comments">135 comments</span>
+                
+            </div>
+            <a href="https://www.greptile.com/blog/prs-on-openclaw" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48660579" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%); color: #FFFFFF">
+        <div class="num sunset-num">9</div>
+        <div class="content">
+            <h2>Medical students are using popular research tool to pump out misleading studies</h2>
+            <div class="meta">
+                <span class="score">▲ 70</span>
+                <span class="comments">35 comments</span>
+                
+            </div>
+            <a href="https://www.science.org/content/article/medical-students-are-using-popular-research-tool-pump-out-misleading-studies" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48668119" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0D9488; color: #F0FDFA">
+        <div class="num finish-num">10</div>
+        <div class="content">
+            <h2>Half-Life 2 in a Browser</h2>
+            <div class="meta">
+                <span class="score">▲ 322</span>
+                <span class="comments">118 comments</span>
+                
+            </div>
+            <a href="https://hl2.slqnt.dev/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48669534" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

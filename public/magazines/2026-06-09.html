@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 09, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">June 09, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Microsoft's open source tools were hacked to steal passwords of AI developers</h2>
+            <div class="meta">
+                <span class="score">▲ 234</span>
+                <span class="comments">97 comments</span>
+                
+            </div>
+            <a href="https://techcrunch.com/2026/06/08/microsofts-open-source-tools-were-hacked-to-steal-passwords-of-ai-developers/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48457830" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <h2>Apple Core AI Framework</h2>
+            <div class="meta">
+                <span class="score">▲ 314</span>
+                <span class="comments">82 comments</span>
+                
+            </div>
+            <a href="https://developer.apple.com/documentation/coreai/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48449665" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>Ask HN: What are tools you have made for yourself since the advent of AI?</h2>
+            <div class="meta">
+                <span class="score">▲ 333</span>
+                <span class="comments">545 comments</span>
+                
+            </div>
+            <a href="https://news.ycombinator.com/item?id=48449187" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48449187" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <h2>Apple reveals new AI architecture built around Google Gemini models</h2>
+            <div class="meta">
+                <span class="score">▲ 621</span>
+                <span class="comments">472 comments</span>
+                
+            </div>
+            <a href="https://www.macrumors.com/2026/06/08/apple-reveals-new-ai-architecture/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48450142" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <h2>xAI is looking more like a datacentre REIT than a frontier lab</h2>
+            <div class="meta">
+                <span class="score">▲ 584</span>
+                <span class="comments">457 comments</span>
+                
+            </div>
+            <a href="https://martinalderson.com/posts/xais-new-rental-business/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48446428" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFBEB; color: #78350F">
+        <div class="num stat-num">6</div>
+        <div class="content">
+            <h2>Siri AI</h2>
+            <div class="meta">
+                <span class="score">▲ 602</span>
+                <span class="comments">565 comments</span>
+                
+            </div>
+            <a href="https://www.apple.com/apple-intelligence/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48449084" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #000000">
+        <div class="num minimal-num">#7</div>
+        <div class="content">
+            <h2>Show HN: Performative-UI – A react component library of design tropes</h2>
+            <div class="meta">
+                <span class="score">▲ 1023</span>
+                <span class="comments">187 comments</span>
+                
+            </div>
+            <a href="https://vorpus.github.io/performativeUI/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48445554" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #064E3B; color: #ECFDF5">
+        <div class="num deep-num">8</div>
+        <div class="content">
+            <h2>FrontierCode</h2>
+            <div class="meta">
+                <span class="score">▲ 213</span>
+                <span class="comments">37 comments</span>
+                
+            </div>
+            <a href="https://cognition.ai/blog/frontier-code" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48451723" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%); color: #FFFFFF">
+        <div class="num sunset-num">9</div>
+        <div class="content">
+            <h2>Surveillance is not safety: A statement on the UK's latest threat to privacy [pdf]</h2>
+            <div class="meta">
+                <span class="score">▲ 605</span>
+                <span class="comments">257 comments</span>
+                
+            </div>
+            <a href="https://signal.org/blog/pdfs/2026-06-08-uk-surveillance-is-not-safety.pdf" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48450646" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0D9488; color: #F0FDFA">
+        <div class="num finish-num">10</div>
+        <div class="content">
+            <h2>OpenCV 5 Is Here: The Biggest Leap in Years for Computer Vision</h2>
+            <div class="meta">
+                <span class="score">▲ 296</span>
+                <span class="comments">48 comments</span>
+                
+            </div>
+            <a href="https://opencv.org/opencv-5/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48421858" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

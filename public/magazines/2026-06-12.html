@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — June 12, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">June 12, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Anthropic apologizes for invisible Claude Fable guardrails</h2>
+            <div class="meta">
+                <span class="score">▲ 441</span>
+                <span class="comments">395 comments</span>
+                
+            </div>
+            <a href="https://www.theverge.com/ai-artificial-intelligence/948280/anthropic-claude-fable-invisible-distillation-guardrail" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48489229" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <h2>AI agent bankrupted their operator while trying to scan DN42</h2>
+            <div class="meta">
+                <span class="score">▲ 757</span>
+                <span class="comments">294 comments</span>
+                <span class="direct">★ FOR YOU</span>
+            </div>
+            <a href="https://lantian.pub/en/article/fun/ai-agent-bankrupted-their-operator-scan-dn42lantian.lantian/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48500012" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>Developer gets Half-Life running at 30 FPS on a Nokia N95</h2>
+            <div class="meta">
+                <span class="score">▲ 297</span>
+                <span class="comments">101 comments</span>
+                
+            </div>
+            <a href="https://www.tomshardware.com/video-games/handheld-gaming/developer-gets-half-life-running-at-30-fps-on-a-2007-nokia-n95" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48452001" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <h2>Claude Fable is relentlessly proactive</h2>
+            <div class="meta">
+                <span class="score">▲ 510</span>
+                <span class="comments">406 comments</span>
+                
+            </div>
+            <a href="https://simonwillison.net/2026/Jun/11/fable-is-relentlessly-proactive/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48498573" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <h2>Claude Fable 5: mid-tier results on coding tasks</h2>
+            <div class="meta">
+                <span class="score">▲ 338</span>
+                <span class="comments">173 comments</span>
+                
+            </div>
+            <a href="https://www.endorlabs.com/learn/claude-fable-5-mythos-grade-hype" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48492210" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFBEB; color: #78350F">
+        <div class="num stat-num">6</div>
+        <div class="content">
+            <h2>Ear Training Practice</h2>
+            <div class="meta">
+                <span class="score">▲ 258</span>
+                <span class="comments">105 comments</span>
+                
+            </div>
+            <a href="https://tonedear.com/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48447598" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #000000">
+        <div class="num minimal-num">#7</div>
+        <div class="content">
+            <h2>If you are asking for human attention, demonstrate human effort</h2>
+            <div class="meta">
+                <span class="score">▲ 891</span>
+                <span class="comments">294 comments</span>
+                
+            </div>
+            <a href="https://tombedor.dev/human-attention-and-human-effort/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48497609" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #064E3B; color: #ECFDF5">
+        <div class="num deep-num">8</div>
+        <div class="content">
+            <h2>Software is made between commits</h2>
+            <div class="meta">
+                <span class="score">▲ 269</span>
+                <span class="comments">197 comments</span>
+                
+            </div>
+            <a href="https://zed.dev/blog/introducing-deltadb" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48492533" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%); color: #FFFFFF">
+        <div class="num sunset-num">9</div>
+        <div class="content">
+            <h2>How we made hit video game Prince of Persia</h2>
+            <div class="meta">
+                <span class="score">▲ 155</span>
+                <span class="comments">57 comments</span>
+                
+            </div>
+            <a href="https://www.theguardian.com/culture/2026/jan/05/raiders-of-the-lost-ark-hit-video-game-prince-of-persia" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48468852" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0D9488; color: #F0FDFA">
+        <div class="num finish-num">10</div>
+        <div class="content">
+            <h2>Show HN: FablePool – pool money behind a prompt, and Fable builds it in public</h2>
+            <div class="meta">
+                <span class="score">▲ 421</span>
+                <span class="comments">227 comments</span>
+                
+            </div>
+            <a href="https://fablepool.com" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48496539" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

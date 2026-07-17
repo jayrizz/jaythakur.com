@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thakur Family Mission - Orlando 2026</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600;700&family=Courier+Prime:wght@400;700&display=swap');
+
+:root {
+  --coral:#FF6B6B; --yellow:#FFD93D; --blue:#4ECDC4;
+  --purple:#A855F7; --pink:#FF6EB4; --orange:#FF8E53;
+  --green:#4ADE80; --dark:#080810; --card:#0f0f1a; --text:#F0F0F0;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { background:var(--dark); color:var(--text); font-family:'Inter',sans-serif; overflow-x:hidden; }
+
+/* PROGRESS */
+#pb { position:fixed; top:0; left:0; height:4px; z-index:999; width:0%;
+  background:linear-gradient(90deg,var(--coral),var(--yellow),var(--blue),var(--pink),var(--coral));
+  background-size:200%; animation:shimmer 3s linear infinite; transition:width .1s; }
+@keyframes shimmer { 0%{background-position:0%} 100%{background-position:200%} }
+
+/* NAV DOTS */
+#nd { position:fixed; right:14px; top:50%; transform:translateY(-50%);
+  display:flex; flex-direction:column; gap:8px; z-index:998; }
+.nd { width:7px; height:7px; border-radius:50%; background:#333; cursor:pointer; transition:all .3s; }
+.nd.on { background:var(--yellow); transform:scale(1.7); }
+
+/* SLIDES */
+.slide { position:relative; min-height:100vh; display:flex; flex-direction:column;
+  align-items:center; justify-content:center; padding:64px 20px;
+  opacity:0; transform:translateY(28px); transition:opacity .85s ease,transform .85s ease; }
+.slide.vis { opacity:1; transform:translateY(0); }
+
+/* ORB */
+.orb { position:absolute; border-radius:50%; filter:blur(90px);
+  animation:of 9s ease-in-out infinite; pointer-events:none; }
+@keyframes of { 0%,100%{transform:translate(0,0) scale(1)} 33%{transform:translate(35px,-28px) scale(1.07)} 66%{transform:translate(-22px,35px) scale(.93)} }
+
+/* HERO */
+#hero { overflow:hidden; text-align:center;
+  background:radial-gradient(ellipse at 30% 20%, #1a0a3e 0%, #0a0010 40%, #0a1a2a 70%, #001a10 100%); }
+.htag { font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:6px;
+  color:var(--yellow); margin-bottom:22px; z-index:2; position:relative;
+  animation:fid .7s ease both; }
+@keyframes fid { from{opacity:0;transform:translateY(-16px)} to{opacity:1;transform:translateY(0)} }
+.htitle { font-family:'Bebas Neue',sans-serif; font-size:clamp(64px,17vw,155px);
+  line-height:.84; z-index:2; position:relative; animation:si 1s ease .25s both; }
+@keyframes si { from{opacity:0;transform:scale(.82)} to{opacity:1;transform:scale(1)} }
+.g1 { display:block; background:linear-gradient(130deg,var(--coral),var(--yellow));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.g2 { display:block; background:linear-gradient(130deg,var(--blue),var(--purple));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hsub { font-family:'Courier Prime',monospace; font-size:clamp(11px,2.5vw,16px);
+  letter-spacing:7px; color:rgba(255,255,255,.38); margin-top:18px;
+  z-index:2; position:relative; animation:fid .7s ease .55s both; }
+.hstats { display:flex; gap:28px; justify-content:center; flex-wrap:wrap;
+  margin-top:40px; z-index:2; position:relative; animation:fid .7s ease .85s both; }
+.hs { text-align:center; }
+.hsn { font-family:'Bebas Neue',sans-serif; font-size:54px; line-height:1;
+  background:linear-gradient(135deg,var(--yellow),var(--orange));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.hsl { font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:3px;
+  color:rgba(255,255,255,.3); margin-top:4px; }
+.sh { position:absolute; bottom:26px; left:50%; transform:translateX(-50%);
+  font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:3px;
+  color:rgba(255,255,255,.22); animation:bo 2s infinite; z-index:2; }
+@keyframes bo { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(9px)} }
+
+/* PARTICLE */
+.pt { position:absolute; border-radius:50%; animation:pf linear infinite; }
+@keyframes pf { 0%{transform:translateY(100vh) rotate(0);opacity:.7} 100%{transform:translateY(-100px) rotate(720deg);opacity:0} }
+
+/* TYPE */
+.ey { font-family:'Courier Prime',monospace; font-size:11px; letter-spacing:5px;
+  color:rgba(255,255,255,.3); margin-bottom:10px; text-align:center; }
+.st { font-family:'Bebas Neue',sans-serif; font-size:clamp(38px,9vw,78px);
+  letter-spacing:2px; text-align:center; margin-bottom:10px; }
+.sd { font-size:15px; color:rgba(255,255,255,.42); max-width:520px;
+  text-align:center; line-height:1.7; margin:0 auto; }
+.gline { width:56px; height:3px; margin:18px auto; border-radius:2px; }
+
+/* ROUTE */
+.rtl { width:100%; max-width:520px; margin:36px auto 0; }
+.rs { display:flex; }
+.rl { display:flex; flex-direction:column; align-items:center; width:50px; flex-shrink:0; }
+.rd { width:18px; height:18px; border-radius:50%; margin-top:3px; border:3px solid currentColor; flex-shrink:0; }
+.rln { width:3px; flex:1; min-height:44px; margin:4px 0; border-radius:2px; }
+.rc { padding:0 0 34px 16px; flex:1; }
+.rcy { font-family:'Bebas Neue',sans-serif; font-size:26px; letter-spacing:1px; line-height:1; }
+.rdt { font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:3px; opacity:.38; margin-top:4px; }
+.rde { font-size:13px; color:rgba(255,255,255,.48); margin-top:6px; line-height:1.6; }
+
+/* DESTINATION CARDS — pure CSS, no img */
+.dest-grid-2 { display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  width:100%; max-width:860px; margin:28px auto 0; }
+.dest-grid-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px;
+  width:100%; max-width:920px; margin:28px auto 0; }
+
+.dcard { position:relative; border-radius:16px; overflow:hidden;
+  border:1px solid rgba(255,255,255,.08); height:220px;
+  display:flex; flex-direction:column; justify-content:flex-end;
+  transition:transform .3s, box-shadow .3s; cursor:default; }
+.dcard:hover { transform:translateY(-5px); box-shadow:0 24px 48px rgba(0,0,0,.5); }
+
+/* Each card has unique gradient + pattern */
+.dcard-mk   { background:linear-gradient(145deg,#1a0040 0%,#3d0080 40%,#6010c0 70%,#2a0060 100%); }
+.dcard-ak   { background:linear-gradient(145deg,#003010 0%,#006020 40%,#00a030 70%,#004020 100%); }
+.dcard-hs   { background:linear-gradient(145deg,#300000 0%,#700010 40%,#b00020 70%,#500010 100%); }
+.dcard-epcot{ background:linear-gradient(145deg,#001030 0%,#002060 40%,#0040a0 70%,#001840 100%); }
+.dcard-epic { background:linear-gradient(145deg,#200040 0%,#500090 40%,#8020d0 70%,#380060 100%); }
+.dcard-ioa  { background:linear-gradient(145deg,#001828 0%,#003050 40%,#005090 70%,#002840 100%); }
+.dcard-usf  { background:linear-gradient(145deg,#002818 0%,#005030 40%,#008060 70%,#003828 100%); }
+.dcard-wg   { background:linear-gradient(145deg,#001828 0%,#003060 40%,#0050a0 70%,#002040 100%); }
+.dcard-pf   { background:linear-gradient(145deg,#281400 0%,#603000 40%,#a05010 70%,#401800 100%); }
+.dcard-cb   { background:linear-gradient(145deg,#001828 0%,#004060 40%,#0070a0 70%,#003050 100%); }
+.dcard-ksc  { background:linear-gradient(145deg,#080820 0%,#101040 40%,#202080 70%,#101030 100%); }
+.dcard-car  { background:linear-gradient(145deg,#181008 0%,#302018 40%,#503010 70%,#201808 100%); }
+
+/* Decorative circles on cards */
+.dcard::before { content:''; position:absolute; width:200px; height:200px;
+  border-radius:50%; border:40px solid rgba(255,255,255,.04);
+  top:-60px; right:-60px; }
+.dcard::after { content:''; position:absolute; width:140px; height:140px;
+  border-radius:50%; border:30px solid rgba(255,255,255,.03);
+  bottom:-40px; left:-40px; }
+
+.dcard-inner { position:relative; z-index:2; padding:16px 18px 14px; }
+.dcard-icon { font-size:42px; margin-bottom:10px; display:block;
+  filter:drop-shadow(0 4px 12px rgba(0,0,0,.5)); }
+.dcard-title { font-family:'Bebas Neue',sans-serif; font-size:22px;
+  color:#fff; letter-spacing:1px; line-height:1.1; margin-bottom:4px; }
+.dcard-sub { font-family:'Courier Prime',monospace; font-size:10px;
+  color:rgba(255,255,255,.45); letter-spacing:2px; }
+.dcard-badge { position:absolute; top:12px; right:12px; z-index:3;
+  font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:2px;
+  padding:5px 12px; border-radius:20px; font-weight:700; }
+.dcard-accent { position:absolute; top:0; left:0; right:0; height:3px; z-index:3; }
+
+/* MAP CARDS */
+.mcard { width:100%; max-width:860px; margin:20px auto 0;
+  border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.1);
+  position:relative; height:280px; display:flex; align-items:center; justify-content:center; }
+.mcard-bg { position:absolute; inset:0; }
+.mcard-grid { position:absolute; inset:0; opacity:.15;
+  background-image:linear-gradient(rgba(255,255,255,.3) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,.3) 1px, transparent 1px);
+  background-size:40px 40px; }
+.mcard-roads { position:absolute; inset:0; }
+.mcard-content { position:relative; z-index:2; text-align:center; }
+.mcard-pin { font-size:48px; margin-bottom:12px; display:block;
+  filter:drop-shadow(0 4px 20px rgba(0,0,0,.8)); animation:pin-pulse 2s ease-in-out infinite; }
+@keyframes pin-pulse { 0%,100%{transform:translateY(0) scale(1)} 50%{transform:translateY(-6px) scale(1.05)} }
+.mcard-name { font-family:'Bebas Neue',sans-serif; font-size:28px;
+  color:var(--yellow); letter-spacing:2px; margin-bottom:4px; }
+.mcard-addr { font-family:'Courier Prime',monospace; font-size:11px;
+  color:rgba(255,255,255,.5); letter-spacing:2px; margin-bottom:16px; }
+.mcard-btn { display:inline-block; background:var(--yellow); color:#000;
+  font-family:'Courier Prime',monospace; font-size:10px; letter-spacing:2px;
+  padding:10px 22px; border-radius:24px; font-weight:700; text-decoration:none;
+  transition:all .2s; }
+.mcard-btn:hover { background:#fff; transform:scale(1.05); }
+
+/* AGENT CARDS */
+.ag-outer { width:100%; max-width:800px; margin:32px auto 0; }
+.ag-r1 { display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-bottom:14px; }
+.ag-r2 { display:flex; justify-content:center; }
+.ag-r2 .ac { width:calc(25% - 5.25px); }
+.ac { background:var(--card); border:1px solid rgba(255,255,255,.08);
+  border-radius:16px; padding:20px 14px; text-align:center;
+  transition:all .3s; position:relative; overflow:hidden; }
+.ac::before { content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--aclr,var(--yellow)); }
+.ac:hover { transform:translateY(-5px); border-color:var(--aclr,var(--yellow));
+  box-shadow:0 20px 40px rgba(0,0,0,.4); }
+.ae { font-size:40px; margin-bottom:10px; display:block; }
+.ar { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:2px;
+  color:rgba(255,255,255,.28); margin-bottom:4px; }
+.an { font-family:'Bebas Neue',sans-serif; font-size:24px;
+  letter-spacing:1px; color:var(--aclr,var(--yellow)); }
+.ad { font-size:11px; color:rgba(255,255,255,.38); margin-top:7px; line-height:1.5; }
+
+/* MISSION CARDS */
+.tg { display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  width:100%; max-width:760px; margin:28px auto 0; }
+.mc { background:var(--card); border:1px solid rgba(255,255,255,.08);
+  border-radius:16px; padding:22px; position:relative; overflow:hidden; transition:all .3s; }
+.mc::before { content:''; position:absolute; top:0; left:0; right:0; height:3px;
+  background:var(--mca,var(--yellow)); }
+.mc:hover { border-color:var(--mca,var(--yellow)); transform:translateY(-3px); }
+.ml { font-family:'Courier Prime',monospace; font-size:9px; letter-spacing:3px;
+  color:rgba(255,255,255,.28); margin-bottom:6px; }
+.mt { font-family:'Bebas Neue',sans-serif; font-size:28px;
+  color:var(--mca,var(--yellow)); margin-bottom:8px; }
+.mb { font-size:13px; color:rgba(255,255,255,.48); line-height:1.7; }
+.mf { font-family:'Courier Prime',monospace; font-size:10px; color:rgba(255,255,255,.16);
+  margin-top:12px; padding-top:12px; border-top:1px solid rgba(255,255,255,.06); }
+.pk { display:flex; flex-direction:column; gap:9px; margin-top:12px; }
+.pi { display:flex; align-items:flex-start; gap:10px; font-size:12px; color:rgba(255,255,255,.52); }
+.pd { width:6px; height:6px; border-radius:50%; flex-shrink:0; margin-top:4px; }
+
+/* TAGS */
+.tw { display:flex; flex-wrap:wrap; gap:8px; justify-content:center;
+  max-width:640px; margin:22px auto 0; }
+.tg2 { font-family:'Courier Prime',monospace; font-size:11px;
+  padding:6px 14px; border-radius:20px; border:1px solid rgba(255,255,255,.1);
+  color:rgba(255,255,255,.42); background:rgba(255,255,255,.03); transition:all .2s; }
+.tg2:hover { border-color:var(--yellow); color:var(--yellow); }
+.hot { border-color:var(--coral) !important; color:var(--coral) !important;
+  background:rgba(255,107,107,.08) !important; }
+
+/* PORTOFINO */
+.pfg { display:grid; grid-template-columns:1fr 1fr; gap:14px;
+  width:100%; max-width:860px; margin:28px auto 0; }
+
+/* ITIN */
+.iw { width:100%; max-width:700px; margin:28px auto 0; }
+.it { width:100%; border-collapse:collapse; }
+.it tr { border-bottom:1px solid rgba(255,255,255,.06); transition:background .2s; }
+.it tr:hover { background:rgba(255,255,255,.02); }
+.it td { padding:12px 8px; font-size:13px; color:rgba(255,255,255,.42); vertical-align:middle; }
+.it td:first-child { font-family:'Courier Prime',monospace; color:rgba(255,255,255,.2);
+  width:72px; font-size:10px; letter-spacing:1px; }
+.it td:nth-child(2) { color:var(--text); font-weight:500; }
+.pd2 td:nth-child(2) { color:var(--yellow); }
+.bd td:nth-child(2) { color:var(--blue); }
+.vd td:nth-child(2) { color:var(--orange); }
+.ch { font-family:'Courier Prime',monospace; font-size:9px;
+  padding:3px 8px; border-radius:10px; letter-spacing:1px; }
+
+/* COUNTDOWN */
+#cd-slide { text-align:center; overflow:hidden;
+  background:radial-gradient(ellipse at 30% 20%,#2a0a0a 0%,#080820 40%,#0a2a10 80%,#080810 100%); }
+.cdg { display:flex; gap:16px; justify-content:center; margin:28px 0;
+  flex-wrap:wrap; align-items:center; }
+.cdu { text-align:center; }
+.cdn { font-family:'Bebas Neue',sans-serif; font-size:clamp(60px,14vw,108px);
+  line-height:1; display:block;
+  background:linear-gradient(135deg,var(--coral),var(--yellow));
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+.cdl { font-family:'Courier Prime',monospace; font-size:10px;
+  letter-spacing:4px; color:rgba(255,255,255,.25); margin-top:4px; }
+.cds { font-family:'Bebas Neue',sans-serif; font-size:72px;
+  color:rgba(255,255,255,.07); line-height:1; }
+
+/* FIREWORK */
+.fw { position:fixed; pointer-events:none; z-index:100; font-size:24px;
+  animation:fwb 1.5s ease-out forwards; }
+@keyframes fwb { 0%{opacity:1;transform:scale(0) translateY(0)} 55%{opacity:1;transform:scale(1) translateY(-90px)} 100%{opacity:0;transform:scale(.4) translateY(-160px)} }
+
+/* SLIDE BGs */
+#s-route    { background:linear-gradient(160deg,#08081a,#150a28); }
+#s-agents   { background:linear-gradient(160deg,#081508,#080828); }
+#s-transport{ background:linear-gradient(160deg,#180a00,#08081a); }
+#s-base     { background:linear-gradient(160deg,#001820,#08081a); }
+#s-disney   { background:linear-gradient(160deg,#180028,#00081a); }
+#s-univ     { background:linear-gradient(160deg,#001818,#08002a); }
+#s-portofino{ background:linear-gradient(160deg,#181000,#080018); }
+#s-beach    { background:linear-gradient(160deg,#001820,#002818); }
+#s-itin     { background:linear-gradient(160deg,#08081a,#180808); }
+
+@media(max-width:620px) {
+  .dest-grid-2,.dest-grid-3,.pfg,.tg { grid-template-columns:1fr; }
+  .ag-r1 { grid-template-columns:1fr 1fr; }
+  .ag-r2 .ac { width:calc(50% - 7px); }
+  .cds { display:none; }
+}
+</style>
+</head>
+<body>
+<div id="pb"></div>
+<div id="nd"></div>
+
+<!-- HERO -->
+<div class="slide" id="hero">
+  <div class="orb" style="width:420px;height:420px;background:var(--coral);top:-110px;left:-110px;opacity:.35;animation-delay:0s;"></div>
+  <div class="orb" style="width:360px;height:360px;background:var(--blue);bottom:-90px;right:-90px;opacity:.3;animation-delay:3s;"></div>
+  <div class="orb" style="width:300px;height:300px;background:var(--purple);top:38%;left:32%;opacity:.25;animation-delay:6s;"></div>
+  <div class="htag">CLASSIFIED MISSION BRIEFING &middot; JULY 2026</div>
+  <div class="htitle"><span class="g1">THAKUR</span><span class="g2">FAMILY</span></div>
+  <div class="hsub">DISNEY WORLD &middot; UNIVERSAL &middot; EPIC UNIVERSE &middot; COCOA BEACH</div>
+  <div class="hstats">
+    <div class="hs"><div class="hsn">16</div><div class="hsl">DAYS</div></div>
+    <div class="hs"><div class="hsn">9</div><div class="hsl">PARK DAYS</div></div>
+    <div class="hs"><div class="hsn">5</div><div class="hsl">AGENTS</div></div>
+    <div class="hs"><div class="hsn">3</div><div class="hsl">BEACH DAYS</div></div>
+  </div>
+  <div class="sh">&#9660; SCROLL TO BEGIN &#9660;</div>
+</div>
+
+<!-- ROUTE -->
+<div class="slide" id="s-route">
+  <div class="ey">MISSION OVERVIEW</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--coral),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">THE ROUTE</div>
+  <div class="sd">From St. Louis to the Magic. One family. Zero excuses.</div>
+  <div class="rtl">
+    <div class="rs"><div class="rl"><div class="rd" style="color:var(--yellow);"></div><div class="rln" style="background:linear-gradient(to bottom,var(--yellow),var(--coral));"></div></div><div class="rc"><div class="rcy" style="color:var(--yellow);">ST. LOUIS, MO</div><div class="rdt">HOME BASE &middot; JUL 21, 2026</div><div class="rde">&#9992;&#65039; Southwest #3947 &middot; 10:20am &rarr; 1:45pm Nonstop</div></div></div>
+    <div class="rs"><div class="rl"><div class="rd" style="color:var(--purple);"></div><div class="rln" style="background:linear-gradient(to bottom,var(--purple),var(--orange));"></div></div><div class="rc"><div class="rcy" style="color:var(--purple);">WESTGATE ORLANDO</div><div class="rdt">BASE CAMP &middot; JUL 21&ndash;31 &middot; 10 NIGHTS</div><div class="rde">&#127984; Disney &middot; &#127756; Epic Universe &middot; &#127906; Universal &middot; &#128516; Chill Days</div></div></div>
+    <div class="rs"><div class="rl"><div class="rd" style="color:var(--orange);"></div><div class="rln" style="background:linear-gradient(to bottom,var(--orange),var(--blue));"></div></div><div class="rc"><div class="rcy" style="color:var(--orange);">PORTOFINO BAY</div><div class="rdt">VIP UPGRADE &middot; JUL 31&ndash;AUG 2 &middot; 2 NIGHTS</div><div class="rde">&#9889; Express Unlimited &middot; Early Park Admission &middot; $100 F&amp;B Credit</div></div></div>
+    <div class="rs"><div class="rl"><div class="rd" style="color:var(--blue);"></div><div class="rln" style="background:linear-gradient(to bottom,var(--blue),rgba(255,217,61,.25));"></div></div><div class="rc"><div class="rcy" style="color:var(--blue);">COCOA BEACH</div><div class="rdt">MISSION FINALE &middot; AUG 2&ndash;5 &middot; 3 NIGHTS</div><div class="rde">&#127958;&#65039; Atlantic Ocean &middot; &#128640; SpaceX Watch &middot; Westgate Cocoa Beach</div></div></div>
+    <div class="rs"><div class="rl"><div class="rd" style="color:var(--yellow);"></div></div><div class="rc"><div class="rcy" style="color:var(--yellow);">ST. LOUIS, MO</div><div class="rdt">MISSION COMPLETE &middot; AUG 5, 2026</div><div class="rde">&#9992;&#65039; Southwest #2657 &middot; 8:45am &rarr; 10:20am</div></div></div>
+  </div>
+  <!-- Florida Map Card -->
+  <div class="mcard" style="margin-top:28px;">
+    <div class="mcard-bg" style="background:linear-gradient(145deg,#0a1a30,#152040,#1a3060,#0a2040);"></div>
+    <div class="mcard-grid"></div>
+    <svg class="mcard-roads" viewBox="0 0 860 280" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="0" y1="140" x2="860" y2="140" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+      <line x1="430" y1="0" x2="430" y2="280" stroke="rgba(255,255,255,.12)" stroke-width="2"/>
+      <line x1="0" y1="70" x2="860" y2="70" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <line x1="0" y1="210" x2="860" y2="210" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <line x1="215" y1="0" x2="215" y2="280" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <line x1="645" y1="0" x2="645" y2="280" stroke="rgba(255,255,255,.06)" stroke-width="1"/>
+      <!-- Route line STL to Orlando -->
+      <path d="M 180 60 Q 300 80 420 150 Q 480 180 520 200" stroke="#FFD93D" stroke-width="2.5" stroke-dasharray="8,5" fill="none" opacity=".7"/>
+      <!-- Orlando to Cocoa Beach -->
+      <path d="M 520 200 Q 580 195 620 190" stroke="#4ECDC4" stroke-width="2" stroke-dasharray="6,4" fill="none" opacity=".7"/>
+      <!-- Dots -->
+      <circle cx="180" cy="60" r="8" fill="#FFD93D" opacity=".9"/>
+      <circle cx="180" cy="60" r="16" fill="#FFD93D" opacity=".15"/>
+      <text x="195" y="55" fill="#FFD93D" font-family="monospace" font-size="11" opacity=".8">STL</text>
+      <circle cx="500" cy="198" r="10" fill="#A855F7" opacity=".9"/>
+      <circle cx="500" cy="198" r="20" fill="#A855F7" opacity=".15"/>
+      <text x="515" y="193" fill="#A855F7" font-family="monospace" font-size="11" opacity=".8">ORLANDO</text>
+      <circle cx="500" cy="215" r="5" fill="#FF8E53" opacity=".9"/>
+      <text x="510" y="220" fill="#FF8E53" font-family="monospace" font-size="9" opacity=".7">PORTOFINO</text>
+      <circle cx="625" cy="188" r="8" fill="#4ECDC4" opacity=".9"/>
+      <circle cx="625" cy="188" r="16" fill="#4ECDC4" opacity=".15"/>
+      <text x="636" y="183" fill="#4ECDC4" font-family="monospace" font-size="10" opacity=".8">COCOA BEACH</text>
+    </svg>
+    <div class="mcard-content" style="position:absolute;bottom:20px;left:50%;transform:translateX(-50%);white-space:nowrap;">
+      <a class="mcard-btn" href="https://maps.google.com/maps?q=Orlando,Florida" target="_blank">&#128205; OPEN FLORIDA IN GOOGLE MAPS &#8599;</a>
+    </div>
+  </div>
+</div>
+
+<!-- AGENTS -->
+<div class="slide" id="s-agents">
+  <div class="ey">MISSION PERSONNEL</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--pink),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">THE AGENTS</div>
+  <div class="sd">Five operatives. One mission. Infinite memories.</div>
+  <div class="ag-outer">
+    <div class="ag-r1">
+      <div class="ac" style="--aclr:var(--coral);"><span class="ae">&#129464;&#127995;&#8205;&#9794;&#65039;</span><div class="ar">MISSION COMMANDER</div><div class="an">JAY</div><div class="ad">Strategist. LLMP at 7am. Drives the Explorer.</div></div>
+      <div class="ac" style="--aclr:var(--pink);"><span class="ae">&#129464;&#8205;&#9792;&#65039;</span><div class="ar">CO-COMMANDER</div><div class="an">SARAH</div><div class="ad">Morale officer. This trip was made for her.</div></div>
+      <div class="ac" style="--aclr:var(--purple);"><span class="ae">&#127906;</span><div class="ar">THRILL SPECIALIST &middot; 14</div><div class="an">SASHA</div><div class="ad">Velocicoaster. Tron. Stardust Racers.</div></div>
+      <div class="ac" style="--aclr:var(--blue);"><span class="ae">&#9876;&#65039;</span><div class="ar">GALACTIC OPS &middot; 12</div><div class="an">DEVIN</div><div class="ad">Star Wars. Nintendo World. Flies the Falcon.</div></div>
+    </div>
+    <div class="ag-r2">
+      <div class="ac" style="--aclr:var(--yellow);"><span class="ae">&#127775;</span><div class="ar">YOUNGEST AGENT &middot; 9</div><div class="an">DAYA</div><div class="ad">Bluey's Wild World. Isle of Berk. Jasmine confirmed.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRANSPORT -->
+<div class="slide" id="s-transport">
+  <div class="ey">MISSION TRANSPORT</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--yellow),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">THE VEHICLES</div>
+  <div class="tg">
+    <div class="mc" style="--mca:var(--blue);"><div class="ml">AIR TRANSPORT &middot; SOUTHWEST</div><div class="mt">&#9992;&#65039; STL &rarr; MCO</div><div class="mb">Flight #3947 &middot; Jul 21 &middot; 10:20am&ndash;1:45pm &middot; Nonstop<br><br>Return: #2657 &middot; Aug 5 &middot; 8:45am&ndash;10:20am</div></div>
+    <div class="mc" style="--mca:var(--yellow);"><div class="ml">GROUND TRANSPORT &middot; AVIS UPGRADE</div><div class="mt">&#128665; FULL SIZE SUV</div><div class="mb">Ford Explorer class &middot; All 5 agents + gear comfortably<br><br>Pickup MCO &middot; Jul 21 &middot; 1:30pm &middot; 16 days</div><div class="mf">CONF: 16881860US2</div></div>
+  </div>
+  <!-- Vehicle card — CSS only -->
+  <div class="dcard dcard-car" style="width:100%;max-width:760px;margin:16px auto 0;height:200px;">
+    <div class="dcard-accent" style="background:linear-gradient(90deg,var(--yellow),var(--orange));"></div>
+    <div class="dcard-inner" style="display:flex;align-items:center;gap:20px;padding:24px;">
+      <span style="font-size:80px;filter:drop-shadow(0 4px 20px rgba(0,0,0,.6));">&#128665;</span>
+      <div>
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:36px;color:var(--yellow);letter-spacing:2px;">FORD EXPLORER CLASS</div>
+        <div style="font-family:'Courier Prime',monospace;font-size:11px;color:rgba(255,255,255,.4);letter-spacing:3px;margin-top:6px;">AVIS UPGRADE &middot; MCO PICKUP &middot; JUL 21 &middot; 16 DAYS</div>
+        <div style="font-size:13px;color:rgba(255,255,255,.5);margin-top:10px;">Full-size SUV &middot; Seats all 5 agents + all gear &middot; Confirmation 16881860US2</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- BASE CAMP -->
+<div class="slide" id="s-base">
+  <div class="ey">MISSION BASE &middot; NIGHTS 1&ndash;10</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--blue),var(--purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">BASE CAMP</div>
+  <div class="sd">10 nights. Free water park. Disney fireworks from the balcony.</div>
+  <div class="dest-grid-2">
+    <div class="dcard dcard-wg">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
+      <div class="dcard-badge" style="background:var(--purple);color:white;">JUL 21&ndash;31</div>
+      <div class="dcard-inner">
+        <span class="dcard-icon">&#127963;&#65039;</span>
+        <div class="dcard-title">WESTGATE TOWN CENTER</div>
+        <div class="dcard-sub">7700 WESTGATE BLVD &middot; KISSIMMEE &middot; CONF #19873515</div>
+      </div>
+    </div>
+    <div class="dcard" style="background:linear-gradient(145deg,#001a2e,#003060,#0050a0,#002040);">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--blue),var(--yellow));"></div>
+      <div class="dcard-badge" style="background:var(--blue);color:#000;">FREE &#10003;</div>
+      <div class="dcard-inner">
+        <span class="dcard-icon">&#127754;</span>
+        <div class="dcard-title">SHIPWRECK ISLAND</div>
+        <div class="dcard-sub">FREE ON-SITE &middot; 14 POOLS &middot; WATER SLIDES &middot; DISNEY FIREWORKS VIEW</div>
+      </div>
+    </div>
+  </div>
+  <div class="mcard" style="margin-top:20px;">
+    <div class="mcard-bg" style="background:linear-gradient(145deg,#001020,#002040,#003060,#001840);"></div>
+    <div class="mcard-grid"></div>
+    <div class="mcard-content">
+      <span class="mcard-pin">&#128205;</span>
+      <div class="mcard-name">WESTGATE TOWN CENTER</div>
+      <div class="mcard-addr">7700 WESTGATE BLVD &middot; KISSIMMEE, FL 34747</div>
+      <a class="mcard-btn" href="https://maps.google.com/maps?q=7700+Westgate+Blvd,+Kissimmee,+FL+34747" target="_blank">OPEN IN GOOGLE MAPS &#8599;</a>
+    </div>
+  </div>
+</div>
+
+<!-- DISNEY -->
+<div class="slide" id="s-disney">
+  <div class="ey">MISSION OBJECTIVE 1 &middot; JUL 23&ndash;28</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--purple),var(--pink));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">WALT DISNEY WORLD</div>
+  <div class="sd">4 parks. 4 perfect crowd days. Lightning Lane from 7am. No park reservations needed.</div>
+  <div class="dest-grid-2">
+    <div class="dcard dcard-mk">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--purple),var(--pink));"></div>
+      <div class="dcard-badge" style="background:var(--purple);color:white;">&#9889; LLSP</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#127984;</span><div class="dcard-title">MAGIC KINGDOM</div><div class="dcard-sub">JUL 23 &middot; CROWD 4/10 &middot; ROPE DROP TRON</div></div>
+    </div>
+    <div class="dcard dcard-ak">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+      <div class="dcard-badge" style="background:var(--green);color:#000;">&#9889; LLSP</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#129429;</span><div class="dcard-title">ANIMAL KINGDOM</div><div class="dcard-sub">JUL 24 &middot; CROWD 5/10 &middot; FLIGHT OF PASSAGE</div></div>
+    </div>
+    <div class="dcard dcard-hs">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--coral),var(--orange));"></div>
+      <div class="dcard-badge" style="background:var(--coral);color:white;">&#128308; HOT</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#127916;</span><div class="dcard-title">HOLLYWOOD STUDIOS</div><div class="dcard-sub">JUL 25 &middot; CROWD 7/10 &middot; RISE OF RESISTANCE</div></div>
+    </div>
+    <div class="dcard dcard-epcot">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--blue),var(--purple));"></div>
+      <div class="dcard-badge" style="background:var(--blue);color:#000;">&#9889; LLSP</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#127758;</span><div class="dcard-title">EPCOT</div><div class="dcard-sub">JUL 28 &middot; CROWD 4/10 &middot; GUARDIANS COSMIC REWIND</div></div>
+    </div>
+  </div>
+  <div class="tw">
+    <div class="tg2 hot">&#9889; Tron Lightcycle Run</div><div class="tg2 hot">&#9889; Rise of the Resistance</div>
+    <div class="tg2 hot">&#9889; Flight of Passage</div><div class="tg2 hot">&#9889; Guardians Cosmic Rewind</div>
+    <div class="tg2">No Park Reservations Needed &#10003;</div><div class="tg2">LLMP &middot; Buy 7am Sharp</div>
+    <div class="tg2">Bluey's Wild World &middot; Daya &#10003;</div>
+  </div>
+</div>
+
+<!-- UNIVERSAL -->
+<div class="slide" id="s-univ">
+  <div class="ey">MISSION OBJECTIVE 2 &middot; JUL 27&ndash;AUG 2</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--blue),var(--coral));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">UNIVERSAL ORLANDO</div>
+  <div class="sd">5 days. 3 parks. Hogwarts Express. The brand new Epic Universe.</div>
+  <div class="dest-grid-3">
+    <div class="dcard dcard-epic">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--orange),var(--yellow));"></div>
+      <div class="dcard-badge" style="background:var(--orange);color:#000;">NEW! 2025</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#127756;</span><div class="dcard-title">EPIC UNIVERSE</div><div class="dcard-sub">JUL 27 + AUG 2 &middot; VISITED TWICE</div></div>
+    </div>
+    <div class="dcard dcard-ioa">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--purple),var(--blue));"></div>
+      <div class="dcard-badge" style="background:var(--purple);color:white;">&#9889; VIP</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#127904;</span><div class="dcard-title">ISLANDS OF ADV.</div><div class="dcard-sub">JUL 31 &middot; EXPRESS UNLIMITED</div></div>
+    </div>
+    <div class="dcard dcard-usf">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+      <div class="dcard-badge" style="background:var(--green);color:#000;">&#9889; VIP</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#127906;</span><div class="dcard-title">UNIVERSAL STUDIOS</div><div class="dcard-sub">AUG 1 &middot; EXPRESS UNLIMITED</div></div>
+    </div>
+  </div>
+  <div class="tw">
+    <div class="tg2 hot">&#128653; Hagrid's Motorbike</div><div class="tg2 hot">&#127906; Velocicoaster</div>
+    <div class="tg2 hot">&#127812; Super Nintendo World</div><div class="tg2 hot">&#9889; Stardust Racers</div>
+    <div class="tg2 hot">&#129497; Ministry of Magic</div><div class="tg2">&#128642; Hogwarts Express Both Ways</div>
+    <div class="tg2">&#128009; Isle of Berk &middot; Diagon Alley</div>
+  </div>
+  <div class="mcard" style="margin-top:20px;">
+    <div class="mcard-bg" style="background:linear-gradient(145deg,#001018,#002030,#003060,#001828);"></div>
+    <div class="mcard-grid"></div>
+    <div class="mcard-content">
+      <span class="mcard-pin">&#128205;</span>
+      <div class="mcard-name">UNIVERSAL ORLANDO RESORT</div>
+      <div class="mcard-addr">6000 UNIVERSAL BLVD &middot; ORLANDO, FL 32819</div>
+      <a class="mcard-btn" href="https://maps.google.com/maps?q=Universal+Orlando+Resort" target="_blank">OPEN IN GOOGLE MAPS &#8599;</a>
+    </div>
+  </div>
+</div>
+
+<!-- PORTOFINO -->
+<div class="slide" id="s-portofino">
+  <div class="ey">VIP UPGRADE &middot; JUL 31&ndash;AUG 2</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--orange),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">PORTOFINO BAY</div>
+  <div class="sd">Universal's most iconic hotel. Booked via Amex Fine Hotels + Resorts.</div>
+  <div class="pfg">
+    <div class="dcard dcard-pf" style="height:auto;min-height:320px;">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--orange),var(--yellow));"></div>
+      <div class="dcard-inner" style="padding:28px;">
+        <span class="dcard-icon" style="font-size:60px;">&#127963;&#65039;</span>
+        <div class="dcard-title" style="font-size:28px;">LOEWS PORTOFINO BAY</div>
+        <div class="dcard-sub" style="margin-top:8px;line-height:1.8;">5601 UNIVERSAL BLVD &middot; ORLANDO FL<br>AMEX FINE HOTELS + RESORTS<br>CONF: ZO-AX1055-36744</div>
+      </div>
+    </div>
+    <div class="mc" style="--mca:var(--orange);">
+      <div class="ml">AMEX FHR PERKS INCLUDED</div>
+      <div class="pk">
+        <div class="pi"><div class="pd" style="background:var(--orange);"></div>Express Unlimited &middot; All 3 days &#10003;</div>
+        <div class="pi"><div class="pd" style="background:var(--orange);"></div>Early Park Admission &middot; All 3 days &#10003;</div>
+        <div class="pi"><div class="pd" style="background:var(--orange);"></div>$100 F&amp;B Credit &#10003;</div>
+        <div class="pi"><div class="pd" style="background:var(--orange);"></div>Daily Breakfast for 2 &#10003;</div>
+        <div class="pi"><div class="pd" style="background:var(--orange);"></div>4pm Guaranteed Late Checkout &#10003;</div>
+        <div class="pi"><div class="pd" style="background:var(--orange);"></div>Walk or Water Taxi to Parks &#10003;</div>
+      </div>
+      <div class="mf">CONF: ZO-AX1055-36744 &middot; JUL 31&ndash;AUG 2</div>
+    </div>
+  </div>
+  <div class="mcard" style="margin-top:20px;">
+    <div class="mcard-bg" style="background:linear-gradient(145deg,#181000,#302010,#503020,#201808);"></div>
+    <div class="mcard-grid"></div>
+    <div class="mcard-content">
+      <span class="mcard-pin">&#128205;</span>
+      <div class="mcard-name" style="color:var(--orange);">LOEWS PORTOFINO BAY</div>
+      <div class="mcard-addr">5601 UNIVERSAL BLVD &middot; ORLANDO, FL 32819</div>
+      <a class="mcard-btn" style="background:var(--orange);" href="https://maps.google.com/maps?q=Loews+Portofino+Bay+Hotel+Universal+Orlando" target="_blank">OPEN IN GOOGLE MAPS &#8599;</a>
+    </div>
+  </div>
+</div>
+
+<!-- BEACH -->
+<div class="slide" id="s-beach">
+  <div class="ey">MISSION FINALE &middot; AUG 2&ndash;5</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--blue),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">COCOA BEACH</div>
+  <div class="sd">3 days. Atlantic Ocean. No Lightning Lane required.</div>
+  <div class="dest-grid-2">
+    <div class="dcard dcard-cb">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--blue),var(--yellow));"></div>
+      <div class="dcard-badge" style="background:var(--blue);color:#000;">AUG 3&ndash;4 &#127958;&#65039;</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#127754;</span><div class="dcard-title">COCOA BEACH</div><div class="dcard-sub">WESTGATE RESORT &middot; FREE BEACH CHAIRS &middot; CONF #19873558</div></div>
+    </div>
+    <div class="dcard dcard-ksc">
+      <div class="dcard-accent" style="background:linear-gradient(90deg,var(--green),var(--blue));"></div>
+      <div class="dcard-badge" style="background:var(--green);color:#000;">&#128640; BONUS</div>
+      <div class="dcard-inner"><span class="dcard-icon">&#128640;</span><div class="dcard-title">KENNEDY SPACE CENTER</div><div class="dcard-sub">45 MIN AWAY &middot; SPACEX LAUNCH WATCH?</div></div>
+    </div>
+  </div>
+  <div class="mcard" style="margin-top:20px;">
+    <div class="mcard-bg" style="background:linear-gradient(145deg,#001828,#003050,#005090,#002840);"></div>
+    <div class="mcard-grid"></div>
+    <div class="mcard-content">
+      <span class="mcard-pin">&#128205;</span>
+      <div class="mcard-name" style="color:var(--blue);">WESTGATE COCOA BEACH</div>
+      <div class="mcard-addr">3550 N ATLANTIC AVE &middot; COCOA BEACH, FL 32931</div>
+      <a class="mcard-btn" style="background:var(--blue);" href="https://maps.google.com/maps?q=3550+N+Atlantic+Ave,+Cocoa+Beach,+FL+32931" target="_blank">OPEN IN GOOGLE MAPS &#8599;</a>
+    </div>
+  </div>
+</div>
+
+<!-- ITINERARY -->
+<div class="slide" id="s-itin">
+  <div class="ey">COMPLETE MISSION TIMELINE</div>
+  <div class="st" style="background:linear-gradient(135deg,var(--coral),var(--yellow));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">16 DAYS</div>
+  <div class="iw">
+    <table class="it">
+      <tr><td>JUL 21</td><td>&#9992;&#65039; Arrive STL&rarr;MCO &middot; Westgate Check-in &middot; Pool</td><td></td></tr>
+      <tr><td>JUL 22</td><td>&#128516; Chill &middot; Shipwreck Island Water Park</td><td></td></tr>
+      <tr class="pd2"><td>JUL 23</td><td>&#127984; Magic Kingdom</td><td><span class="ch" style="background:rgba(168,85,247,.15);color:var(--purple);">4/10</span></td></tr>
+      <tr class="pd2"><td>JUL 24</td><td>&#129429; Animal Kingdom</td><td><span class="ch" style="background:rgba(74,222,128,.15);color:var(--green);">5/10</span></td></tr>
+      <tr class="pd2"><td>JUL 25</td><td>&#127916; Hollywood Studios</td><td><span class="ch" style="background:rgba(255,107,107,.15);color:var(--coral);">7/10</span></td></tr>
+      <tr><td>JUL 26</td><td>&#128516; Chill &middot; Pools &middot; Disney Springs</td><td></td></tr>
+      <tr class="pd2"><td>JUL 27</td><td>&#127756; Epic Universe</td><td><span class="ch" style="background:rgba(255,217,61,.15);color:var(--yellow);">3/10</span></td></tr>
+      <tr class="pd2"><td>JUL 28</td><td>&#127758; EPCOT</td><td><span class="ch" style="background:rgba(168,85,247,.15);color:var(--purple);">4/10</span></td></tr>
+      <tr class="pd2"><td>JUL 29</td><td>&#127906; IOA or USF (decide on trip)</td><td><span class="ch" style="background:rgba(255,217,61,.15);color:var(--yellow);">3/10</span></td></tr>
+      <tr><td>JUL 30</td><td>&#128516; Chill &middot; Rest before Portofino</td><td></td></tr>
+      <tr class="vd"><td>JUL 31</td><td>&#9889; IOA &middot; Express + EPA &rarr; Check in Portofino</td><td><span class="ch" style="background:rgba(255,142,83,.15);color:var(--orange);">VIP</span></td></tr>
+      <tr class="vd"><td>AUG 1</td><td>&#9889; USF &middot; Express + EPA</td><td><span class="ch" style="background:rgba(255,142,83,.15);color:var(--orange);">VIP</span></td></tr>
+      <tr class="vd"><td>AUG 2</td><td>&#9889; Epic &middot; EPA &rarr; Drive to Cocoa Beach</td><td><span class="ch" style="background:rgba(255,142,83,.15);color:var(--orange);">VIP</span></td></tr>
+      <tr class="bd"><td>AUG 3</td><td>&#127958;&#65039; Beach Day &middot; Cocoa Beach</td><td></td></tr>
+      <tr class="bd"><td>AUG 4</td><td>&#127958;&#65039; Beach Day &middot; Cocoa Beach</td><td></td></tr>
+      <tr><td>AUG 5</td><td>&#9992;&#65039; Depart MCO&rarr;STL &middot; 8:45am</td><td></td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- COUNTDOWN -->
+<div class="slide" id="cd-slide">
+  <div class="orb" style="width:400px;height:400px;background:var(--coral);top:-120px;left:-120px;opacity:.2;animation-delay:0s;"></div>
+  <div class="orb" style="width:350px;height:350px;background:var(--blue);bottom:-100px;right:-100px;opacity:.2;animation-delay:4s;"></div>
+  <div style="font-family:'Courier Prime',monospace;font-size:11px;letter-spacing:6px;color:var(--yellow);margin-bottom:24px;position:relative;z-index:2;text-align:center;">&#127775; MISSION LAUNCH IMMINENT &#127775;</div>
+  <div style="font-family:'Bebas Neue',sans-serif;font-size:clamp(40px,10vw,88px);line-height:.9;background:linear-gradient(135deg,var(--coral),var(--yellow),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;text-align:center;position:relative;z-index:2;">T-MINUS</div>
+  <div class="cdg" style="position:relative;z-index:2;">
+    <div class="cdu"><span class="cdn" id="cd-d">--</span><div class="cdl">DAYS</div></div>
+    <div class="cds">:</div>
+    <div class="cdu"><span class="cdn" id="cd-h">--</span><div class="cdl">HOURS</div></div>
+    <div class="cds">:</div>
+    <div class="cdu"><span class="cdn" id="cd-m">--</span><div class="cdl">MINUTES</div></div>
+  </div>
+  <div style="width:60px;height:3px;background:linear-gradient(90deg,var(--coral),var(--yellow),var(--blue));margin:20px auto;border-radius:2px;position:relative;z-index:2;"></div>
+  <div style="font-size:15px;color:rgba(255,255,255,.38);text-align:center;max-width:400px;position:relative;z-index:2;">Until wheels up &middot; STL &rarr; MCO &middot; July 21, 2026 &middot; 10:20am</div>
+  <div style="margin-top:36px;font-family:'Courier Prime',monospace;font-size:13px;color:rgba(255,255,255,.16);letter-spacing:4px;line-height:2.8;text-align:center;position:relative;z-index:2;">
+    &#129464;&#127995;&#8205;&#9794;&#65039; JAY &nbsp;&middot;&nbsp; &#129464;&#8205;&#9792;&#65039; SARAH &nbsp;&middot;&nbsp; &#127906; SASHA &nbsp;&middot;&nbsp; &#9876;&#65039; DEVIN &nbsp;&middot;&nbsp; &#127775; DAYA
+  </div>
+  <div style="margin-top:40px;font-family:'Courier Prime',monospace;font-size:10px;color:rgba(255,255,255,.08);letter-spacing:5px;text-align:center;position:relative;z-index:2;">THAKUR FAMILY &middot; OPERATION ORLANDO &middot; 2026</div>
+</div>
+
+<script>
+// SLIDES & NAV
+const slides = document.querySelectorAll('.slide');
+const nd = document.getElementById('nd');
+slides.forEach((s,i) => {
+  const d = document.createElement('div');
+  d.className = 'nd';
+  d.onclick = () => s.scrollIntoView({behavior:'smooth'});
+  nd.appendChild(d);
+});
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.classList.add('vis');
+      const idx = Array.from(slides).indexOf(e.target);
+      document.querySelectorAll('.nd').forEach((d,i) => d.classList.toggle('on', i===idx));
+    }
+  });
+}, {threshold:.12});
+slides.forEach(s => obs.observe(s));
+
+// PROGRESS
+const pb = document.getElementById('pb');
+window.addEventListener('scroll', () => {
+  pb.style.width = (window.scrollY / (document.body.scrollHeight - window.innerHeight) * 100) + '%';
+});
+
+// PARTICLES on hero
+const hero = document.getElementById('hero');
+const pc = ['#FF6B6B','#FFD93D','#4ECDC4','#A855F7','#FF6EB4','#FF8E53'];
+for(let i=0;i<22;i++) {
+  const p = document.createElement('div');
+  p.className = 'pt';
+  const sz = Math.random()*5+2;
+  p.style.cssText = `width:${sz}px;height:${sz}px;background:${pc[Math.floor(Math.random()*pc.length)]};left:${Math.random()*100}%;animation-duration:${6+Math.random()*9}s;animation-delay:${Math.random()*7}s;opacity:.55;`;
+  hero.appendChild(p);
+}
+
+// COUNTDOWN
+function cd() {
+  try {
+    // Explicit date construction — works on all browsers including mobile Safari
+    var launch = new Date(2026, 6, 21, 10, 20, 0); // month is 0-indexed, so 6 = July
+    var now = new Date();
+    var diff = launch - now;
+    if(diff <= 0) {
+      ['cd-d','cd-h','cd-m'].forEach(function(id){ document.getElementById(id).textContent='00'; });
+      return;
+    }
+    document.getElementById('cd-d').textContent = String(Math.floor(diff/864e5)).padStart(2,'0');
+    document.getElementById('cd-h').textContent = String(Math.floor((diff%864e5)/36e5)).padStart(2,'0');
+    document.getElementById('cd-m').textContent = String(Math.floor((diff%36e5)/6e4)).padStart(2,'0');
+  } catch(e) {
+    console.log('Countdown error:', e);
+  }
+}
+cd(); setInterval(cd, 10000);
+
+// FIREWORKS
+new IntersectionObserver(e => {
+  if(e[0].isIntersecting) setTimeout(() => {
+    const em = ['✨','🎆','🎇','🌟','⭐','💫','🎉','🎊','🏰','🎢','🌴','🌊','🏖️','🚀','🎡'];
+    for(let i=0;i<18;i++) {
+      setTimeout(() => {
+        const fw = document.createElement('div');
+        fw.className = 'fw';
+        fw.textContent = em[Math.floor(Math.random()*em.length)];
+        fw.style.left = Math.random()*88+6+'%';
+        fw.style.top = Math.random()*60+15+'%';
+        document.body.appendChild(fw);
+        setTimeout(()=>fw.remove(), 1500);
+      }, i*110);
+    }
+  }, 500);
+}, {threshold:.5}).observe(document.getElementById('cd-slide'));
+</script>
+</body>
+</html>

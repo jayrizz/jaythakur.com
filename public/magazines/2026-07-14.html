@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 14, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">July 14, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Codex starts encrypting prompts, uses ciphertext for inference instead</h2>
+            <div class="meta">
+                <span class="score">▲ 82</span>
+                <span class="comments">38 comments</span>
+                
+            </div>
+            <a href="https://github.com/openai/codex/issues/28058" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48905028" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <h2>Japan develops a method to recover up to 90% of lithium from used EV batteries</h2>
+            <div class="meta">
+                <span class="score">▲ 563</span>
+                <span class="comments">151 comments</span>
+                
+            </div>
+            <a href="https://tech.supercarblondie.com/japan-recovers-up-to-90-of-lithium-from-used-ev-batteries/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48901569" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>Building and shipping Mac and iOS apps without opening Xcode</h2>
+            <div class="meta">
+                <span class="score">▲ 499</span>
+                <span class="comments">211 comments</span>
+                
+            </div>
+            <a href="https://scottwillsey.com/building-and-shipping-mac-and-ios-apps-without-ever-opening-xcode/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48896665" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <h2>YouTrackDB is a general-use object-oriented graph database</h2>
+            <div class="meta">
+                <span class="score">▲ 140</span>
+                <span class="comments">44 comments</span>
+                
+            </div>
+            <a href="https://github.com/JetBrains/youtrackdb" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48902026" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <h2>Australian energy retailers must provide three hours of free daytime electricity</h2>
+            <div class="meta">
+                <span class="score">▲ 139</span>
+                <span class="comments">221 comments</span>
+                
+            </div>
+            <a href="https://lenergy.com.au/free-daytime-electricity-is-coming-heres-how-it-actually-works/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48902320" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFBEB; color: #78350F">
+        <div class="num stat-num">6</div>
+        <div class="content">
+            <h2>How to stop Claude from saying load-bearing</h2>
+            <div class="meta">
+                <span class="score">▲ 12</span>
+                <span class="comments">4 comments</span>
+                
+            </div>
+            <a href="https://jola.dev/posts/how-to-stop-claude-from-saying-load-bearing" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48905248" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #000000">
+        <div class="num minimal-num">#7</div>
+        <div class="content">
+            <h2>The git history command</h2>
+            <div class="meta">
+                <span class="score">▲ 337</span>
+                <span class="comments">205 comments</span>
+                
+            </div>
+            <a href="https://lalitm.com/post/git-history/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48901010" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #064E3B; color: #ECFDF5">
+        <div class="num deep-num">8</div>
+        <div class="content">
+            <h2>Indian scientists produce most detailed 3D atlas of the human brainstem</h2>
+            <div class="meta">
+                <span class="score">▲ 87</span>
+                <span class="comments">8 comments</span>
+                
+            </div>
+            <a href="https://www.bbc.com/news/articles/cg53l737v1qo" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48903082" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%); color: #FFFFFF">
+        <div class="num sunset-num">9</div>
+        <div class="content">
+            <h2>The Future Worth Building Is Human – Thinking Machines Lab</h2>
+            <div class="meta">
+                <span class="score">▲ 31</span>
+                <span class="comments">11 comments</span>
+                
+            </div>
+            <a href="https://thinkingmachines.ai/blog/the-future-worth-building-is-human/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48904905" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0D9488; color: #F0FDFA">
+        <div class="num finish-num">10</div>
+        <div class="content">
+            <h2>Alternative(s) to run CUDA on non-Nvidia hardware</h2>
+            <div class="meta">
+                <span class="score">▲ 72</span>
+                <span class="comments">36 comments</span>
+                
+            </div>
+            <a href="https://www.hpcwire.com/2026/07/09/spectral-compute-aims-to-set-cuda-free-will-it-succeed/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48903715" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

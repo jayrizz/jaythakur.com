@@ -10,6 +10,14 @@
     {
       "source": "/family/:path*",
       "destination": "/family/:path*"
+    },
+    {
+      "source": "/family/orlando2026",
+      "destination": "/family/orlando2026.html"
+    },
+    {
+      "source": "/family/orlando2026/",
+      "destination": "/family/index.html"
     }
   ]
 }

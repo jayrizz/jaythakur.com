@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Morning Edition — July 20, 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,700;9..144,900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #111;
+            min-height: 100vh;
+        }
+        
+        .magazine {
+            max-width: 100%;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            border-bottom: 8px solid #E11D48;
+        }
+        
+        .cover h1 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(48px, 10vw, 120px);
+            font-weight: 900;
+            letter-spacing: -2px;
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+        
+        .cover .date {
+            font-size: 24px;
+            opacity: 0.7;
+            font-weight: 600;
+        }
+        
+        .cover .tagline {
+            font-size: 18px;
+            margin-top: 30px;
+            opacity: 0.5;
+            font-style: italic;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .spread {
+            min-height: 70vh;
+            padding: 60px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .content {
+            max-width: 900px;
+            margin: 0 auto;
+            width: 100%;
+        }
+        
+        .content h2 {
+            font-family: 'Fraunces', serif;
+            font-size: clamp(28px, 5vw, 56px);
+            font-weight: 700;
+            line-height: 1.2;
+            margin-bottom: 30px;
+        }
+        
+        .meta {
+            font-size: 20px;
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+        
+        .direct {
+            background: #E11D48;
+            color: white;
+            padding: 8px 16px;
+            border-radius: 4px;
+            font-weight: 700;
+            font-size: 16px;
+        }
+        
+        .read-link, .hn-link {
+            font-size: 24px;
+            font-weight: 600;
+            text-decoration: none;
+            color: inherit;
+            opacity: 0.8;
+            margin-right: 30px;
+        }
+        
+        .read-link:hover, .hn-link:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        /* Numeral styles */
+        .num {
+            position: absolute;
+            font-family: 'Fraunces', serif;
+            font-weight: 900;
+            line-height: 1;
+        }
+        
+        .hero-num {
+            top: 40px;
+            right: 60px;
+            font-size: 200px;
+            opacity: 0.15;
+        }
+        
+        .stamp-num {
+            top: 30px;
+            right: 30px;
+            font-size: 100px;
+            background: #38BDF8;
+            color: #0F172A;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        
+        .alert-num {
+            top: -20px;
+            left: 40px;
+            font-size: 180px;
+            color: #FFE4E6;
+        }
+        
+        .terminal-num {
+            top: 20px;
+            left: 20px;
+            font-size: 80px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .dropcap-num {
+            top: 20px;
+            left: 20px;
+            font-size: 140px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.2;
+        }
+        
+        .stat-num {
+            top: 30px;
+            right: 30px;
+            font-size: 120px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.15;
+        }
+        
+        .minimal-num {
+            top: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 60px;
+            font-family: 'Fraunces', serif;
+            letter-spacing: 4px;
+        }
+        
+        .deep-num {
+            bottom: 40px;
+            left: 40px;
+            font-size: 160px;
+            opacity: 0.1;
+        }
+        
+        .sunset-num {
+            top: 20px;
+            right: 20px;
+            font-size: 100px;
+            font-family: 'Fraunces', serif;
+            opacity: 0.3;
+        }
+        
+        .finish-num {
+            position: absolute;
+            bottom: 40px;
+            right: 40px;
+            font-size: 200px;
+            opacity: 0.15;
+            font-family: 'Fraunces', serif;
+        }
+        
+        .footer {
+            background: #111;
+            color: #666;
+            padding: 40px;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        .footer a {
+            color: #38BDF8;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="magazine">
+        <div class="cover">
+            <h1>Morning Edition</h1>
+            <div class="date">July 20, 2026</div>
+            <div class="tagline">Curated for Jay — AI, Dev, Enterprise, Weird Science</div>
+        </div>
+        
+        
+    <div class="spread" style="background: #FEF3C7; color: #1F2937">
+        <div class="num hero-num">1</div>
+        <div class="content">
+            <h2>Moonshine: Lets you stream games from your PC to any device running Moonlight</h2>
+            <div class="meta">
+                <span class="score">▲ 222</span>
+                <span class="comments">91 comments</span>
+                
+            </div>
+            <a href="https://github.com/hgaiser/moonshine" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48972970" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0F172A; color: #E2E8F0">
+        <div class="num stamp-num">2</div>
+        <div class="content">
+            <h2>Exploit brokers pay $500k for WordPress RCEs. I found one with GPT5.6 and $25</h2>
+            <div class="meta">
+                <span class="score">▲ 173</span>
+                <span class="comments">88 comments</span>
+                
+            </div>
+            <a href="https://slcyber.io/research-center/exploit-brokers-pay-500000-for-a-wordpress-rce-i-found-one-with-gpt5-6/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48975665" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFF1F2; color: #881337">
+        <div class="num alert-num">3</div>
+        <div class="content">
+            <h2>Claude Code uses Bun written in Rust now</h2>
+            <div class="meta">
+                <span class="score">▲ 551</span>
+                <span class="comments">727 comments</span>
+                
+            </div>
+            <a href="https://simonwillison.net/2026/Jul/19/claude-code-in-bun-in-rust/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48966569" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #1A1A1A; color: #00FF00">
+        <div class="num terminal-num">04</div>
+        <div class="content">
+            <h2>Claude Fable produced a counterexample to the Jacobian Conjecture</h2>
+            <div class="meta">
+                <span class="score">▲ 470</span>
+                <span class="comments">301 comments</span>
+                
+            </div>
+            <a href="https://xcancel.com/__alpoge__/status/2079028340955197566" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48973869" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #F8F5F1; color: #2D3748">
+        <div class="num dropcap-num">5</div>
+        <div class="content">
+            <h2>How proprietary formats have become Microsoft’s main tool for lock-in</h2>
+            <div class="meta">
+                <span class="score">▲ 123</span>
+                <span class="comments">85 comments</span>
+                
+            </div>
+            <a href="https://blog.documentfoundation.org/blog/2026/07/17/microsofts-main-tool-for-lock-in/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48974476" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFBEB; color: #78350F">
+        <div class="num stat-num">6</div>
+        <div class="content">
+            <h2>1-Bit LLM in the Browser</h2>
+            <div class="meta">
+                <span class="score">▲ 51</span>
+                <span class="comments">20 comments</span>
+                
+            </div>
+            <a href="https://huggingface.co/spaces/webml-community/bonsai-webgpu" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48936994" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #FFFFFF; color: #000000">
+        <div class="num minimal-num">#7</div>
+        <div class="content">
+            <h2>I joined the IndieWeb, here's what I learned</h2>
+            <div class="meta">
+                <span class="score">▲ 218</span>
+                <span class="comments">112 comments</span>
+                
+            </div>
+            <a href="https://en.andros.dev/blog/0b8e451e/i-joined-the-indieweb-heres-what-i-learned/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48966984" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #064E3B; color: #ECFDF5">
+        <div class="num deep-num">8</div>
+        <div class="content">
+            <h2>Sealed tomb filled with paintings and inscriptions discovered in Egypt</h2>
+            <div class="meta">
+                <span class="score">▲ 57</span>
+                <span class="comments">45 comments</span>
+                
+            </div>
+            <a href="https://www.labrujulaverde.com/en/2026/07/sealed-tomb-of-a-high-official-or-priest-filled-with-paintings-and-inscriptions-discovered-on-luxors-west-bank/" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48917906" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: linear-gradient(135deg, #7C3AED 0%, #DB2777 100%); color: #FFFFFF">
+        <div class="num sunset-num">9</div>
+        <div class="content">
+            <h2>Show HN: I replaced a $120k bowling center system with $1,600 in ESP32s</h2>
+            <div class="meta">
+                <span class="score">▲ 2473</span>
+                <span class="comments">268 comments</span>
+                
+            </div>
+            <a href="https://news.ycombinator.com/item?id=48968606" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48968606" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+    <div class="spread" style="background: #0D9488; color: #F0FDFA">
+        <div class="num finish-num">10</div>
+        <div class="content">
+            <h2>What I learned selling 2,500 MIDI recorders: Hardware is not so hard</h2>
+            <div class="meta">
+                <span class="score">▲ 513</span>
+                <span class="comments">232 comments</span>
+                
+            </div>
+            <a href="https://chipweinberger.com/articles/20260719-hardware-is-not-so-hard" class="read-link">Read →</a>
+            <a href="https://news.ycombinator.com/item?id=48966713" class="hn-link">HN</a>
+        </div>
+    </div>
+    
+        
+        <div class="footer">
+            <p>Generated by OpenClaw • <a href="https://github.com">GitHub Pages</a></p>
+        </div>
+    </div>
+</body>
+</html>

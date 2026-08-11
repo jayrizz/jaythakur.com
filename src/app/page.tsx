@@ -56,9 +56,12 @@ export default function Home() {
           <nav>
             <a href="/" className="logo">jay<span>thakur</span>.com</a>
             <ul className="nav-links">
-              <li><a href="#timeline">Timeline</a></li>
+              <li><a href="#work">Work</a></li>
+              <li><a href="#lab">Lab</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
+              <li><a href="https://linkedin.com/in/#" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">Li</a></li>
+              <li><a href="https://github.com/#" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">Gh</a></li>
             </ul>
           </nav>
         </div>
@@ -85,9 +88,40 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="timeline" className="timeline">
+      <section id="work" className="work">
         <div className="container">
-          <h2 className="section-title">Build Timeline</h2>
+          <p className="eyebrow">Enterprise Work</p>
+          <h2 className="section-title">Fortune 500 Engagements</h2>
+          <p className="section-subtitle">26+ years delivering AI/ML at Accenture for clients across industries. Anonymized highlights below — full references on request.</p>
+          <div className="case-studies">
+            <article className="case-study">
+              <p className="case-meta">Global Consumer Goods</p>
+              <h3 className="case-title">Supply-chain agent pilot, 6-week scope shipped in 9 days</h3>
+              <p className="case-description">Built a multi-agent orchestration layer for retail forecasting. Replaced a 6-week vendor estimate with a 9-day shipped pilot that integrated with the client's existing SAP and Snowflake stack.</p>
+              <p className="case-metric">9 days · production-ready · SAP + Snowflake integrated</p>
+            </article>
+            <article className="case-study">
+              <p className="case-meta">Major US Bank</p>
+              <h3 className="case-title">LLM evaluation framework for compliance-grade outputs</h3>
+              <p className="case-description">Designed and shipped a risk-tiered LLM evaluation harness for an internal generative AI tool. Reduced false-positive compliance flags by 60% in the first 30 days post-launch.</p>
+              <p className="case-metric">60% reduction in false-positive flags · 30 days</p>
+            </article>
+            <article className="case-study">
+              <p className="case-meta">Healthcare Payer</p>
+              <h3 className="case-title">Claims adjudication agent with human-in-the-loop review</h3>
+              <p className="case-description">Production agent that triaged 40% of claims auto-adjudication without human review. Two-week scope, shipped with audit trail and rollback paths the client asked us to add.</p>
+              <p className="case-metric">40% auto-adjudication · HIPAA-compliant · 2 weeks</p>
+            </article>
+          </div>
+          <p className="case-note">References and full case details available under NDA — <a href="mailto:jaythakur1@gmail.com">request via email</a>.</p>
+        </div>
+      </section>
+
+      <section id="lab" className="lab">
+        <div className="container">
+          <p className="eyebrow">Live Lab</p>
+          <h2 className="section-title">What I'm Building Right Now</h2>
+          <p className="section-subtitle">Recent AI builds from my own infrastructure. Not client work — these are how I stay sharp on the tools I ship to Fortune 500 teams.</p>
           <div className="timeline-items">
             {timelineData.map((item, index) => (
               <motion.div
@@ -144,7 +178,14 @@ export default function Home() {
 
       <footer>
         <div className="container">
-          <p>© 2026 Jay Thakur. Built with AI partners.</p>
+          <div className="footer-content">
+            <p>© 2026 Jay Thakur. Built with AI partners.</p>
+            <ul className="footer-links">
+              <li><a href="mailto:jaythakur1@gmail.com">jaythakur1@gmail.com</a></li>
+              <li><a href="https://linkedin.com/in/#" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">LinkedIn</a></li>
+              <li><a href="https://github.com/#" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">GitHub</a></li>
+            </ul>
+          </div>
         </div>
       </footer>
     </main>

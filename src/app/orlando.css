@@ -122,7 +122,9 @@ nav {
 }
 
 /* Timeline */
-.timeline {
+.timeline,
+.work,
+.lab {
   padding: 80px 0;
 }
 
@@ -131,7 +133,97 @@ nav {
   text-transform: uppercase;
   letter-spacing: 2px;
   color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.eyebrow {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 640px;
   margin-bottom: 48px;
+}
+
+/* Case studies */
+.case-studies {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  margin-bottom: 32px;
+}
+
+@media (min-width: 768px) {
+  .case-studies {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.case-study {
+  padding: 24px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color 0.2s ease;
+}
+
+.case-study:hover {
+  border-color: var(--accent);
+}
+
+.case-meta {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.case-title {
+  font-size: 18px;
+  line-height: 1.4;
+  color: var(--text);
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.case-description {
+  color: var(--text-muted);
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 16px;
+}
+
+.case-metric {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  font-size: 12px;
+  color: var(--text);
+  padding-top: 12px;
+  border-top: 1px solid var(--border);
+}
+
+.case-note {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-style: italic;
+}
+
+.case-note a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.case-note a:hover {
+  text-decoration: underline;
 }
 
 .timeline-items {
@@ -258,9 +350,32 @@ nav {
 footer {
   padding: 40px 0;
   border-top: 1px solid var(--border);
-  text-align: center;
   color: var(--text-muted);
   font-size: 14px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a {
+  color: var(--text-muted);
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  color: var(--accent);
 }
 
 /* Mobile */

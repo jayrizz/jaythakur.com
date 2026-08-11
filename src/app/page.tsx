@@ -80,7 +80,7 @@ export default function Home() {
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            25+ years building enterprise systems. Former Microsoft ML Engineer. I direct, AI executes — production systems ship in hours, not weeks.
+            26+ years in enterprise systems. AI/ML partner at Accenture. I direct, AI executes — production systems ship in days, not quarters.
           </motion.p>
         </div>
       </section>
@@ -116,16 +116,16 @@ export default function Home() {
           <h2>About</h2>
           <div className="about-content">
             <p>
-              18 years in software consulting taught me one thing: the best tool is the one that gets the job done. 
-              As an <strong>AI Consultant</strong> for Fortune 500 companies, I bring 25+ years of enterprise experience to help you build production AI systems that ship in hours — not weeks.
+              26+ years in enterprise software, 18 of those delivering AI/ML engagements at Accenture for Fortune 500 clients. The best tool is the one that gets the job done.
+              As an <strong>AI Consultant</strong>, I bring partner-track delivery experience to help your team ship production AI systems — not slideware.
             </p>
             <p>
-              This site isn't built with "AI assistance" — it's built with AI as a partner. I direct, 
-              AI executes. I validate, AI iterates. The result: production systems that would have taken 
-              weeks now ship in hours.
+              This site isn't built with "AI assistance" — it's built with AI as a partner. I direct,
+              AI executes. I validate, AI iterates. The result: production systems that would have taken
+              quarters now ship in days.
             </p>
             <p>
-              The timeline above isn't just projects — it's proof that the future of software development 
+              The timeline below isn't just projects — it's proof that the future of software development
               isn't about choosing between human and machine. It's about knowing when to lead and when to delegate.
             </p>
           </div>

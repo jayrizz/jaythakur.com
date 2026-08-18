@@ -60,8 +60,8 @@ export default function Home() {
               <li><a href="#lab">Lab</a></li>
               <li><a href="#about">About</a></li>
               <li><a href="#contact">Contact</a></li>
-              <li><a href="https://linkedin.com/in/#" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">Li</a></li>
-              <li><a href="https://github.com/#" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">Gh</a></li>
+              <li><a href="https://www.linkedin.com/in/jaydthakur" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">Li</a></li>
+              <li><a href="https://github.com/jayrizz" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">Gh</a></li>
             </ul>
           </nav>
         </div>
@@ -75,15 +75,15 @@ export default function Home() {
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
           >
-            AI Consultant & ML Engineer<br />
-            <span>for Fortune 500 Companies</span>
+            Strategic AI Consultant<br />
+            <span>for the Biggest Brands on the Planet</span>
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={mounted ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: 0.1 }}
           >
-            26+ years in enterprise systems. AI/ML partner at Accenture. I direct, AI executes — production systems ship in days, not quarters.
+            25+ years in enterprise systems. AI/ML partner at Accenture. I direct, AI executes — production systems ship in days, not quarters.
           </motion.p>
         </div>
       </section>
@@ -92,7 +92,7 @@ export default function Home() {
         <div className="container">
           <p className="eyebrow">Enterprise Work</p>
           <h2 className="section-title">Fortune 500 Engagements</h2>
-          <p className="section-subtitle">26+ years delivering AI/ML at Accenture for clients across industries. Anonymized highlights below — full references on request.</p>
+          <p className="section-subtitle">25+ years delivering AI/ML at Accenture for clients across industries. Anonymized highlights below — full references on request.</p>
           <div className="case-studies">
             <article className="case-study">
               <p className="case-meta">Global Consumer Goods</p>
@@ -150,7 +150,7 @@ export default function Home() {
           <h2>About</h2>
           <div className="about-content">
             <p>
-              26+ years in enterprise software, 18 of those delivering AI/ML engagements at Accenture for Fortune 500 clients. The best tool is the one that gets the job done.
+              25+ years in enterprise software, 18 of those delivering AI/ML engagements at Accenture for Fortune 500 clients. The best tool is the one that gets the job done.
               As an <strong>AI Consultant</strong>, I bring partner-track delivery experience to help your team ship production AI systems — not slideware.
             </p>
             <p>
@@ -170,9 +170,12 @@ export default function Home() {
         <div className="container">
           <h2>Let's Build Something</h2>
           <p>Need someone who knows how to direct AI to ship real systems?</p>
-          <a href="mailto:jaythakur1@gmail.com" className="contact-button">
-            Get In Touch
+          <a href="/book" className="contact-button">
+            Book a 20-min intro
           </a>
+          <p className="contact-alt">
+            or <a href="mailto:jaythakur1@gmail.com">email jaythakur1@gmail.com</a>
+          </p>
         </div>
       </section>
 
@@ -182,8 +185,8 @@ export default function Home() {
             <p>© 2026 Jay Thakur. Built with AI partners.</p>
             <ul className="footer-links">
               <li><a href="mailto:jaythakur1@gmail.com">jaythakur1@gmail.com</a></li>
-              <li><a href="https://linkedin.com/in/#" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">LinkedIn</a></li>
-              <li><a href="https://github.com/#" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">GitHub</a></li>
+              <li><a href="https://www.linkedin.com/in/jaydthakur" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">LinkedIn</a></li>
+              <li><a href="https://github.com/jayrizz" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">GitHub</a></li>
             </ul>
           </div>
         </div>

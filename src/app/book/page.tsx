@@ -96,7 +96,7 @@ export default function BookPage() {
             </button>
 
             <p className="form-alt">
-              or <a href="mailto:jaythakur1@gmail.com">email jaythakur1@gmail.com</a>
+              or <a href="mailto:jay@jaythakur.com">email jay@jaythakur.com</a>
             </p>
           </motion.form>
         </div>
@@ -108,7 +108,7 @@ export default function BookPage() {
             <p>© 2026 Jay Thakur. Built with AI partners.</p>
             <ul className="footer-links">
               <li><a href="/">← Back to home</a></li>
-              <li><a href="mailto:jaythakur1@gmail.com">jaythakur1@gmail.com</a></li>
+              <li><a href="mailto:jay@jaythakur.com">jay@jaythakur.com</a></li>
               <li><a href="https://www.linkedin.com/in/jaydthakur" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">LinkedIn</a></li>
               <li><a href="https://github.com/jayrizz" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">GitHub</a></li>
             </ul>

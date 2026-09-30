@@ -113,7 +113,7 @@ export default function Home() {
               <p className="case-metric">40% auto-adjudication · HIPAA-compliant · 2 weeks</p>
             </article>
           </div>
-          <p className="case-note">References and full case details available under NDA — <a href="mailto:jaythakur1@gmail.com">request via email</a>.</p>
+          <p className="case-note">References and full case details available under NDA — <a href="mailto:jay@jaythakur.com">request via email</a>.</p>
         </div>
       </section>
 
@@ -170,11 +170,11 @@ export default function Home() {
         <div className="container">
           <h2>Let's Build Something</h2>
           <p>Need someone who knows how to direct AI to ship real systems?</p>
-          <a href="/book" className="contact-button">
-            Book a 20-min intro
+          <a href="https://cal.com/jay-thakur-jxo6zg/30min" target="_blank" rel="noopener noreferrer" className="contact-button">
+            Book a 30-min intro
           </a>
           <p className="contact-alt">
-            or <a href="mailto:jaythakur1@gmail.com">email jaythakur1@gmail.com</a>
+            or <a href="mailto:jay@jaythakur.com">email jay@jaythakur.com</a>
           </p>
         </div>
       </section>
@@ -184,7 +184,7 @@ export default function Home() {
           <div className="footer-content">
             <p>© 2026 Jay Thakur. Built with AI partners.</p>
             <ul className="footer-links">
-              <li><a href="mailto:jaythakur1@gmail.com">jaythakur1@gmail.com</a></li>
+              <li><a href="mailto:jay@jaythakur.com">jay@jaythakur.com</a></li>
               <li><a href="https://www.linkedin.com/in/jaydthakur" target="_blank" rel="noopener noreferrer me" aria-label="LinkedIn">LinkedIn</a></li>
               <li><a href="https://github.com/jayrizz" target="_blank" rel="noopener noreferrer me" aria-label="GitHub">GitHub</a></li>
             </ul>

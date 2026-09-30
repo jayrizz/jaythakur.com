@@ -92,7 +92,7 @@ export default function Home() {
         <div className="container">
           <p className="eyebrow">Enterprise Work</p>
           <h2 className="section-title">Fortune 500 Engagements</h2>
-          <p className="section-subtitle">19 years delivering AI/ML at Accenture for Fortune 500 clients across industries. Anonymized highlights below — full references on request.</p>
+          <p className="section-subtitle">19 years delivering AI at Accenture for Fortune 500 clients across industries. Anonymized highlights below — full references on request.</p>
           <div className="case-studies">
             <article className="case-study">
               <p className="case-meta">Global Consumer Goods</p>
@@ -150,7 +150,7 @@ export default function Home() {
           <h2>About</h2>
           <div className="about-content">
             <p>
-              26 years in software, 19 of those delivering AI/ML engagements at Accenture for Fortune 500 clients. The best tool is the one that gets the job done.
+              26 years in software, 19 of those delivering AI engagements at Accenture for Fortune 500 clients. The best tool is the one that gets the job done.
               As an <strong>AI Consultant</strong>, I bring partner-track delivery experience to help your team ship production AI systems — not slideware.
             </p>
             <p>
